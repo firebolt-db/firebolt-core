@@ -1,0 +1,84 @@
+name: Bug Report
+description: Report a bug encountered while using Firebolt Core
+labels: bug
+body:
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How can we reproduce the bug (as minimally and precisely as possible)?
+      description: |
+        Please provide as much information as possible, not doing so may result in your bug not being addressed in a timely manner.
+        If a stacktrace is present, please copy/paste it here after making sure that no privacy-sensitive details are present.
+        For security related issues please see [SECURITY.md](SECURITY.md).
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: What is your configuration?
+      description: |
+        Please add here your node(s) configuration (`config.json`); you can attach the file(s) directly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fireboltCoreVersion
+    attributes:
+      label: Firebolt Core
+      value: |
+        <details>
+
+        If using Docker:
+        ```console
+        $ docker run -it --rm ghcr.io/firebolt-db/firebolt-core:preview-rc --version
+        # paste output here
+        ```
+
+        If using Kubernetes:
+        ```console
+        $ kubectl exec -ti my-release-firebolt-core-0 -- /firebolt-core/firebolt-core --version
+        # paste output here
+        ```
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: runtimeInfo
+    attributes:
+      label: Docker or Kubernetes info
+      value: |
+        <details>
+
+        If using Docker:
+        ```console
+        $ docker info
+        # paste output here
+        ```
+
+        If using Kubernetes:
+        ```console
+        $ kubectl version
+        # paste output here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional files and information
+      description: |
+        You can add here any other information or files that you deem important; for example logs, changes you made to the official Docker Compose setup or Kubernetes chart.
+        Please note that Core containers will not emit logs on stderr if `tty` is not enabled, in that case you can find logs in the mounted volume under `diagnostic_data/logs`.

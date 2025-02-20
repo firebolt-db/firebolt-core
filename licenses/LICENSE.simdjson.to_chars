@@ -1,0 +1,16 @@
+/*!
+implements the Grisu2 algorithm for binary to decimal floating-point
+conversion.
+Adapted from JSON for Modern C++
+
+This implementation is a slightly modified version of the reference
+implementation which may be obtained from
+http://florian.loitsch.com/publications (bench.tar.gz).
+The code is distributed under the MIT license, Copyright (c) 2009 Florian
+Loitsch. For a detailed description of the algorithm see: [1] Loitsch, "Printing
+Floating-Point Numbers Quickly and Accurately with Integers", Proceedings of the
+ACM SIGPLAN 2010 Conference on Programming Language Design and Implementation,
+PLDI 2010 [2] Burger, Dybvig, "Printing Floating-Point Numbers Quickly and
+Accurately", Proceedings of the ACM SIGPLAN 1996 Conference on Programming
+Language Design and Implementation, PLDI 1996
+*/

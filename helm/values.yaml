@@ -1,0 +1,43 @@
+image:
+  # -- use a custom ECR repository to pull the Docker image used by the pods
+  repository: ghcr.io/firebolt-db/firebolt-core
+  # -- use a custom Docker image tag; when unspecified the app version from chart will be used instead
+  tag:
+
+# -- number of nodes to deploy
+nodesCount: 1
+
+# -- readiness check on each pod
+readiness: true
+
+# -- resources for each pod; at least 1 core is advised
+resources:
+  requests:
+    cpu: "1"
+    memory: 4Gi
+  limits:
+    memory: 4Gi
+
+# -- extra labels to assign to each pod
+extraLabels: {}
+
+deployment:
+  # -- give a few seconds of grace time on shutdown to allow queries to finish
+  terminationGracePeriodSeconds: 5
+  # -- security context which will be used by each pod
+  securityContext:
+    readOnlyRootFilesystem: false
+  # -- security capabilities which will be used by each pod
+  securityCapabilities:
+    add:
+      - IPC_LOCK
+      - SYS_NICE
+  storageSpec:
+    accessModes:
+      - ReadWriteOnce
+    storageClassName: gp3
+    resources:
+      requests:
+        storage: 1Gi
+      limits:
+        storage: 1Gi

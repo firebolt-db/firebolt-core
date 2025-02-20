@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "fbcore.fullname" . }}-nodes-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "fbcore.labels" . | nindent 4 }}
+data:
+  config.json: |
+    {
+      "nodes": [
+        {{- $nodeCount := int .Values.nodesCount }}
+        {{- range $i := until $nodeCount }}
+        {
+          "host": "{{ include "fbcore.fullname" $ }}-{{ $i }}.{{ include "fbcore.fullname" $ }}-svc.{{ $.Release.Namespace }}.svc.cluster.local"
+        }{{ if lt $i (sub $nodeCount 1) }},{{ end }}
+        {{- end }}
+      ]
+    }

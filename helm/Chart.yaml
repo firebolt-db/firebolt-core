@@ -1,0 +1,9 @@
+apiVersion: v2
+name: firebolt-core
+description: Firebolt Core on Kubernetes
+type: application
+icon: https://raw.githubusercontent.com/firebolt-db/firebolt-core/refs/heads/main/static/core.svg
+home: "https://github.com/firebolt-db/firebolt-core/tree/main/helm"
+sources: ["https://github.com/firebolt-db/firebolt-core/tree/main/helm"]
+version: 0.1.0
+appVersion: preview-rc

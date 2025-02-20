@@ -1,0 +1,19 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.firebolt:firebolt-jdbc:3.6.3'
+}
+
+application {
+    mainClass = 'com.firebolt.example.RunQuery'
+}
+
+tasks.run.configure {
+    standardInput = System.in
+}

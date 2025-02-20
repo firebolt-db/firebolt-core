@@ -1,0 +1,36 @@
+# This is an example of a docker-compose file that can be used to run a Firebolt Core instance, in this case the node 0.
+# All required ports are exposed, the config file is mounted to the container, and the container has the required privileges.
+
+services:
+  firebolt-core-node-0:
+    container_name: ${COMPOSE_PROJECT_NAME}-node-0
+    # The Docker image from which to start the container.
+    image: ghcr.io/firebolt-db/firebolt-core:preview-rc
+    # Command-line arguments to pass to the Firebolt Core executable. Node index is 0 for the first node specified in the configuration.
+    command: --node 0
+    # Corresponds to the `--interactive` argument passed to `docker run`.
+    stdin_open: true
+    # Corresponds to the `--tty` argument passed to `docker run`.
+    tty: true
+    # Corresponds to the `--security-opt seccomp=unconfined` argument passed to `docker run`.
+    security_opt:
+      - seccomp=unconfined
+    # Corresponds to the `--ulimit memlock` argument passed to `docker run`.
+    ulimits:
+      memlock:
+        hard: 8589934592
+        soft: 8589934592
+    # Unlike single nodes, all inter-node communication endpoints need to be exposed in addition to the HTTP endpoints. Furthermore, they need to be exposed publicly on `0.0.0.0` instead on `localhost` so that they can be reached from other nodes over the network.
+    ports:
+      - "3473:3473"   # HTTP query endpoint
+      - "8122:8122"   # HTTP health check endpoint
+      - "5678:5678"   # Inter-node communication channel for the distributed execution control plane.
+      - "16000:16000" # Inter-node communication channel for the distributed execution data plane.
+      - "1717:1717"   # Inter-node communication channel for the storage service.
+      - "3434:3434"   # Inter-node communication channel for the storage service.
+      - "6500:6500"   # Inter-node communication channel for the metadata service.
+    # Mount the configuration file at the expected location within the container. Additional storage mounts for persistent and temporary data could also be specified here.
+    volumes:
+      - ${PWD}/config.json:/firebolt-core/config.json:ro
+      # Enable persistence of data, metadata, logs and diagnostic information
+      - ${PWD}/firebolt-core-data:/firebolt-core/volume

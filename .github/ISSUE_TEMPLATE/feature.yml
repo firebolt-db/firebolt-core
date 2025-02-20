@@ -1,0 +1,12 @@
+name: Feature Tracking Issue
+description: Provide supporting details for a feature in development
+labels: feature
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: What would you like to be added/changed?
+      description: |
+        Please add details and context to let us know why this feature is required and should be implemented.
+    validations:
+      required: true

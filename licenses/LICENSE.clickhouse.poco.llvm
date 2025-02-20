@@ -1,0 +1,12 @@
+// Adapted for POCO from LLVM Compiler Infrastructure code:
+//
+//                     The LLVM Compiler Infrastructure
+//
+// This file is distributed under the University of Illinois Open Source License
+//
+//===----------------------------------------------------------------------===//
+//
+// This file defines the AlignOf function that computes alignments for
+// arbitrary types.
+//
+//===----------------------------------------------------------------------===//
