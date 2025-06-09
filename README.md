@@ -18,11 +18,11 @@
     alt="Release"
   /></a>
   <a href="https://github.com/firebolt-db/firebolt-core/stargazers" style="text-decoration: none"><img
-    src="https://img.shields.io/github/stars/firebolt/firebolt-core.svg"
+    src="https://img.shields.io/github/stars/firebolt-db/firebolt-core.svg"
     alt="GitHub Stars"
   /></a>
   <a href="https://github.com/firebolt-db/firebolt-core/issues" style="text-decoration: none"><img
-    src="https://img.shields.io/github/issues/firebolt/firebolt-core.svg"
+    src="https://img.shields.io/github/issues/firebolt-db/firebolt-core.svg"
     alt="GitHub Issues"
   /></a>
 </p>
