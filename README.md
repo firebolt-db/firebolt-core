@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Firebolt Core logo" src="static/core.png?raw=true" width="400">
+    <img alt="Firebolt Core logo" src="static/core.png?raw=true" width="400" />
 </p>
 <p align="center">
     <b>Firebolt Core</b> is a free, self-hosted edition of <a href="https://www.firebolt.io/">Firebolt's high-performance distributed query engine</a>, designed to power the data infrastructure behind today's most demanding applications.
@@ -17,13 +17,13 @@
     src="https://img.shields.io/badge/release-preview%E2%80%93rc-brightgreen"
     alt="Release"
   /></a>
-  <a href="https://github.com/firebolt-db/firebolt-core/stargazers" style="text-decoration: none"><img
-    src="https://img.shields.io/github/stars/firebolt-db/firebolt-core.svg"
-    alt="GitHub Stars"
-  /></a>
   <a href="https://github.com/firebolt-db/firebolt-core/issues" style="text-decoration: none"><img
     src="https://img.shields.io/github/issues/firebolt-db/firebolt-core.svg"
     alt="GitHub Issues"
+  /></a>
+  <a href="https://github.com/firebolt-db/firebolt-core/stargazers" style="text-decoration: none"><img
+    src="https://img.shields.io/github/stars/firebolt-db/firebolt-core.svg"
+    alt="GitHub Stars"
   /></a>
 </p>
 
