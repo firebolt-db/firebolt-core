@@ -33,7 +33,7 @@
 
 * 🚀 **Powerful.** Firebolt Core ships with all key performance and usability features of Firebolt's [managed Cloud data warehouse](https://www.firebolt.io/), including a state-of-the-art query optimizer, distributed query execution engine, Iceberg support, and many more.
 * 🆓 **Free to use.** Firebolt Core is free to use, forever (see the [LICENSE](LICENSE.md) for details).
-* 📈 **No usage limits.** Firebolt Core does not not have any usage limits. Work on as much data as you want, run as many clusters as you want, run as many queries as you want.
+* 📈 **No usage limits.** Firebolt Core has no usage limits. Process unlimited data, scale to as many nodes as you need, and run as many queries as you like.
 * 🛢️ **Postgres compliant.** Firebolt's SQL dialect is Postgres compliant. We offer powerful extensions for analytical workloads, such as lambda functions for array processing. For a complete reference, see the [SQL reference documentation](https://docs.firebolt.io/sql_reference/).
 * 🛠️ **Self-contained.** Firebolt Core comes packaged as a single Docker image (`ghcr.io/firebolt-db/firebolt-core:preview-rc`) that contains everything needed to run it.
 * 🏠 **Self-hosted.** You can deploy Firebolt Core anywhere you want, from your personal workstation to large on-premise clusters or VPCs.
