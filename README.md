@@ -5,6 +5,9 @@
     <b>Firebolt Core</b> is a free, self-hosted edition of <a href="https://www.firebolt.io/">Firebolt's high-performance distributed query engine</a>, designed to power the data infrastructure behind today's most demanding applications.
 </p>
 <p align="center">
+  <a href="https://discord.gg/UpMPDHActM">
+    <img src="https://shields.io/discord/1376998505830420572" alt="Discord chat" />
+  </a>
   <a href="https://docs.firebolt.io/firebolt-core" style="text-decoration: none"><img
     src="https://img.shields.io/badge/Core-docs-brightgreen"
     alt="Firebolt Core documentation"
