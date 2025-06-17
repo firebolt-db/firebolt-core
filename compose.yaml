@@ -6,6 +6,7 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}-node-0
     # The Docker image from which to start the container.
     image: ghcr.io/firebolt-db/firebolt-core:preview-rc
+    pull_policy: always
     # Command-line arguments to pass to the Firebolt Core executable. Node index is 0 for the first node specified in the configuration.
     command: --node 0
     # Corresponds to the `--interactive` argument passed to `docker run`.
