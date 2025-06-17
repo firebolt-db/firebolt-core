@@ -55,7 +55,7 @@ bash <(curl https://get-core.firebolt.io/)
 If you want to work with Docker directly, you can also run:
 
 ```bash
-docker run -it --rm \
+docker run -i --rm \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
@@ -169,11 +169,17 @@ Resources for each node (either a local machine or a VM instance):
 
 ## Run Queries on Firebolt Core
 
-Any HTTP client can be used to submit queries to a Firebolt Core cluster. The following examples use [cURL](https://curl.se/).
+Any HTTP client can be used to submit queries to a Firebolt Core cluster.
+You can use [Firebolt CLI](https://github.com/firebolt-db/fb-cli) either as a stand-alone binary or by invoking the version running within the Core Docker container:
+```bash
+docker exec -ti firebolt-core fbcli "SELECT 42;"
+```
+
+The following examples use [cURL](https://curl.se/).
 
 ```bash
 # Simple select
-curl -s "http://localhost:3473" --data-binary "select 42";
+curl -s "http://localhost:3473" --data-binary "SELECT 42";
 ```
 
 ```bash
