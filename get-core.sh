@@ -22,7 +22,7 @@ banner() {
 # Docker image to pull
 DOCKER_IMAGE="ghcr.io/firebolt-db/firebolt-core:preview-rc"
 EXTERNAL_PORT=3473
-DOCKER_RUN_COMMAND="docker run -i --rm --name firebolt-core --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v ./firebolt-core-data:/firebolt-core/volume -p $EXTERNAL_PORT:3473 $DOCKER_IMAGE"
+DOCKER_RUN_ARGS="-i --rm --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v ./firebolt-core-data:/firebolt-core/volume -p $EXTERNAL_PORT:3473 $DOCKER_IMAGE"
 
 install_docker() {
     if docker info >/dev/null 2>&1; then
@@ -56,17 +56,16 @@ run_docker_image() {
     read -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? [y/N]: " answer
     case "$answer" in
         [yY])
-            echo "[🔥] Running Firebolt Core Docker image with command: $DOCKER_RUN_COMMAND"
-            echo "[🔥] Run SQL queries in another terminal with:"
+            echo "[🔥] Running a Firebolt Core Docker container"
             echo
-            echo "docker exec -ti firebolt-core fbcli"
-            echo
-            eval "$DOCKER_RUN_COMMAND"
+            CID="$(docker run --detach $DOCKER_RUN_ARGS)"
+            trap "docker kill $CID" EXIT
+            docker exec -ti $CID fbcli
             ;;
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following command:"
             echo
-            echo "$DOCKER_RUN_COMMAND"
+            echo "docker run --name firebolt-core $DOCKER_RUN_ARGS"
             echo
             echo "And then in another terminal:"
             echo
