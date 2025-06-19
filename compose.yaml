@@ -30,6 +30,7 @@ services:
       - "1717:1717"   # Inter-node communication channel for the storage service.
       - "3434:3434"   # Inter-node communication channel for the storage service.
       - "6500:6500"   # Inter-node communication channel for the metadata service.
+      - "9090:9090"   # Prometheus metrics.
     # Mount the configuration file at the expected location within the container. Additional storage mounts for persistent and temporary data could also be specified here.
     volumes:
       - ${PWD}/config.json:/firebolt-core/config.json:ro

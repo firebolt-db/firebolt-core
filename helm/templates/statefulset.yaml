@@ -46,23 +46,26 @@ spec:
             - name: http-query
               containerPort: 3473
               protocol: TCP
+            - name: health
+              containerPort: 8122
+              protocol: TCP
+            - name: execp
+              containerPort: 5678
+              protocol: TCP
+            - name: datacp
+              containerPort: 16000
+              protocol: TCP
             - name: storage-manager
               containerPort: 1717
               protocol: TCP
             - name: storage-agent
               containerPort: 3434
               protocol: TCP
-            - name: execp
-              containerPort: 5678
-              protocol: TCP
             - name: metadata
               containerPort: 6500
               protocol: TCP
-            - name: health
-              containerPort: 8122
-              protocol: TCP
-            - name: datacp
-              containerPort: 16000
+            - name: metrics
+              containerPort: 9090
               protocol: TCP
           livenessProbe:
             periodSeconds: 5
