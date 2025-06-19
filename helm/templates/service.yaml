@@ -18,21 +18,24 @@ spec:
     - name: http-query
       port: 3473
       protocol: TCP
+    - name: health
+      port: 8122
+      protocol: TCP
+    - name: execp
+      port: 5678
+      protocol: TCP
+    - name: datacp
+      port: 16000
+      protocol: TCP
     - name: storage-manager
       port: 1717
       protocol: TCP
     - name: storage-agent
       port: 3434
       protocol: TCP
-    - name: execp
-      port: 5678
-      protocol: TCP
     - name: metadata
       port: 6500
       protocol: TCP
-    - name: health
-      port: 8122
-      protocol: TCP
-    - name: datacp
-      port: 16000
+    - name: metrics
+      port: 9090
       protocol: TCP
