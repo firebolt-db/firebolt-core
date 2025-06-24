@@ -8,7 +8,7 @@ if [ "$1" = "--auto-run" ]; then
     AUTO_RUN=true
 elif [ -n "$1" ]; then
     echo "Unknown option: $1"
-    echo "Usage: $0 [--auto-run]"
+    echo "Usage: $0 [--auto-run]" 1>&2
     exit 1
 fi
 
