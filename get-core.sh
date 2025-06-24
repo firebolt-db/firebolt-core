@@ -2,6 +2,16 @@
 # <h2 style="color:red">Get Firebolt Core with:</h2><code>bash <(curl -s https://get-core.firebolt.io/)</code><br/><br/><br/><pre>
 set -e
 
+# Parse command line arguments
+AUTO_RUN=false
+if [ "$1" = "--auto-run" ]; then
+    AUTO_RUN=true
+elif [ -n "$1" ]; then
+    echo "Unknown option: $1"
+    echo "Usage: $0 [--auto-run]" 1>&2
+    exit 1
+fi
+
 banner() {
     echo "
 🔥🔥🔥 Firebolt Core setup script 🔥🔥🔥
@@ -53,7 +63,13 @@ pull_docker_image() {
 
 run_docker_image() {
     echo "[⚠️] Note: a local 'firebolt-core-data directory' will be created."
-    read -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? [y/N]: " answer
+    
+    if [ "$AUTO_RUN" = true ]; then
+        answer="y"
+    else
+        read -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: " answer
+    fi
+    
     case "$answer" in
         [yY])
             echo "[🔥] Running a Firebolt Core Docker container"
