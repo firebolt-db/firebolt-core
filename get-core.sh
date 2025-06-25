@@ -32,9 +32,9 @@ banner() {
 # Docker image to pull
 DOCKER_IMAGE="ghcr.io/firebolt-db/firebolt-core:preview-rc"
 EXTERNAL_PORT=3473
-DOCKER_RUN_ARGS="-i --rm --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v ./firebolt-core-data:/firebolt-core/volume -p $EXTERNAL_PORT:3473 $DOCKER_IMAGE"
+DOCKER_RUN_ARGS="-i --name firebolt-core --rm --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v ./firebolt-core-data:/firebolt-core/volume -p $EXTERNAL_PORT:3473 $DOCKER_IMAGE"
 
-install_docker() {
+ensure_docker_is_installed() {
     if docker info >/dev/null 2>&1; then
         echo "[🐳] Docker is present and works ✅"
         return 0
@@ -43,11 +43,10 @@ install_docker() {
     if [ "$(uname)" = "Darwin" ]; then
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/mac-install/ ❌"
         return 1
+    else
+        echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/linux/ ❌"
+        return 1
     fi
-
-    # fallback for other Linux and other OSes
-    echo "[🐳] Checking if rootless Docker is installed"
-    curl -fsSL https://get.docker.com/rootless | sh
 }
 
 pull_docker_image() {
@@ -94,6 +93,6 @@ run_docker_image() {
 
 # Main script execution
 banner
-install_docker
+ensure_docker_is_installed
 pull_docker_image
 run_docker_image
