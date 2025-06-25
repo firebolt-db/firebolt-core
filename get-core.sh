@@ -39,14 +39,13 @@ ensure_docker_is_installed() {
         echo "[🐳] Docker is present and works ✅"
         return 0
     fi
-
+    
     if [ "$(uname)" = "Darwin" ]; then
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/mac-install/ ❌"
-        return 1
     else
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/linux/ ❌"
-        return 1
     fi
+    return 1
 }
 
 pull_docker_image() {
