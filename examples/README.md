@@ -1,6 +1,6 @@
 # Example Queries
 
-This directory contains example queries which show how to interact with Firebolt Core. The following examples use the integrated [Firebolt CLI](https://github.com/firebolt-db/fb-cli) and assume that the Docker image was started with `--name firebolt-core`.
+This directory contains example queries which show how to interact with Firebolt Core. The following examples use the integrated [Firebolt CLI](https://github.com/firebolt-db/fb-cli) and assume that the Docker container was started with `--name firebolt-core`.
 
 
 1. Check connectivity
