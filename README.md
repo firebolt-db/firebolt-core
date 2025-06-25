@@ -49,7 +49,7 @@
 
 Start Core on your machine with:
 ```bash
-bash <(curl https://get-core.firebolt.io/)
+bash <(curl -s https://get-core.firebolt.io/)
 ```
 
 If you want to work with Docker directly, you can also run:
@@ -169,52 +169,25 @@ Resources for each node (either a local machine or a VM instance):
 
 ## Run Queries on Firebolt Core
 
-Any HTTP client can be used to submit queries to a Firebolt Core cluster.
-You can use [Firebolt CLI](https://github.com/firebolt-db/fb-cli) either as a stand-alone binary or by invoking the version running within the Core Docker container:
+To submit queries to a Firebolt Core cluster, you can either use any HTTP client (e.g., cURL), or the [Firebolt CLI](https://github.com/firebolt-db/fb-cli) as a stand-alone binary or by invoking the version running within the Core Docker container:
+
 ```bash
+# Use the fb-cli which is integrated in the container
 docker exec -ti firebolt-core fbcli "SELECT 42;"
 ```
 
-The following examples use [cURL](https://curl.se/).
-
 ```bash
-# Simple select
-curl -s "http://localhost:3473" --data-binary "SELECT 42";
+# Run the standalone fb-cli
+fb --core "SELECT 42;"
 ```
 
 ```bash
-# List objects on GCS
-curl -s "http://localhost:3473" --data-binary "
-SELECT *
-  FROM list_objects('gs://firebolt-core-us-east-1/test_data/tpch/parquet/')
-  ORDER BY object_name
-"
+# Use cURL 
+curl -s "http://localhost:3473/?output_format=psql" --data-binary "SELECT 42";
 ```
-
-```bash
-# Read from parquet files on GCS
-curl -s "http://localhost:3473" --data-binary "
-SELECT *
-  FROM read_parquet('gs://firebolt-core-us-east-1/test_data/tpch/parquet/lineitem/lineitem.parquet')
-  LIMIT 10
-"
-```
-
-```bash
-# Create table from files on GCS
-curl -s "http://localhost:3473" --data-binary "
-CREATE TABLE lineitem
-  AS (
-    SELECT *
-    FROM read_parquet('gs://firebolt-core-us-east-1/test_data/tpch/parquet/lineitem/lineitem.parquet')
-  )
-"
-```
-
-Beyond reading Parquet files from cloud storage, Firebolt Core supports various other data ingestion methods. Refer to the [documentation](https://docs.firebolt.io/FireboltCore/firebolt-core-data-processing.html) for more details on supported formats and sources.
 
 See also:
-* [Examples](examples/README.md)
+* [Example Queries](examples/README.md)
 * [Connect to Firebolt Core](https://docs.firebolt.io/FireboltCore/firebolt-core-connect.html)
 
 ## Troubleshooting & Support
