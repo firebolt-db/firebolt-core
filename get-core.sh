@@ -59,6 +59,38 @@ pull_docker_image() {
     fi
 }
 
+wait_for_core_to_be_ready() {
+    echo -n "[🔥] Wait for Firebolt Core to be ready"
+    
+    # Try for ~10 seconds to get a valid response from Core
+    timeout=10
+    RESPONSE="Unknown error"
+    while [ $timeout -gt 0 ]; do
+        set +e
+        RESPONSE=$(curl -s 'http://localhost:3473/?output_format=TabSeparatedWithNamesAndTypes' --data-binary "SELECT 42;")
+        set -e
+
+        if [ "$RESPONSE" = $'?column?\nint\n42' ]; then
+            echo " ✅"
+            return 0
+        fi
+        sleep 1
+        timeout=$((timeout - 1))
+        echo -n "."
+    done
+
+    echo " ❌"
+    echo "[❌] Firebolt Core failed to start. This is unexpected, please submit a bug report on Github https://github.com/firebolt-db/firebolt-core/issues"
+    echo "[❌] Error: $RESPONSE"
+    if [ "$(uname)" = "Darwin" ]; then
+        version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
+        if [ "$version" = "4.42.1" ]; then
+            echo "[⚠️] You are using Docker Desktop verion ${version} on Mac, which contains a known bug: https://github.com/docker/for-mac/issues/7707."
+        fi
+    fi
+    return 1
+}
+
 run_docker_image() {
     echo "[⚠️] Note: a local 'firebolt-core-data directory' will be created."
     
@@ -70,10 +102,14 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
-            echo "[🔥] Running a Firebolt Core Docker container"
-            echo
+            echo -n "[🔥] Starting the Firebolt Core Docker container"
             CID="$(docker run --detach $DOCKER_RUN_ARGS)"
             trap "docker kill $CID" EXIT
+            echo " ✅"
+
+            wait_for_core_to_be_ready
+            
+            echo "[🔥] Running Firebolt CLI"
             docker exec -ti $CID fbcli
             ;;
         *)
