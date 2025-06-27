@@ -49,7 +49,8 @@ ensure_docker_is_installed() {
 }
 
 check_docker_version() {
-        if [ "$(uname)" = "Darwin" ]; then
+    # Explicitly inform the user about the known io_uring issue in Docker Desktop 4.42.1 on Mac
+    if [ "$(uname)" = "Darwin" ]; then
         version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
         if [ "$version" = "4.42.1" ]; then
             echo "[❌] Firebolt Core cannot run with Docker Desktop verion ${version} on Mac, as it contains a known bug: https://github.com/firebolt-db/firebolt-core/issues/9"
