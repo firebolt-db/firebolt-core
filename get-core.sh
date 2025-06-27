@@ -48,6 +48,17 @@ ensure_docker_is_installed() {
     return 1
 }
 
+check_docker_version() {
+    # Explicitly inform the user about the known io_uring issue in Docker Desktop 4.42.1 on Mac
+    if [ "$(uname)" = "Darwin" ]; then
+        version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
+        if [ "$version" = "4.42.1" ]; then
+            echo "[❌] Firebolt Core cannot run with Docker Desktop verion ${version} on Mac, as it contains a known bug: https://github.com/firebolt-db/firebolt-core/issues/9"
+            return 1
+        fi
+    fi
+}
+
 pull_docker_image() {
     echo "[🐳] Pulling Firebolt Core Docker image '$DOCKER_IMAGE'"
     docker pull --quiet "$DOCKER_IMAGE"
@@ -57,6 +68,37 @@ pull_docker_image() {
         echo "[🐳] Failed to pull Docker image '$DOCKER_IMAGE' ❌"
         return 1
     fi
+}
+
+wait_for_core_to_be_ready() {
+    # If curl is not installed, we can't check if Core is ready
+    if ! command -v curl >/dev/null 2>&1; then
+        return 0
+    fi
+
+    echo -n "[🔥] Wait for Firebolt Core to be ready"
+    
+    # Try for ~10 seconds to get a valid response from Core
+    timeout=10
+    RESPONSE="Unknown error"
+    while [ $timeout -gt 0 ]; do
+        set +e
+        RESPONSE=$(curl -s 'http://localhost:3473/?output_format=TabSeparatedWithNamesAndTypes' --data-binary "SELECT 42;")
+        set -e
+
+        if [ "$RESPONSE" = $'?column?\nint\n42' ]; then
+            echo " ✅"
+            return 0
+        fi
+        sleep 1
+        timeout=$((timeout - 1))
+        echo -n "."
+    done
+
+    echo " ❌"
+    echo "[❌] Firebolt Core failed to start. This is unexpected, please submit a bug report on Github https://github.com/firebolt-db/firebolt-core/issues"
+    echo "[❌] Error: $RESPONSE"
+    return 1
 }
 
 run_docker_image() {
@@ -70,10 +112,14 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
-            echo "[🔥] Running a Firebolt Core Docker container"
-            echo
+            echo -n "[🔥] Starting the Firebolt Core Docker container"
             CID="$(docker run --detach $DOCKER_RUN_ARGS)"
             trap "docker kill $CID" EXIT
+            echo " ✅"
+
+            wait_for_core_to_be_ready
+            
+            echo "[🔥] Running Firebolt CLI"
             docker exec -ti $CID fbcli
             ;;
         *)
@@ -93,5 +139,6 @@ run_docker_image() {
 # Main script execution
 banner
 ensure_docker_is_installed
+check_docker_version
 pull_docker_image
 run_docker_image
