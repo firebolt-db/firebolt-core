@@ -32,7 +32,16 @@ banner() {
 # Docker image to pull
 DOCKER_IMAGE="ghcr.io/firebolt-db/firebolt-core:preview-rc"
 EXTERNAL_PORT=3473
-DOCKER_RUN_ARGS="-i --name firebolt-core --rm --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v ./firebolt-core-data:/firebolt-core/volume -p $EXTERNAL_PORT:3473 $DOCKER_IMAGE"
+DOCKER_RUN_ARGS=(
+  -i
+  --name firebolt-core
+  --rm
+  --ulimit memlock=8589934592:8589934592
+  --security-opt seccomp=unconfined
+  -v "$(pwd)/firebolt-core-data:/firebolt-core/volume"
+  -p "$EXTERNAL_PORT:3473"
+  "$DOCKER_IMAGE"
+)
 
 ensure_docker_is_installed() {
     if docker info >/dev/null 2>&1; then
@@ -113,7 +122,7 @@ run_docker_image() {
     case "$answer" in
         [yY])
             echo -n "[🔥] Starting the Firebolt Core Docker container"
-            CID="$(docker run --detach $DOCKER_RUN_ARGS)"
+            CID="$(docker run --detach ${DOCKER_RUN_ARGS[@]})"
             trap "docker kill $CID" EXIT
             echo " ✅"
 
@@ -125,7 +134,7 @@ run_docker_image() {
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following command:"
             echo
-            echo "docker run --name firebolt-core $DOCKER_RUN_ARGS"
+            echo "docker run --name firebolt-core ${DOCKER_RUN_ARGS[@]}"
             echo
             echo "And then in another terminal:"
             echo
