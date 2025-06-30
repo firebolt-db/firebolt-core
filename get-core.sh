@@ -122,7 +122,7 @@ run_docker_image() {
     case "$answer" in
         [yY])
             echo -n "[🔥] Starting the Firebolt Core Docker container"
-            CID="$(docker run --detach ${DOCKER_RUN_ARGS[@]})"
+            CID="$(docker run --detach "${DOCKER_RUN_ARGS[@]}")"
             trap "docker kill $CID" EXIT
             echo " ✅"
 
@@ -134,7 +134,7 @@ run_docker_image() {
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following command:"
             echo
-            echo "docker run --name firebolt-core ${DOCKER_RUN_ARGS[@]}"
+            echo "docker run --name firebolt-core "${DOCKER_RUN_ARGS[@]}""
             echo
             echo "And then in another terminal:"
             echo
