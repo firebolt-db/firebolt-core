@@ -6,7 +6,7 @@
 </p>
 <p align="center">
   <a href="https://discord.gg/UpMPDHActM">
-    <img src="https://shields.io/discord/1376998505830420572" alt="Discord chat"
+    <img src="https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white" alt="Discord chat"
   /></a>
   <a href="https://docs.firebolt.io/firebolt-core" style="text-decoration: none"><img
     src="https://img.shields.io/badge/Core-docs-brightgreen"
