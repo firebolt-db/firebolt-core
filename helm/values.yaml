@@ -10,6 +10,9 @@ nodesCount: 1
 # -- readiness check on each pod
 readiness: true
 
+# -- deploy a PodMonitor for Prometheus metrics scraping
+podMonitor: false
+
 # -- resources for each pod; at least 1 core is advised
 resources:
   requests:
