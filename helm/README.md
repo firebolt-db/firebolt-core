@@ -25,6 +25,7 @@ Firebolt Core on Kubernetes
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |
 | image.tag | string | `nil` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
 | nodesCount | int | `1` | number of nodes to deploy |
+| podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
 | readiness | bool | `true` | readiness check on each pod |
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
 

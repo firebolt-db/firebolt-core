@@ -1,3 +1,4 @@
+{{- if .Values.podMonitor -}}
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
@@ -16,3 +17,4 @@ spec:
   podTargetLabels:
     - app.kubernetes.io/name
     - app.kubernetes.io/namespace
+{{- end }}
