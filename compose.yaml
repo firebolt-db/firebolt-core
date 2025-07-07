@@ -11,6 +11,8 @@ services:
     command: --node 0
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
+    # explicitly run as root to mitigate volume-mount issues.
+    user: "0"
     # Corresponds to the `--tty` argument passed to `docker run`.
     tty: true
     # Corresponds to the `--security-opt seccomp=unconfined` argument passed to `docker run`.
