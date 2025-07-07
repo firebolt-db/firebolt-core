@@ -11,7 +11,7 @@ services:
     command: --node 0
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
-    # explicitly run as root to mitigate volume-mount issues.
+    # explicitly run as root to mitigate volume-mount issues when using a non-root Core image.
     user: "0"
     # Corresponds to the `--tty` argument passed to `docker run`.
     tty: true

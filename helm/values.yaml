@@ -13,6 +13,12 @@ readiness: true
 # -- deploy a PodMonitor for Prometheus metrics scraping
 podMonitor: false
 
+# -- enable non-root mode, requires a compatible Firebolt Core docker image
+nonRoot: false
+
+# -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
+memlockSetup: true
+
 # -- resources for each pod; at least 1 core is advised
 resources:
   requests:
@@ -27,14 +33,7 @@ extraLabels: {}
 deployment:
   # -- give a few seconds of grace time on shutdown to allow queries to finish
   terminationGracePeriodSeconds: 5
-  # -- security context which will be used by each pod
-  securityContext:
-    readOnlyRootFilesystem: false
-  # -- security capabilities which will be used by each pod
-  securityCapabilities:
-    add:
-      - IPC_LOCK
-      - SYS_NICE
+
   storageSpec:
     accessModes:
       - ReadWriteOnce
