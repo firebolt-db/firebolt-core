@@ -23,6 +23,13 @@ spec:
         {{- end }}
     spec:
       terminationGracePeriodSeconds: {{ $.Values.deployment.terminationGracePeriodSeconds }}
+      {{- if .Values.nonRoot }}
+      securityContext:
+        fsGroup: 1111
+      {{- end }}
+      {{- if .Values.memlockSetup }}
+      shareProcessNamespace: true
+      {{- end }}
       containers:
         - name: core
           image: {{ $.Values.image.repository }}:{{  default $.Chart.AppVersion $.Values.image.tag }}
@@ -34,13 +41,39 @@ spec:
                   fieldPath: metadata.name
             - name: NODES_COUNT
               value: {{ .Values.nodesCount | quote }}
-          command: ["/bin/sh", "-c"]
+          command: ["/bin/bash", "-c"]
           tty: true
           stdin: true
           args:
             - |
-              export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
+              REQUIRED_MEMLOCK_BYTES=8589934592 # 8GB
 
+              echo "[Setup] entrypoint PID: $BASHPID"
+              echo "$BASHPID" > /firebolt-core/volume/entrypoint.pid
+
+              {{- if .Values.memlockSetup }}
+              ## wait until memlock limits are changed by the helper container
+              CURRENT_MEMLOCK_VALUE=$(cat /proc/self/limits | grep -F 'Max locked memory' | awk '{print $4}')
+              echo "[Setup] current soft memlock limit: $CURRENT_MEMLOCK_VALUE (will wait for limits to be upgraded if below 8GB)" 1>&2
+              while true; do
+                CURRENT_MEMLOCK_VALUE=$(cat /proc/self/limits | grep -F 'Max locked memory' | awk '{print $4}')
+
+                if [ "$CURRENT_MEMLOCK_VALUE" = "unlimited" ]; then
+                  break
+                else
+                    if [ "$CURRENT_MEMLOCK_VALUE" -lt "$REQUIRED_MEMLOCK_BYTES" ]; then
+                      sleep 0.2
+                    else
+                      echo "[Setup] current memlock limit ($CURRENT_MEMLOCK_VALUE bytes) is sufficient (>= 8GB)." 1>&2
+                      break
+                    fi
+                fi
+              done
+              {{- end }}
+              echo "[Setup] current memlock limit:" 1>&2
+              cat /proc/self/limits | grep -F 'Max locked memory' 1>&2
+
+              export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
               exec /firebolt-core/firebolt-core --node $POD_INDEX
           ports:
             - name: http-query
@@ -86,19 +119,95 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - name: firebolt-core-data
+            - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
             - name: nodes-config
               mountPath: /firebolt-core/config.json
               subPath: config.json
               readOnly: true
           securityContext:
-            {{- toYaml $.Values.deployment.securityContext | nindent 12 }}
+            readOnlyRootFilesystem: false
+            {{- if .Values.nonRoot }}
+            runAsNonRoot: true
+            runAsUser: 1111
+            runAsGroup: 1111
+            {{- end }}
+            allowPrivilegeEscalation: false
             capabilities:
-              add:
-                {{- toYaml $.Values.deployment.securityCapabilities.add | nindent 16 }}
               drop:
                 - ALL
+              add:
+                # necessary once memlock limit is already at 8gb minimum
+                - IPC_LOCK
+        {{- if .Values.memlockSetup }}
+        - name: memlock-setup
+          # use an image which has 'prlimit'
+          image: debian:stable-slim
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              memory: 64Mi
+          securityContext:
+            runAsUser: 0
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - SYS_RESOURCE
+          command: ["/bin/bash", "-c"]
+          args:
+          - |
+            PID_FILE=/firebolt-core/volume/entrypoint.pid
+            MAIN_PID=""
+            echo "[Setup] Waiting for entrypoint PID" 1>&2
+            while [ -z "$MAIN_PID" ]; do
+              if [ -f $PID_FILE ]; then
+                MAIN_PID="$(< $PID_FILE)"
+                if [ -n "$MAIN_PID" ]; then
+                  if [ -d /proc/$MAIN_PID ]; then
+                    break
+                  else
+                    # it's a leftover from previous runs
+                    MAIN_PID=""
+                  fi
+                fi
+              fi
+              sleep 0.2
+            done
+            echo "[Setup] Core PID is $MAIN_PID" 1>&2
+
+            REQUIRED_MEMLOCK_BYTES=8589934592 # 8GB
+            # Expected: 'unlimited' or a number in bytes.
+            CURRENT_MEMLOCK_VALUE=$(cat /proc/self/limits | grep -F 'Max locked memory' | awk '{print $4}')
+            echo "[Setup] current soft memlock limit: $CURRENT_MEMLOCK_VALUE" 1>&2
+
+            if [ "$CURRENT_MEMLOCK_VALUE" = "unlimited" ]; then
+              echo "[Setup] current memlock limit is 'unlimited'. No change needed." 1>&2
+            else
+              if [ "$CURRENT_MEMLOCK_VALUE" -lt "$REQUIRED_MEMLOCK_BYTES" ]; then
+                echo "[Setup] current limit ($CURRENT_MEMLOCK_VALUE bytes) is below required 8GB, setting a higher limit" 1>&2
+
+                if prlimit --pid $MAIN_PID --memlock=$REQUIRED_MEMLOCK_BYTES:$REQUIRED_MEMLOCK_BYTES; then
+                  echo "[Setup] successfully set memlock limit for PID $MAIN_PID" 1>&2
+                else
+                  echo "[Setup] failed to set memlock prlimit. Check capabilities or node configuration." 1>&2
+                  exit 1
+                fi
+              else
+                echo "[Setup] current memlock limit ($CURRENT_MEMLOCK_VALUE bytes) is already sufficient (>= 8GB). No change needed." 1>&2
+              fi
+            fi
+
+            rm "$PID_FILE"
+
+            echo "[Setup] idle waiting"
+            exec tail -f /dev/null
+          volumeMounts:
+            - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
+              mountPath: /firebolt-core/volume
+        {{- end }}
       volumes:
         - name: nodes-config
           configMap:
@@ -108,6 +217,6 @@ spec:
                 path: config.json
   volumeClaimTemplates:
     - metadata:
-        name: firebolt-core-data
+        name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
       spec:
         {{- toYaml $.Values.deployment.storageSpec | nindent 8 }}
