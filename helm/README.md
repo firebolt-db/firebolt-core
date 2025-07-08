@@ -19,7 +19,6 @@ Firebolt Core on Kubernetes
 | deployment.storageSpec.accessModes[0] | string | `"ReadWriteOnce"` |  |
 | deployment.storageSpec.resources.limits.storage | string | `"1Gi"` |  |
 | deployment.storageSpec.resources.requests.storage | string | `"1Gi"` |  |
-| deployment.storageSpec.storageClassName | string | `"gp3"` |  |
 | deployment.terminationGracePeriodSeconds | int | `5` | give a few seconds of grace time on shutdown to allow queries to finish |
 | extraLabels | object | `{}` | extra labels to assign to each pod |
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |

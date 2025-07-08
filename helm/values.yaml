@@ -38,7 +38,7 @@ deployment:
   storageSpec:
     accessModes:
       - ReadWriteOnce
-    storageClassName: gp3
+    # no storage class specified to be compatible with multiple cloud providers
     resources:
       requests:
         storage: 1Gi
