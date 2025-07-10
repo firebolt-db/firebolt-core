@@ -27,7 +27,7 @@ spec:
       securityContext:
         fsGroup: 1111
       {{- end }}
-      {{- if .Values.memlockSetup }}
+      {{- if and .Values.memlockSetup .Values.nonRoot }}
       shareProcessNamespace: true
       {{- end }}
       containers:
@@ -39,6 +39,10 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+            - name: POD_UID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.uid
             - name: NODES_COUNT
               value: {{ .Values.nodesCount | quote }}
           command: ["/bin/bash", "-c"]
@@ -51,10 +55,18 @@ spec:
               echo -n "[Setup] Firebolt Core version "
               /firebolt-core/firebolt-core --version
 
-              echo "[Setup] entrypoint PID: $BASHPID"
-              echo "$BASHPID" > /firebolt-core/volume/entrypoint.pid
+              {{- if .Values.nonRoot }}
+              if [[ $(id -u) -eq 0 ]]; then
+                echo "[Setup] Core container is running as root, however deployment used nonRoot=false" 1>&2
+                exit 4
+              fi
 
               {{- if .Values.memlockSetup }}
+              echo "[Setup] Core entrypoint PID: $BASHPID"
+              rm -f /firebolt-core/volume/entrypoint-*.pid
+              echo "$BASHPID" > /firebolt-core/volume/entrypoint-$POD_UID.pid
+              trap "rm /firebolt-core/volume/entrypoint-$POD_UID.pid" EXIT
+
               ## wait until memlock limits are changed by the helper container
               CURRENT_MEMLOCK_VALUE=$(cat /proc/self/limits | grep -F 'Max locked memory' | awk '{print $4}')
               echo "[Setup] current soft memlock limit: $CURRENT_MEMLOCK_VALUE (will wait for limits to be upgraded if below 8GB)" 1>&2
@@ -63,17 +75,26 @@ spec:
 
                 if [ "$CURRENT_MEMLOCK_VALUE" = "unlimited" ]; then
                   break
-                else
-                    if [ "$CURRENT_MEMLOCK_VALUE" -lt "$REQUIRED_MEMLOCK_BYTES" ]; then
-                      sleep 0.2
-                    else
-                      echo "[Setup] current memlock limit ($CURRENT_MEMLOCK_VALUE bytes) is sufficient (>= 8GB)." 1>&2
-                      break
-                    fi
                 fi
+                if [ "$CURRENT_MEMLOCK_VALUE" -ge "$REQUIRED_MEMLOCK_BYTES" ]; then
+                  break
+                fi
+
+                sleep 0.2
               done
               {{- end }}
-              echo "[Setup] current memlock limit:" 1>&2
+              {{- else }}
+              if [[ $(id -u) -ne 0 ]]; then
+                echo "[Setup] Core container is not running as root, however deployment used nonRoot=true" 1>&2
+                exit 4
+              fi
+
+              {{- if .Values.memlockSetup }}
+              {{ fail "memlockSetup=true is unnecessary with nonRoot=false" }}
+              {{- end }}
+
+              {{- end }}
+              echo "[Setup] current memlock limit (running as root with IPC_LOCK, will ignore this limit):" 1>&2
               cat /proc/self/limits | grep -F 'Max locked memory' 1>&2
 
               export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
@@ -140,9 +161,9 @@ spec:
               drop:
                 - ALL
               add:
-                # necessary once memlock limit is already at 8gb minimum
+                # IPC_LOCK is always necessary in order to use io_uring, for both the root and non-root versions
                 - IPC_LOCK
-        {{- if .Values.memlockSetup }}
+        {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
           image: debian:stable-slim
@@ -159,27 +180,35 @@ spec:
                 - ALL
               add:
                 - SYS_RESOURCE
+          env:
+            - name: POD_UID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.uid
           command: ["/bin/bash", "-c"]
           args:
           - |
-            PID_FILE=/firebolt-core/volume/entrypoint.pid
-            MAIN_PID=""
+            set +e
+            PID_FILE="/firebolt-core/volume/entrypoint-$POD_UID.pid"
+            CORE_PID=""
             echo "[Setup] Waiting for entrypoint PID" 1>&2
-            while [ -z "$MAIN_PID" ]; do
+            while [ -z "$CORE_PID" ]; do
               if [ -f $PID_FILE ]; then
-                MAIN_PID="$(< $PID_FILE)"
-                if [ -n "$MAIN_PID" ]; then
-                  if [ -d /proc/$MAIN_PID ]; then
-                    break
-                  else
-                    # it's a leftover from previous runs
-                    MAIN_PID=""
+                CORE_PID="$(< $PID_FILE)"
+                if [ -n "$CORE_PID" ]; then
+                  if [ ! -d /proc/$CORE_PID ]; then
+                    echo "[Setup] Core PID is $CORE_PID, but it was not found under /proc; perhaps it was killed or there is a problem with shareProcessNamespace" 1>&2
+                    exit 2
                   fi
+
+                  # process exists
+                  break
                 fi
               fi
               sleep 0.2
             done
-            echo "[Setup] Core PID is $MAIN_PID" 1>&2
+            set -e
+            echo "[Setup] Core PID is $CORE_PID" 1>&2
 
             REQUIRED_MEMLOCK_BYTES=8589934592 # 8GB
             # Expected: 'unlimited' or a number in bytes.
@@ -192,8 +221,8 @@ spec:
               if [ "$CURRENT_MEMLOCK_VALUE" -lt "$REQUIRED_MEMLOCK_BYTES" ]; then
                 echo "[Setup] current limit ($CURRENT_MEMLOCK_VALUE bytes) is below required 8GB, setting a higher limit" 1>&2
 
-                if prlimit --pid $MAIN_PID --memlock=$REQUIRED_MEMLOCK_BYTES:$REQUIRED_MEMLOCK_BYTES; then
-                  echo "[Setup] successfully set memlock limit for PID $MAIN_PID" 1>&2
+                if prlimit --pid $CORE_PID --memlock=$REQUIRED_MEMLOCK_BYTES:$REQUIRED_MEMLOCK_BYTES; then
+                  echo "[Setup] successfully set memlock limit for PID $CORE_PID" 1>&2
                 else
                   echo "[Setup] failed to set memlock prlimit. Check capabilities or node configuration." 1>&2
                   exit 1
