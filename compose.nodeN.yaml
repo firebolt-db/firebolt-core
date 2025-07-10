@@ -1,7 +1,0 @@
-# This file contains the overrides for additional nodes created after node 0.
-# See README.md for more information.
-
-services:
-  core:
-    container_name: ${COMPOSE_PROJECT_NAME}-node-${NODE}
-    command: --node ${NODE}

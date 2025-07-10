@@ -96,6 +96,13 @@ Use this setup if you want to leverage the computing power of multiple hosts.
 
 1. Make sure that this repository and your `config.json` are present on each of the nodes.
 
+1. Create the volume directory and assign correct permissions:
+
+   ```bash
+   mkdir -p ./firebolt-core-data
+   sudo chown -R 1111:1111 ./firebolt-core-data
+   ```
+
 1. Activate node 0:
 
    ```bash
@@ -105,10 +112,15 @@ Use this setup if you want to leverage the computing power of multiple hosts.
 1. Activate all further nodes by running on each host:
 
    ```bash
-   NODE=1 docker compose -f compose.yaml -f compose.nodeN.yaml up
+   NODE=1 docker compose up
    ```
 
    Increase `NODE` for each further node.
+
+If your host is macOS then you will need to run the Core containers as `root`:
+```bash
+CORE_USER=root docker compose up
+```
 
 See also:
 * [Deployment using Docker Compose](https://docs.firebolt.io/FireboltCore/firebolt-core-deployment-compose.html)
@@ -134,9 +146,9 @@ kubectl get pods
 Expected output:
 ```
 NAME                              READY   STATUS    RESTARTS   AGE
-helm-1748880880-firebolt-core-0   0/1     Running   0          5m32s
-helm-1748880880-firebolt-core-1   0/1     Running   0          5m32s
-helm-1748880880-firebolt-core-2   0/1     Running   0          5m32s
+helm-1748880880-firebolt-core-0   1/1     Running   0          5m32s
+helm-1748880880-firebolt-core-1   1/1     Running   0          5m32s
+helm-1748880880-firebolt-core-2   1/1     Running   0          5m32s
 ```
 
 See also:
@@ -198,14 +210,12 @@ docker pull ghcr.io/firebolt-db/firebolt-core-ui
 
 2. Run the UI container, linking it to your Firebolt Core instance:
 
-#### MacOS and Windows
 ```bash
-docker run --rm --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 ghcr.io/firebolt-db/firebolt-core-ui
-```
-
-#### Linux
-```bash
-docker run --rm --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://localhost:3473 ghcr.io/firebolt-db/firebolt-core-ui
+FIREBOLT_CORE_URL="http://localhost:3473"
+if [ "$(uname)" = "Darwin" ]; then
+  FIREBOLT_CORE_URL="http://host.docker.internal:3473"
+fi
+docker run --rm --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=$FIREBOLT_CORE_URL ghcr.io/firebolt-db/firebolt-core-ui
 ```
 
 3. Open your browser and navigate to `http://localhost:9100` to access the UI.

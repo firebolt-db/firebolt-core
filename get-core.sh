@@ -29,8 +29,11 @@ banner() {
 "
 }
 
-# Docker image to pull
-DOCKER_IMAGE="ghcr.io/firebolt-db/firebolt-core:preview-rc"
+# Docker image to pull - allow specifying overrides via env variables
+CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/firebolt-core}"
+CORE_TAG="${CORE_TAG:-preview-rc}"
+CORE_USER="firebolt-core"
+DOCKER_IMAGE="${CORE_REPO}:${CORE_TAG}"
 EXTERNAL_PORT=3473
 DOCKER_RUN_ARGS=(
   -i
@@ -63,6 +66,7 @@ check_docker_version() {
     # * https://github.com/firebolt-db/firebolt-core/issues/9
     # * https://github.com/docker/for-mac/issues/7707
     if [ "$(uname)" = "Darwin" ]; then
+        CORE_USER=root
         version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
         if [ "$version" = "4.42.1" ] || [ "$version" = "4.43.0" ] || [ "$version" = "4.43.1" ]; then
             echo "[❌] Firebolt Core cannot run with Docker Desktop version ${version} on Mac, as it contains a known io_uring issue; please use version 4.43.2+"

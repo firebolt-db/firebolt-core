@@ -3,16 +3,48 @@
 
 services:
   core:
-    container_name: ${COMPOSE_PROJECT_NAME}-node-0
+    container_name: ${COMPOSE_PROJECT_NAME}-node-${NODE:-0}
     # The Docker image from which to start the container.
-    image: ghcr.io/firebolt-db/firebolt-core:preview-rc
+    image: ${CORE_IMAGE:-ghcr.io/firebolt-db/firebolt-core:preview-rc}
     pull_policy: always
-    # Command-line arguments to pass to the Firebolt Core executable. Node index is 0 for the first node specified in the configuration.
-    command: --node 0
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
-    # explicitly run as root to mitigate volume-mount issues when using a non-root Core image.
-    user: "0"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8122/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # run as non-root by default; this requires the outer volume directory to have the correct permissions
+    # in some specific cases (like Docker-for-Mac) running as root is still necessary
+    user: "${CORE_USER:-firebolt-core}"
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        # All variables defined here, and commands like id -u, stat -c, should be escaped with $$
+        VOLUME_PATH='/firebolt-core/volume'
+        
+        EXPECTED_UID=$$(id -u)
+        EXPECTED_GID=$$(id -g)
+        CURRENT_OWNER_UID=$$(stat -c '%u' "$${VOLUME_PATH}")
+        CURRENT_OWNER_GID=$$(stat -c '%g' "$${VOLUME_PATH}")
+        
+        echo '[setup] detected data volume owner UID: '$${CURRENT_OWNER_UID}', GID: '$${CURRENT_OWNER_GID}''
+        echo '[setup] expected data volume owner UID: '$${EXPECTED_UID}', GID: '$${EXPECTED_GID}''
+        
+        if [ "$${CURRENT_OWNER_UID}" -ne "$${EXPECTED_UID}" ] || [ "$${CURRENT_OWNER_GID}" -ne "$${EXPECTED_GID}" ]; then
+            echo 'ERROR: The mounted data volume '"$${VOLUME_PATH}"' is NOT owned by the expected user (UID:'"$${EXPECTED_UID}"', GID:'"$${EXPECTED_GID}"').'
+            echo 'Please ensure the host directory for the data volume is owned by UID '"$${EXPECTED_UID}"' and GID '"$${EXPECTED_GID}"'.'
+            echo 'Example commands to run on your host:'
+            echo '    mkdir -p ./firebolt-core-data'
+            echo '    sudo chown -R '"$${EXPECTED_UID}"':'"$${EXPECTED_GID}"' ./firebolt-core-data'
+
+            # wait forever, exiting would case container to be restarted
+            sleep inf
+        fi
+        
+        exec /firebolt-core/firebolt-core --node ${NODE:-0}
+
     # Corresponds to the `--tty` argument passed to `docker run`.
     tty: true
     # Corresponds to the `--security-opt seccomp=unconfined` argument passed to `docker run`.
@@ -41,6 +73,9 @@ services:
   ui:
     image: ghcr.io/firebolt-db/firebolt-core-ui:latest
     pull_policy: always
+    depends_on:
+      core:
+        condition: service_healthy
     links:
       - core
     environment:
