@@ -34,6 +34,7 @@ DOCKER_IMAGE="ghcr.io/firebolt-db/firebolt-core:preview-rc"
 EXTERNAL_PORT=3473
 DOCKER_RUN_ARGS=(
   -i
+  --user 0
   --name firebolt-core
   --rm
   --ulimit memlock=8589934592:8589934592
