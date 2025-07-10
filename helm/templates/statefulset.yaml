@@ -48,6 +48,9 @@ spec:
             - |
               REQUIRED_MEMLOCK_BYTES=8589934592 # 8GB
 
+              echo -n "[Setup] Firebolt Core version "
+              /firebolt-core/firebolt-core --version
+
               echo "[Setup] entrypoint PID: $BASHPID"
               echo "$BASHPID" > /firebolt-core/volume/entrypoint.pid
 
