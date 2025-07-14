@@ -94,7 +94,7 @@ spec:
               fi
 
               {{- if .Values.memlockSetup }}
-              {{ fail "memlockSetup=true is unnecessary with nonRoot=false" }}
+              echo "WARNING: memlockSetup=true is unnecessary with nonRoot=false" 1>&2
               {{- end }}
 
               {{- end }}
