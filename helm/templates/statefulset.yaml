@@ -64,6 +64,21 @@ spec:
                 cat /proc/self/limits | grep -F 'Max locked memory' | awk '{print $4}'
               }
 
+              function needs_memlock_setup() {
+                # Expected: 'unlimited' or a number in bytes.
+                local CURRENT_MEMLOCK_VALUE=$(get_memlock_limit)
+
+                if [ "$CURRENT_MEMLOCK_VALUE" = "unlimited" ]; then
+                  return 1
+                fi
+                if [ "$CURRENT_MEMLOCK_VALUE" -ge "$REQUIRED_MEMLOCK_BYTES" ]; then
+                  return 1
+                fi
+
+                # memlock setup is necessary
+                return 0
+              }
+
               echo -n "[Setup] Firebolt Core version "
               /firebolt-core/firebolt-core --version
 
@@ -83,16 +98,7 @@ spec:
               ## wait until memlock limits are changed by the helper container
               CURRENT_MEMLOCK_VALUE=$(get_memlock_limit)
               echo "[Setup] current soft memlock limit: $CURRENT_MEMLOCK_VALUE (will wait for limits to be upgraded if below 8GB)" 1>&2
-              while true; do
-                CURRENT_MEMLOCK_VALUE=$(get_memlock_limit)
-
-                if [ "$CURRENT_MEMLOCK_VALUE" = "unlimited" ]; then
-                  break
-                fi
-                if [ "$CURRENT_MEMLOCK_VALUE" -ge "$REQUIRED_MEMLOCK_BYTES" ]; then
-                  break
-                fi
-
+              while needs_memlock_setup; do
                 sleep 0.2
               done
               {{- end }}
@@ -103,6 +109,7 @@ spec:
               fi
 
               {{- if .Values.memlockSetup }}
+              ## NOTE: no 'ulimit' call happens here because root images support is soon to be deprecated
               echo "WARNING: memlockSetup=true is unnecessary with nonRoot=false" 1>&2
               {{- end }}
 
@@ -292,6 +299,7 @@ spec:
               return 1
             }
 
+            # this check is valid because both containers will have the same limits
             if ! needs_memlock_setup; then
               echo "[Setup] memlock setup not required, will be idle" 1>&2
               exec tail -f /dev/null
