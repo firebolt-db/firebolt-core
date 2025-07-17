@@ -167,9 +167,6 @@ spec:
             capabilities:
               drop:
                 - ALL
-              add:
-                # IPC_LOCK is always necessary in order to use io_uring, for both the root and non-root versions
-                - IPC_LOCK
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
