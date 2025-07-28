@@ -1,4 +1,4 @@
-# Elastic License
+# Elastic License 2.0
 
 URL: https://www.elastic.co/licensing/elastic-license
 
@@ -42,7 +42,7 @@ If you use the software in violation of these terms, such use is not licensed, a
 
 ## Definitions
 
-The **licensor** is the entity offering these terms, and the software is the software the licensor makes available under these terms, including any portion of it.
+The **licensor** is the entity offering these terms, and the **software** is the software the licensor makes available under these terms, including any portion of it.
 
 **you** refers to the individual or entity agreeing to these terms.
 
