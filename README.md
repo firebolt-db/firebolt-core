@@ -191,6 +191,20 @@ See also:
 * [Example Queries](examples/README.md)
 * [Connect to Firebolt Core](https://docs.firebolt.io/FireboltCore/firebolt-core-connect.html)
 
+## Firebolt Core UI
+
+1. Download the Firebolt Core UI Docker image:
+```bash
+docker pull 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui:latest
+```
+
+2. Run the UI container, linking it to your Firebolt Core instance:
+```bash
+docker run --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui
+```
+
+3. Open your browser and navigate to `http://localhost:9100` to access the UI.
+
 ## Troubleshooting & Support
 
 Detailed information about Firebolt Core is available in the [documentation](https://docs.firebolt.io/FireboltCore/).
