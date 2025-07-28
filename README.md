@@ -167,7 +167,7 @@ Resources for each node (either a local machine or a VM instance):
 > [!NOTE]
 > There is no universally correct amount of RAM and disk space for running Firebolt Core, and the above are simply rough guidelines for running some simple queries as a way to get started. The ideal amount of RAM and disk space depends heavily on the specific workload that you are running against a Firebolt Core deployment (see [Deployment and Operational Guide](https://docs.firebolt.io/FireboltCore/firebolt-core-operation.html) for details).
 
-## Run Queries on Firebolt Core
+## Run Queries on Firebolt Core via CLI
 
 You can submit queries to a Firebolt Core cluster using any HTTP client (like cURL), the official [Firebolt CLI](https://github.com/firebolt-db/fb-cli) as a standalone binary, or by invoking the CLI from within the Core Docker container.
 
@@ -191,7 +191,7 @@ See also:
 * [Example Queries](examples/README.md)
 * [Connect to Firebolt Core](https://docs.firebolt.io/FireboltCore/firebolt-core-connect.html)
 
-## Firebolt Core UI
+## Run Queries on Firebolt Core via the web UI
 
 1. Download the Firebolt Core UI Docker image:
 ```bash
