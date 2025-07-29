@@ -199,8 +199,15 @@ docker pull 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui:latest
 ```
 
 2. Run the UI container, linking it to your Firebolt Core instance:
+
+#### MacOS and Windows
 ```bash
-docker run --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui
+docker run --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 ghcr.io/firebolt-db/firebolt-core-ui
+```
+
+#### Linux
+```bash
+docker run --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://localhost:3473 ghcr.io/firebolt-db/firebolt-core-ui
 ```
 
 3. Open your browser and navigate to `http://localhost:9100` to access the UI.
