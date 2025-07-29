@@ -1,127 +1,55 @@
-# FIREBOLT®  LICENSE TERMS
-(Firebolt Core)
+# Elastic License 2.0
 
-## Last Updated: June 11, 2025
+URL: https://www.elastic.co/licensing/elastic-license
 
-THESE LICENSE TERMS (this "Agreement") CONSTITUTE A BINDING CONTRACT BETWEEN YOU AND FIREBOLT ANALYTICS INC. (OR IF YOU ARE LOCATED OUTSIDE THE UNITED STATES - FIREBOLT ANALYTICS IRELAND LTD.) ("Firebolt", "we", "us" and "our"). BY DOWNLOADING, INSTALLING OR USING THE SOFTWARE (AS DEFINED BELOW), YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THIS AGREEMENT.  IF YOU DO NOT AGREE WITH ANY OF THE TERMS AND CONDITIONS OF THIS AGREEMENT, DO NOT USE THE SOFTWARE.
+## Acceptance
 
-## DEFINITIONS AND INTERPRETATION
+By using the software, you agree to all of the terms and conditions below.
 
-This Agreement contains a range of capitalized terms, some of which are defined in this Section, and some of which are defined elsewhere. The Section and sub-Section headings in this Agreement are for convenience of reading only and may not to be used or relied upon for interpretive purposes.
+## Copyright License
 
-"Documentation" means any electronic manuals, specifications, and similar documentation that accompany the Software. 
+The licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable license to use, copy, distribute, make available, and prepare derivative works of the software, in each case subject to the limitations and conditions below.
 
-"Intellectual Property" means any and all inventions, discoveries, improvements, new uses, works of authorship, technical information, data, technology, know-how, show-how, designs, drawings, utility models, topography and semiconductor mask works, specifications, formulas, methods, techniques, processes, databases, computer software and programs (including object code, source code, and non-literal aspects), algorithms, architecture, records, documentation, and other similar intellectual property, in any form and embodied in any media, whether or not protectable or registerable.
+## Limitations
 
-"Intellectual Property Rights" means any and all rights, titles, and interests in and to Intellectual Property, including without limitation patents, copyright and similar authorship rights, mask work rights, trade secret and similar confidentiality rights, design rights, industrial property rights, trademark, trade name, trade dress and similar branding rights, as well as: (a) all applications, registrations, renewals, extensions, continuations, continuations-in-part, divisions or reissues of the foregoing rights; and (b) all goodwill associated with the foregoing rights. 
+You may not provide the software to third parties as a hosted or managed service, where the service provides users with access to any substantial set of the features or functionality of the software.
 
-"Law" means any federal, state, foreign, regional or local statute, regulation, ordinance, or rule of any jurisdiction.
+You may not move, change, disable, or circumvent the license key functionality in the software, and you may not remove or obscure any functionality in the software that is protected by the license key.
 
-"Service" means Firebolt's cloud-based data warehouse  managed SaaS offering, which enables the storing, processing and analyzing of business data received from multiple sources. 
+You may not alter, remove, or obscure any licensing, copyright, or other notices of the licensor in the software. Any use of the licensor’s trademarks is subject to applicable law.
 
-"Software" means Firebolt's free, self-hosted SQL edition, which powers Firebolt's high-performance data warehouse. It provides a distributed analytics engine with limited features of the Service but can be deployed independently without external dependencies The Software is provided solely in object or executable code.  
+## Patents
 
-"Update" means an upgrade, update (such as a fix or patch), or other modification, enhancement or customization to the Software.
+The licensor grants you a license, under any patent claims the licensor can license, or becomes able to license, to make, have made, use, sell, offer for sale, import and have imported the software, in each case subject to the limitations and conditions in this license. This license does not cover any patent claims that you cause to be infringed by modifications or additions to the software. If you or your company make any written claim that the software infringes or contributes to infringement of any patent, your patent license for the software granted under these terms ends immediately. If your company makes such a claim, your patent license ends immediately for work on behalf of your company.
 
-## LICENSE
+## Notices
 
-Subject to the terms and conditions of this Agreement (including without limitation the terms of this section (License) and the License Restrictions section below), Firebolt grants you a limited, non-exclusive license during the Term (defined below) to install the Software on one or more computers that you (or your end user customers, or your customer's end user customers) own or control and use the Software for your internal business purposes(the "License").  Use of the Software must be in accordance with the Documentation. 
+You must ensure that anyone who gets a copy of any part of the software from you also gets a copy of these terms.
 
-You may allow your contractors to use the Software, provided they are acting on your behalf to exercise rights granted in this Agreement, provided that you are responsible and liable for their compliance with this Agreement in such use. You must enter into a written agreement with such contractors that strictly limits their right to use the Software and that otherwise protects Firebolt's intellectual property rights to the same extent as this Agreement.  
+If you modify the software, you must include in any modified copies of the software prominent notices stating that you have modified the software.
 
-You may redistribute and/or make available (and permit your customers to redistribute and/or make available) the Software to your customers, provided that all of your customers (and end user customers of your customers) agree to terms that protect the Software and Firebolt at least as much as this Agreement. For any Software that you redistribute and/or make available (and/or permit your customers to redistribute and/or make available), you must (and hereby do) indemnify, defend, and hold harmless Firebolt and its affiliates, officers, directors, employees, and agents from and against any and all claims, losses, damages, liabilities, costs, and expenses (including but not limited to attorneys’ fees) arising out of or related to the distribution, use, or modification of the Software by you, your customers, or any end users, regardless of whether such claims are based on the unmodified or modified Software.
+## No Other Rights
 
-You may copy the Software, provided that all such copies shall bear the original and unmodified copyright, trademark, and other proprietary rights notices or legends displayed or contained on or in the Software.
+These terms do not imply any licenses other than those expressly granted in these terms.
 
-For the avoidance of doubt, the copy(ies) of the Software you install, as well as the Documentation, are only licensed under this Agreement, and no title in or to such copy(ies) (or the Software or Documentation themselves) passes to you. Except for the License, you are granted no other right in or to the Software or Documentation, whether by implied license, estoppel, patent exhaustion, operation of law, or otherwise. 
+## Termination
 
-## LICENSE RESTRICTIONS
+If you use the software in violation of these terms, such use is not licensed, and your licenses will automatically terminate. If the licensor provides you with a notice of your violation, and you cease all violation of this license no later than 30 days after you receive that notice, your licenses will be reinstated retroactively. However, if you violate these terms after such reinstatement, any additional violation of these terms will cause your licenses to terminate automatically and permanently.
 
-You shall not (and shall not permit or encourage any third party to) do any of the following (except to the extent otherwise expressly authorized in this Agreement): (a) modify, make a derivative work of, alter, adapt, arrange, translate, decompile, disassemble, reverse engineer, decrypt, or otherwise attempt to discover the source code or non-literal aspects (such as the underlying ideas, algorithms, structure, sequence, organization, and interfaces) of, the Software; (b) use the Software to develop any service or product that is the same as, substantially similar to or competitive with, the Software, the Service or any other product or service of Firebolt; (c) remove, alter, or conceal, in whole or in part, any copyright, trademark, or other proprietary rights notice or legend displayed or contained on or in the Software; (d) circumvent, disable or otherwise interfere with security-related or technical features or protocols of the Software; (e) publish or transmit any robot, malware, Trojan horse, spyware, or similar malicious item intended (or that has the potential) to damage or disrupt the Software; and/or (f) use the Software to infringe, misappropriate or violate any third party's Intellectual Property Rights, moral rights, privacy or other personal rights, or any Law. References in this paragraph to "Software" shall be taken to mean the Software in whole or in part, as well as any Documentation.
+## No Liability
 
-Your full compliance with the above limitations is a condition to the License; provided however, that such limitations shall not apply to the extent expressly permitted otherwise in this Agreement, or to the extent any limitation is prohibited by the Law applicable to you. You acknowledge that the Software contains information and materials that are confidential and proprietary to Firebolt (and may even constitute Firebolt's, or a Firebolt affiliate's, trade secrets), and therefore you agree that a breach or threatened breach of this Section (License Restrictions) may cause Firebolt and/or a Firebolt affiliate to suffer irreparable harm or damage for which monetary damages will be inadequate, and accordingly, if Firebolt or a Firebolt affiliate seeks an injunction, specific performance, or other equitable relief to enforce any provision under this Section, Firebolt or the Firebolt affiliate (as the case may be) shall not be required to post a bond or to prove the likelihood of irreparable harm.
+*As far as the law allows, the software comes as is, without any warranty or condition, and the licensor will not be liable to you for any damages arising out of these terms or the use or nature of the software, under any kind of legal claim.*
 
-To the extent you are given the right, under any Law applicable to you, to receive information and/or materials for purposes of making the Software interoperable with other software products, you agree to first request from Firebolt (in a detailed writing) access to such information and/or materials, and if Firebolt accepts such request, Firebolt may (in its sole discretion) impose additional conditions on such access and use (but such use shall in any event be solely for the purpose of achieving the desired inter-operability).
+## Definitions
 
-Notwithstanding anything to the contrary in this Agreement, Firebolt will not assert a claim for breach of this Agreement, nor seek legal or equitable relief, against any person or entity who, in good faith and in accordance with Firebolt’s then-current Responsible Disclosure Policy (“RDP”), conducts security research on the Software and reports vulnerabilities to Firebolt as described in the RDP.
+The **licensor** is the entity offering these terms, and the **software** is the software the licensor makes available under these terms, including any portion of it.
 
-## UPDATES
+**you** refers to the individual or entity agreeing to these terms.
 
-All references herein to the "Software" shall include the Updates we provide as well. Firebolt may from time to time provide Updates but shall not be under any obligation to do so. Such Updates will be supplied according to whatever then-current policies we may have in place, and some Updates may in any event be limited, suspended or restricted by geography, volume, duration or any other criteria decided by Firebolt in its sole discretion. All Updates must be installed by you manually. An Update may be accompanied by separate or additional terms and conditions, in which case such terms will (as determined in such terms and conditions) apply instead of, or in addition to, this Agreement. Firebolt may in its sole discretion charge for Updates and/or require additional personally identifiable information. Firebolt is under no obligation to provide any technical support for the Software.    
+**your company** is any legal entity, sole proprietorship, or other kind of organization that you work for, plus all organizations that have control over, are under the control of, or are under common control with that organization. **control** means ownership of substantially all the assets of an entity, or the power to direct its management and policies by vote, contract, or otherwise. Control can be direct or indirect.
 
-## OWNERSHIP 
+**your licenses** are all the licenses granted to you for the software under these terms.
 
-Software and Feedback. You hereby acknowledge that the Software and Documentation are or may be protected by Intellectual Property (and similar) Laws, treaties, and conventions. Any rights not expressly granted herein are hereby reserved by Firebolt and its licensors and suppliers. As between you and Firebolt (and except for the License), Firebolt is the sole and exclusive owner of: (a) the copy(ies) of the Software and Documentation you install; and (b) all Intellectual Property Rights in and to the Software and the Documentation. Furthermore, Firebolt shall be the sole and exclusive owner of all Intellectual Property Rights in and to any and all ideas, suggestions, or similar feedback about performance of the Software and/or for improving the Software, including any vulnerability reports, proof-of-concept code, or related materials submitted under Firebolt’s then-current RDP (collectively, "Feedback IP"). To the extent any Feedback IP does not automatically vest in Firebolt, you hereby assign (and agrees to assign) such Feedback IP to Firebolt, as well as reasonably cooperate with Firebolt in executing such further instruments requested by Firebolt to perfect Firebolt's (or a designated Firebolt affiliate's) ownership of such Feedback IP.
+**use** means anything you do with the software requiring one of your licenses.
 
-## DISCLAIMERS 
-
-THE SOFTWARE AND DOCUMENTATION ARE PROVIDED AND MADE AVAILABLE TO YOU ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITH ALL FAULTS, AND WITHOUT ANY REPRESENTATION, WARRANTY, GUARANTEE OR CONDITION OF ANY KIND WHATSOEVER, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, SATISFACTORY QUALITY, QUIET POSSESSION, TITLE, QUALITY OF SERVICE, NON-INFRINGEMENT, OR THAT OTHERWISE ARISE FROM A COURSE OF PERFORMANCE OR DEALING, OR USAGE OF TRADE, ALL OF WHICH ARE HEREBY DISCLAIMED BY FIREBOLT AND ITS LICENSORS AND SUPPLIERS.
-
-IN ADDITION, NEITHER FIREBOLT NOR ITS LICENSORS OR SUPPLIERS MAKE ANY REPRESENTATION, WARRANTY, GUARANTEE OR CONDITION: 
-
-REGARDING THE EFFECTIVENESS, USEFULNESS, RELIABILITY, AVAILABILITY, TIMELINESS, ACCURACY, OR COMPLETENESS OF THE SOFTWARE, DOCUMENTATION, OR CONTENT (SUCH AS ALERT OR REMINDER FEAUTRES);  
-THAT YOUR USE OF, OR RELIANCE UPON, THE SOFTWARE, DOCUMENTATION, OR CONTENT WILL MEET YOUR REQUIRMENTS OR EXPECTATIONS;
-THAT THE SOFTWARE, DOCUMENTATION, OR CONTENT WILL BE UNINTERRUPTED, SECURE, ERROR-FREE OR VIRUS-FREE, OR THAT DEFECTS IN THE SOFTWARE WILL BE CORRECTED; OR
-REGARDING THE SATISFACTION OF, OR COMPLIANCE WITH, ANY GOVERNMENT REGULATIONS OR STANDARDS. 
-
-Some jurisdictions' Laws do not allow the disclaimer of certain implied warranties or conditions, and to the extent applicable to you, Firebolt limits the duration of such warranties and conditions to a period of ninety (90) days from the Effective Date.
-
-## LIMITATION OF LIABILITY
-
-IN NO EVENT WILL FIREBOLT OR ANY FIREBOLT AFFILIATE BE LIABLE UNDER, OR OTHERWISE IN CONNECTION WITH, THIS AGREEMENT, FOR:
-
-(a) ANY CONSEQUENTIAL, INDIRECT, SPECIAL, INCIDENTAL, OR PUNITIVE DAMAGES; 
-(b) ANY LOSS OF PROFITS, LOSS OF BUSINESS, LOSS OF REVENUE, OR LOSS OF ANTICIPATED SAVINGS;
-(c) ANY LOSS OF, OR DAMAGE TO, DATA, REPUTATION, OR GOODWILL; AND/OR
-(d) THE COST OF PROCURING ANY SUBSTITUTE GOODS OR SERVICES. 
-
-THE COMBINED AGGREGATE LIABILITY OF FIREBOLT AND ALL FIREBOLT AFFILIATES UNDER, OR OTHERWISE IN CONNECTION WITH, THIS AGREEMENT SHALL NOT EXCEED THE LOWER OF: (A) FIVE U.S. DOLLARS (US $5), AND (B) THE AMOUNTS ACTUALLY PAID BY YOU (IF ANY) TO FIREBOLT OR A FIREBOLT AFFILIATE DURING THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE DATE ON WHICH YOU BRING YOUR CLAIM. 
-
-THE FOREGOING EXCLUSIONS AND LIMITATIONS SHALL APPLY: (A) TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW; (B) EVEN IF FIREBOLT OR A FIREBOLT AFFILIATE HAS BEEN ADVISED, OR SHOULD HAVE BEEN AWARE, OF THE POSSIBILITY OF LOSSES, DAMAGES, OR COSTS; (C) EVEN IF ANY REMEDY IN THIS AGREEMENT FAILS OF ITS ESSENTIAL PURPOSE; AND (D) REGARDLESS OF THE THEORY OR BASIS OF LIABILITY, INCLUDING WITHOUT LIMITATION FUNDAMENTAL BREACH, NEGLIGENCE, MISREPRESENTATION, STRICT LIABILITY, OR OTHER CONTRACT OR TORT LIABILITY. 
-
-Some jurisdictions' Laws do not allow the exclusion or limitation of incidental or consequential damages, or of other damages, and to the extent applicable to you, such exclusions and limitations shall not apply. Furthermore, nothing in this Agreement shall be deemed to exclude or limit liability for death or personal injury resulting from negligence, or for fraud or fraudulent misrepresentation.  
-	
-## TERM AND TERMINATION
-
-Term. This Agreement commences on the Effective Date and shall continue in full force and effect until terminated in accordance herewith (the "Term").
- 
-Termination by You. You may terminate this Agreement by destroying all copies of the Software. 
-
-Termination for Breach. This Agreement shall automatically terminate without notice if you fail to comply with any of the terms of this Agreement, provided that such termination shall become effective one hundred and twenty (120) days after such failure to comply, unless we notify you otherwise in writing.
-
-Consequences of Termination; Survival.  Upon termination of this Agreement, the License will automatically terminate and be deemed revoked, and you must immediately cease use of the Software and uninstall and permanently delete it from all your computers. Sections 5 (Ownership) through 10 (Miscellaneous) shall survive termination of this Agreement, as shall any right, obligation or provision that is expressly stated to so survive. Termination shall not affect any rights and obligations accrued as of the effective date of termination.
-
-## GOVERNING LAW
-For U.S. licensees receiving the License from Firebolt Analytics, Inc, this Agreement shall be governed by, and construed in accordance with, the laws of the State of California without regard to any conflicts of laws rules or principles. Venue for any claim, dispute or controversy hereunder shall be a court of competent jurisdiction located in San Francisco County, California, and the parties irrevocably submit to the exclusive jurisdiction of such courts.
-
-For NON-U.S. licensees receiving the License from Firebolt Analytics Ireland Ltd., this Agreement shall be governed by, and construed in accordance with, the laws of England without regard to any conflicts of laws rules or principles. Venue for any dispute hereunder shall be a court of competent jurisdiction located in London, England, and the parties irrevocably submit to the exclusive jurisdiction of such courts.
-
-Notwithstanding anything to the contrary, each party may seek equitable relief in any court of competent jurisdiction. The United Nations Convention on Contracts for the International Sale of Goods shall not apply to this Agreement and is hereby disclaimed. EXCEPT TO SEEK EQUITABLE RELIEF OR TO OTHERWISE PROTECT OR ENFORCE A PARTY'S INTELLECTUAL PROPERTY RIGHTS OR CONFIDENTIALITY OBLIGATIONS, NO ACTION, REGARDLESS OF FORM, UNDER THIS AGREEMENT MAY BE BROUGHT BY EITHER PARTY MORE THAN ONE (1) YEAR AFTER THE DATE ON WHICH THE CORRESPONDING LIABILITY AROSE. Any claims or damages that you may have against Firebolt shall only be enforceable against Firebolt, and not any other entity or Firebolt's officers, directors, representatives, or agents.
-
-## MISCELLANEOUS
-
-Entire Agreement. This Agreement represents the entire agreement of the Parties with respect to the subject matter hereof, and supersedes and replaces all prior and contemporaneous oral or written understandings and statements by the Parties with respect to such subject matter. In entering into this Agreement, neither party is relying on any representation or statement not expressly specified in this Agreement. Without limiting the generality of the foregoing, this Agreement supersedes the following, each of which shall be deemed rejected, void and of no effect: (i) any shrink-wrap, click-wrap, or similar terms and conditions that accompany, or are included within, the Service, even if use of the Service requires an affirmative “acceptance” thereof, and (ii) any terms or conditions (whether printed, hyperlinked, or otherwise) in any purchase order or other standardized business forms, which purport to supersede, modify or supplement this Agreement. The section headings used in this Agreement are for convenience of reading only. This Agreement may be executed in any number of counterparts (including digitally, electronically scanned and e-mailed PDF copies, and any similarly signed and electronically or digitally transmitted copies) each of which will be considered an original, but all of which together will constitute one and the same instrument.
-
-Assignment. This Agreement may not be assigned, in whole or in part, by either party without the prior express written consent of the other party; except, however, that Firebolt may, upon written notice, assign this Agreement in whole to: (A) a Firebolt affiliate; or (B) a successor in connection with a merger, consolidation, or acquisition of all or substantially all of the Firebolt's assets or business relating to this Agreement. Any prohibited assignment will be null and void. Subject to the provisions of this Section (Assignment), this Agreement will bind and inure to the benefit of each party and its respective successors and assigns. Furthermore, any Firebolt obligation hereunder may be performed (in whole or in part), and any Firebolt right (including invoice and payment rights) or remedy may be exercised (in whole or in part), by a Firebolt affiliate.
-
-Severability. If any provision of this Agreement is held by a court of competent jurisdiction to be illegal, invalid or unenforceable, then: (a) the remaining provisions of this Agreement shall remain in full force and effect; and (b) the Parties agree that the court making such determination shall have the power to limit the provision, to delete specific words or phrases, or to replace the provision with a provision that is legal, valid and enforceable and that most closely approximates the original legal intent and economic impact of such provision, and this Agreement shall be enforceable as so modified in respect of such jurisdiction. In the event such court does not exercise the power granted to it as aforesaid, then such provision will be ineffective solely as to such jurisdiction (and only to the extent of such illegality, invalidity or unenforceability), and will be substituted (in respect of such jurisdiction) with a valid, legal and enforceable provision that most closely approximates the original legal intent and economic impact of such provision.
-
-Waiver and Remedies. No failure or delay on the part of either party in exercising any right or remedy hereunder will operate as a waiver thereof, nor will any single or partial exercise of any such right or remedy preclude any other or further exercise thereof, or the exercise of any other right or remedy. Any waiver granted hereunder must be in writing, duly signed by the waiving party, and will be valid only in the specific instance in which given. Except as may be expressly provided otherwise in this Agreement, no right or remedy conferred upon or reserved by either party under this Agreement is intended to be, or will be deemed, exclusive of any other right or remedy under this Agreement, at law, or in equity, but will be cumulative of such other rights and remedies.
-
-No Third Party Beneficiaries. Except as otherwise expressly provided in this Agreement (such as Firebolt's affiliates), there shall be no third-party beneficiaries of or under this Agreement.
-
-Relationship. The relationship of the Parties is solely that of independent contractors, neither party nor its employees are the servants, agents, or employees of the other, and no exclusivities arise out of this Agreement. Nothing in this Agreement shall be construed to create a relationship of employer and employee, principal and agent, joint venture, franchise, fiduciary, partnership, association, or otherwise between the Parties. Neither party has any authority to enter into agreements of any kind on behalf of the other party and neither party will create or attempt to create any obligation, express or implied, on behalf of the other party.
-
-Force Majeure. Firebolt shall not have any liability, or otherwise be deemed in breach, for any performance (excluding payment obligations) under this Agreement that is prevented, hindered, or delayed by reason of an event of Force Majeure (defined below). Firebolt shall be excused from such performance to the extent that, and for so long as, performance is prevented, interrupted, or delayed by the Force Majeure. If and when performance is resumed, all dates specified under this Agreement shall be automatically adjusted to reflect the period of such prevention, interruption, or delay by reason of such Force Majeure. For purposes of this Agreement, an event of "Force Majeure" shall be defined as: (a) fire, flood, earthquake, explosion, pandemic or epidemic (or similar regional health crisis), or act of God; (b) strikes, lockouts, picketing, concerted labor action, work stoppages, other labor or industrial disturbances, or shortages of materials or equipment, or failure of (or delay in) delivery by Firebolt’s suppliers or carriers; (c) invasion, war (declared or undeclared), terrorism, riot, insurrection, or civil commotion; (d) an act of governmental or quasi-governmental authorities; (e) failure of the internet or any public telecommunications network, hacker attacks, denial of service attacks, virus or other malicious software attacks or infections, shortage of adequate power or transportation facilities; and/or (f) any matter beyond the reasonable control of Firebolt.
-
-Notices. Except as may be specified otherwise in this Agreement, all notices, consents, or other communications provided for in connection with this Agreement shall be in writing, and shall be deemed given upon: (a) personal delivery; (b) the second business day after mailing via either U.S. mail or mailing via registered or certified mail with postage prepaid and return receipt requested; (c) upon delivery confirmation by nationally recognized overnight delivery service ("Courier"); (d) the second business day after sending confirmed by facsimile; (e) the first business day after sending by email.
-
-Export Compliance. You shall not transfer, export, re-export, import, re-import or divert Firebolt Materials in violation of any Export Control Laws (defined below), and shall not transfer, export, re-export, import, re-import or divert Firebolt Materials to Lebanon, Syria, Iran, Iraq, Sudan, Crimea, Yemen, Cuba, or North Korea (or other countries specifically designated in writing by Firebolt from time to time). In the event of a breach under this Section (Export Compliance), you agree to indemnify and hold harmless Firebolt and all Firebolt affiliates (and their respective directors, officers, and employees) for any fines and/or penalties imposed upon Firebolt or a Firebolt affiliate (or such persons) as a result of such breach. "Export Control Laws" means all applicable export and re-export control Laws applicable to you and/or Firebolt or its affiliates, as well as the United States' Export Administration Regulations (EAR) maintained by the US Department of Commerce, trade and economic sanctions maintained by the US Treasury Department's Office of Foreign Assets Control, and the International Traffic in Arms Regulations (ITAR) maintained by the US Department of State.
-
-Expense. Except as expressly stated otherwise in this Agreement, each party shall pay its own costs and expenses incurred in connection with the negotiation, preparation, signature and performance of this Agreement (and any documents referred to in it).
-
-Customer Resources. Except for the Software provided by Firebolt hereunder, you shall be solely responsible: (a) for providing all hardware, software, systems, consumables, bees, assets, utilities (such as electrical power and internet access), facilities, and ancillary goods and services needed for you to access and use the Software (collectively, "Customer Resources"); (b) for ensuring the compatibility of Customer Resources with the Software; (c) for obtaining (and maintaining) all consents and licenses necessary to exercise your rights under the License; and (d) for obtaining insurance for any Customer Resources. 
-
-Technical Advice. Firebolt shall have no obligation or liability for any technical advice furnished to you, including without limitation technical advice with respect to the use of the Software, all such technical advice being given and accepted at your risk.
-
-You should print a copy of this Agreement for future reference.
+**trademark** means trademarks, service marks, and similar rights.
