@@ -1,0 +1,4219 @@
+NOTICE
+
+This product includes third-party software:
+
+---
+Component:
+Version: auth0/auth0-spa-js@2.3.0
+License: MIT
+Source: https://github.com/auth0/auth0-spa-js
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/code-frame@7.27.1
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/generator@7.28.0
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/helper-module-imports@7.27.1
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/helper-string-parser@7.27.1
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/helper-validator-identifier@7.27.1
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/parser@7.28.0
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/runtime@7.27.6
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/template@7.27.2
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/traverse@7.27.4
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: babel/types@7.28.1
+License: MIT
+Source: https://github.com/babel/babel
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/autocomplete@6.12.0
+License: MIT
+Source: https://github.com/codemirror/autocomplete
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/commands@6.8.0
+License: MIT
+Source: https://github.com/codemirror/commands
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/lang-sql@6.9.0
+License: MIT
+Source: https://github.com/codemirror/lang-sql
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/language@6.11.0
+License: MIT
+Source: https://github.com/codemirror/language
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/lint@6.5.0
+License: MIT
+Source: https://github.com/codemirror/lint
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/search@6.5.6
+License: MIT
+Source: https://github.com/codemirror/search
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/state@6.5.0
+License: MIT
+Source: https://github.com/codemirror/state
+License file: licenses/MIT
+
+---
+Component:
+Version: codemirror/view@6.38.0
+License: MIT
+Source: https://github.com/codemirror/view
+License file: licenses/MIT
+
+---
+Component:
+Version: dagrejs/dagre@1.1.4
+License: MIT
+Source: https://github.com/dagrejs/dagre
+License file: licenses/MIT
+
+---
+Component:
+Version: dagrejs/graphlib@2.2.4
+License: MIT
+Source: https://github.com/dagrejs/graphlib
+License file: licenses/MIT
+
+---
+Component:
+Version: date-fns/tz@1.2.0
+License: MIT
+Source: https://github.com/date-fns/tz
+License file: licenses/MIT
+
+---
+Component:
+Version: dnd-kit/accessibility@3.1.1
+License: MIT
+Source: https://github.com/clauderic/dnd-kit
+License file: licenses/MIT
+
+---
+Component:
+Version: dnd-kit/core@6.3.1
+License: MIT
+Source: https://github.com/clauderic/dnd-kit
+License file: licenses/MIT
+
+---
+Component:
+Version: dnd-kit/sortable@10.0.0
+License: MIT
+Source: https://github.com/clauderic/dnd-kit
+License file: licenses/MIT
+
+---
+Component:
+Version: dnd-kit/utilities@3.2.2
+License: MIT
+Source: https://github.com/clauderic/dnd-kit
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/babel-plugin@11.13.5
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/babel-plugin
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/cache@11.14.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/cache
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/hash@0.9.2
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/hash
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/is-prop-valid@1.3.1
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/is-prop-valid
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/memoize@0.9.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/memoize
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/react@11.13.5
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/react
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/serialize@1.3.3
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/serialize
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/sheet@1.4.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/sheet
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/styled@11.13.5
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/styled
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/unitless@0.10.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/unitless
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/use-insertion-effect-with-fallbacks@1.1.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/use-insertion-effect-with-fallbacks
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/utils@1.4.2
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/utils
+License file: licenses/MIT
+
+---
+Component:
+Version: emotion/weak-memoize@0.4.0
+License: MIT
+Source: https://github.com/emotion-js/emotion/tree/main/packages/weak-memoize
+License file: licenses/MIT
+
+---
+Component:
+Version: esbuild/darwin-arm64@0.25.2
+License: MIT
+Source: https://github.com/evanw/esbuild
+License file: licenses/MIT
+
+---
+Component:
+Version: hookform/resolvers@5.1.1
+License: MIT
+Source: https://github.com/react-hook-form/resolvers
+License file: licenses/MIT
+
+---
+Component:
+Version: jridgewell/gen-mapping@0.3.12
+License: MIT
+Source: https://github.com/jridgewell/sourcemaps
+License file: licenses/MIT
+
+---
+Component:
+Version: jridgewell/resolve-uri@3.1.0
+License: MIT
+Source: https://github.com/jridgewell/resolve-uri
+License file: licenses/MIT
+
+---
+Component:
+Version: jridgewell/sourcemap-codec@1.5.0
+License: MIT
+Source: https://github.com/jridgewell/sourcemap-codec
+License file: licenses/MIT
+
+---
+Component:
+Version: jridgewell/trace-mapping@0.3.29
+License: MIT
+Source: https://github.com/jridgewell/sourcemaps
+License file: licenses/MIT
+
+---
+Component:
+Version: lezer/common@1.2.1
+License: MIT
+Source: https://github.com/lezer-parser/common
+License file: licenses/MIT
+
+---
+Component:
+Version: lezer/highlight@1.2.0
+License: MIT
+Source: https://github.com/lezer-parser/highlight
+License file: licenses/MIT
+
+---
+Component:
+Version: lezer/lr@1.4.0
+License: MIT
+Source: https://github.com/lezer-parser/lr
+License file: licenses/MIT
+
+---
+Component:
+Version: marijn/find-cluster-break@1.0.0
+License: MIT
+Source: https://github.com/marijnh/find-cluster-break
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/core-downloads-tracker@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/icons-material@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/material@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/private-theming@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/styled-engine@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/system@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/types@7.4.4
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: mui/utils@7.2.0
+License: MIT
+Source: https://github.com/mui/material-ui
+License file: licenses/MIT
+
+---
+Component:
+Version: popperjs/core@2.11.8
+License: MIT
+Source: https://github.com/popperjs/popper-core
+License file: licenses/MIT
+
+---
+Component:
+Version: protobufjs/aspromise@1.1.2
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/base64@1.1.2
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/codegen@2.0.4
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/eventemitter@1.1.0
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/fetch@1.1.0
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/float@1.0.2
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/inquire@1.1.0
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/path@1.1.2
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/pool@1.1.0
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: protobufjs/utf8@1.1.0
+License: BSD-3-Clause
+Source: https://github.com/dcodeIO/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component:
+Version: react-pdf/fns@3.1.2
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/font@4.0.2
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/image@3.0.3
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/layout@4.4.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/pdfkit@4.0.3
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/png-js@3.0.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/primitives@4.1.1
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/reconciler@1.1.4
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/render@4.3.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/renderer@4.3.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/stylesheet@6.1.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/textkit@6.0.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-pdf/types@2.9.0
+License: MIT
+Source: https://github.com/diegomura/react-pdf
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/animated@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/core@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/rafz@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/shared@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/types@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: react-spring/web@9.7.5
+License: MIT
+Source: https://github.com/pmndrs/react-spring
+License file: licenses/MIT
+
+---
+Component:
+Version: rollup/plugin-inject@5.0.5
+License: MIT
+Source: https://github.com/rollup/plugins
+License file: licenses/MIT
+
+---
+Component:
+Version: rollup/pluginutils@5.1.3
+License: MIT
+Source: https://github.com/rollup/plugins
+License file: licenses/MIT
+
+---
+Component:
+Version: rollup/rollup-darwin-arm64@4.44.1
+License: MIT
+Source: https://github.com/rollup/rollup
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry-internal/browser-utils@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry-internal/feedback@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry-internal/replay-canvas@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry-internal/replay@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry/browser@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry/core@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: sentry/react@9.39.0
+License: MIT
+Source: https://github.com/getsentry/sentry-javascript
+License file: licenses/MIT
+
+---
+Component:
+Version: standard-schema/utils@0.3.0
+License: MIT
+Source: https://github.com/standard-schema/standard-schema
+License file: licenses/MIT
+
+---
+Component:
+Version: streamparser/json@0.0.21
+License: MIT
+Source: https://github.com/juanjoDiaz/streamparser-json
+License file: licenses/MIT
+
+---
+Component:
+Version: stripe/react-stripe-js@3.8.0
+License: MIT
+Source: https://github.com/stripe/react-stripe-js
+License file: licenses/MIT
+
+---
+Component:
+Version: stripe/stripe-js@6.1.0
+License: MIT
+Source: https://github.com/stripe/stripe-js
+License file: licenses/MIT
+
+---
+Component:
+Version: swc/helpers@0.5.17
+License: Apache-2.0
+Source: https://github.com/swc-project/swc
+License file: licenses/Apache-2.0
+
+---
+Component:
+Version: tanstack/query-core@5.83.0
+License: MIT
+Source: https://github.com/TanStack/query
+License file: licenses/MIT
+
+---
+Component:
+Version: tanstack/react-query@5.83.0
+License: MIT
+Source: https://github.com/TanStack/query
+License file: licenses/MIT
+
+---
+Component:
+Version: tanstack/react-virtual@3.13.2
+License: MIT
+Source: https://github.com/TanStack/virtual
+License file: licenses/MIT
+
+---
+Component:
+Version: tanstack/virtual-core@3.13.2
+License: MIT
+Source: https://github.com/TanStack/virtual
+License file: licenses/MIT
+
+---
+Component:
+Version: testing-library/dom@10.4.0
+License: MIT
+Source: https://github.com/testing-library/dom-testing-library
+License file: licenses/MIT
+
+---
+Component:
+Version: testing-library/user-event@14.6.1
+License: MIT
+Source: https://github.com/testing-library/user-event
+License file: licenses/MIT
+
+---
+Component:
+Version: types/aria-query@5.0.1
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-array@3.0.3
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-cloud@1.2.5
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-color@3.1.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-delaunay@6.0.1
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-format@3.0.1
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-geo@3.1.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-hierarchy@1.1.11
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-interpolate@3.0.1
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-path@1.0.11
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-random@2.2.3
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-sankey@0.12.4
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-scale@4.0.2
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-shape@1.3.12
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-time-format@2.1.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-time@3.0.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3-voronoi@1.1.12
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/d3@3.5.53
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/debug@4.1.12
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/estree-jsx@1.0.5
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/estree@1.0.8
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/geojson@7946.0.13
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/hast@3.0.4
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/json-bigint@1.0.1
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/lodash@4.17.13
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/mdast@4.0.4
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/ms@0.7.31
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/node@22.16.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/parse-json@4.0.0
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/prop-types@15.7.15
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/react-dom@18.3.3
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/react-transition-group@4.4.12
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/react@18.3.14
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/unist@2.0.11
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: types/unist@3.0.3
+License: MIT
+Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+License file: licenses/MIT
+
+---
+Component:
+Version: ungap/structured-clone@1.2.0
+License: ISC
+Source: https://github.com/ungap/structured-clone
+License file: licenses/ISC
+
+---
+Component:
+Version: use-gesture/core@10.3.0
+License: MIT
+Source: https://github.com/pmndrs/use-gesture
+License file: licenses/MIT
+
+---
+Component:
+Version: use-gesture/react@10.3.0
+License: MIT
+Source: https://github.com/pmndrs/use-gesture
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/annotation@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/axis@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/bounds@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/brush@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/clip-path@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/curve@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/delaunay@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/drag@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/event@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/geo@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/glyph@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/gradient@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/grid@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/group@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/heatmap@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/hierarchy@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/legend@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/marker@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/mock-data@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/network@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/pattern@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/point@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/react-spring@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/responsive@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/sankey@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/scale@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/shape@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/text@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/threshold@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/tooltip@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/vendor@3.12.0
+License: ISC*
+Source: https://github.com/airbnb/visx
+License file: licenses/ISC_
+
+---
+Component:
+Version: visx/visx@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/voronoi@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/wordcloud@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/xychart@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: visx/zoom@3.12.0
+License: MIT
+Source: https://github.com/airbnb/visx
+License file: licenses/MIT
+
+---
+Component:
+Version: yarnpkg/lockfile@1.1.0
+License: BSD-2-Clause
+Source: https://github.com/yarnpkg/yarn/blob/master/packages/lockfile
+License file: licenses/BSD-2-Clause
+
+---
+Component: abort-controller
+Version: 3.0.0
+License: MIT
+Source: https://github.com/mysticatea/abort-controller
+License file: licenses/MIT
+
+---
+Component: abs-svg-path
+Version: 0.1.1
+License: MIT
+Source: https://github.com/jkroso/abs-svg-path
+License file: licenses/MIT
+
+---
+Component: agentkeepalive
+Version: 4.5.0
+License: MIT
+Source: https://github.com/node-modules/agentkeepalive
+License file: licenses/MIT
+
+---
+Component: ansi-regex
+Version: 5.0.1
+License: MIT
+Source: https://github.com/chalk/ansi-regex
+License file: licenses/MIT
+
+---
+Component: ansi-styles
+Version: 4.3.0
+License: MIT
+Source: https://github.com/chalk/ansi-styles
+License file: licenses/MIT
+
+---
+Component: ansi-styles
+Version: 5.2.0
+License: MIT
+Source: https://github.com/chalk/ansi-styles
+License file: licenses/MIT
+
+---
+Component: argparse
+Version: 2.0.1
+License: Python-2.0
+Source: https://github.com/nodeca/argparse
+License file: licenses/Python-2.0
+
+---
+Component: aria-query
+Version: 5.3.0
+License: Apache-2.0
+Source: https://github.com/A11yance/aria-query
+License file: licenses/Apache-2.0
+
+---
+Component: asynckit
+Version: 0.4.0
+License: MIT
+Source: https://github.com/alexindigo/asynckit
+License file: licenses/MIT
+
+---
+Component: at-least-node
+Version: 1.0.0
+License: ISC
+Source: https://github.com/RyanZim/at-least-node
+License file: licenses/ISC
+
+---
+Component: axios
+Version: 1.11.0
+License: MIT
+Source: https://github.com/axios/axios
+License file: licenses/MIT
+
+---
+Component: babel-plugin-macros
+Version: 3.1.0
+License: MIT
+Source: https://github.com/kentcdodds/babel-plugin-macros
+License file: licenses/MIT
+
+---
+Component: bail
+Version: 2.0.2
+License: MIT
+Source: https://github.com/wooorm/bail
+License file: licenses/MIT
+
+---
+Component: balanced-match
+Version: 0.4.2
+License: MIT
+Source: https://github.com/juliangruber/balanced-match
+License file: licenses/MIT
+
+---
+Component: balanced-match
+Version: 1.0.2
+License: MIT
+Source: https://github.com/juliangruber/balanced-match
+License file: licenses/MIT
+
+---
+Component: base64-js
+Version: 0.0.8
+License: MIT
+Source: https://github.com/beatgammit/base64-js
+License file: licenses/MIT
+
+---
+Component: base64-js
+Version: 1.5.1
+License: MIT
+Source: https://github.com/beatgammit/base64-js
+License file: licenses/MIT
+
+---
+Component: bidi-js
+Version: 1.0.3
+License: MIT
+Source: https://github.com/lojjic/bidi-js
+License file: licenses/MIT
+
+---
+Component: bignumber.js
+Version: 9.3.0
+License: MIT
+Source: https://github.com/MikeMcl/bignumber.js
+License file: licenses/MIT
+
+---
+Component: brace-expansion
+Version: 1.1.11
+License: MIT
+Source: https://github.com/juliangruber/brace-expansion
+License file: licenses/MIT
+
+---
+Component: braces
+Version: 3.0.3
+License: MIT
+Source: https://github.com/micromatch/braces
+License file: licenses/MIT
+
+---
+Component: brotli
+Version: 1.3.3
+License: MIT
+Source: https://github.com/devongovett/brotli.js
+License file: licenses/MIT
+
+---
+Component: browserify-zlib
+Version: 0.2.0
+License: MIT
+Source: https://github.com/devongovett/browserify-zlib
+License file: licenses/MIT
+
+---
+Component: bundle-name
+Version: 4.1.0
+License: MIT
+Source: https://github.com/sindresorhus/bundle-name
+License file: licenses/MIT
+
+---
+Component: call-bind-apply-helpers
+Version: 1.0.2
+License: MIT
+Source: https://github.com/ljharb/call-bind-apply-helpers
+License file: licenses/MIT
+
+---
+Component: call-bind
+Version: 1.0.8
+License: MIT
+Source: https://github.com/ljharb/call-bind
+License file: licenses/MIT
+
+---
+Component: call-bound
+Version: 1.0.4
+License: MIT
+Source: https://github.com/ljharb/call-bound
+License file: licenses/MIT
+
+---
+Component: callsites
+Version: 3.1.0
+License: MIT
+Source: https://github.com/sindresorhus/callsites
+License file: licenses/MIT
+
+---
+Component: ccount
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/ccount
+License file: licenses/MIT
+
+---
+Component: centrifuge
+Version: 5.4.0
+License: MIT
+Source: https://github.com/centrifugal/centrifuge-js
+License file: licenses/MIT
+
+---
+Component: chalk
+Version: 4.1.2
+License: MIT
+Source: https://github.com/chalk/chalk
+License file: licenses/MIT
+
+---
+Component: character-entities-html4
+Version: 2.1.0
+License: MIT
+Source: https://github.com/wooorm/character-entities-html4
+License file: licenses/MIT
+
+---
+Component: character-entities-legacy
+Version: 3.0.0
+License: MIT
+Source: https://github.com/wooorm/character-entities-legacy
+License file: licenses/MIT
+
+---
+Component: character-entities
+Version: 2.0.2
+License: MIT
+Source: https://github.com/wooorm/character-entities
+License file: licenses/MIT
+
+---
+Component: character-reference-invalid
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/character-reference-invalid
+License file: licenses/MIT
+
+---
+Component: ci-info
+Version: 3.8.0
+License: MIT
+Source: https://github.com/watson/ci-info
+License file: licenses/MIT
+
+---
+Component: classnames
+Version: 2.5.1
+License: MIT
+Source: https://github.com/JedWatson/classnames
+License file: licenses/MIT
+
+---
+Component: cliui
+Version: 8.0.1
+License: ISC
+Source: https://github.com/yargs/cliui
+License file: licenses/ISC
+
+---
+Component: clone-regexp
+Version: 3.0.0
+License: MIT
+Source: https://github.com/sindresorhus/clone-regexp
+License file: licenses/MIT
+
+---
+Component: clone
+Version: 2.1.2
+License: MIT
+Source: https://github.com/pvorb/node-clone
+License file: licenses/MIT
+
+---
+Component: clsx
+Version: 1.2.1
+License: MIT
+Source: https://github.com/lukeed/clsx
+License file: licenses/MIT
+
+---
+Component: clsx
+Version: 2.1.1
+License: MIT
+Source: https://github.com/lukeed/clsx
+License file: licenses/MIT
+
+---
+Component: codemirror
+Version: 6.0.1
+License: MIT
+Source: https://github.com/codemirror/basic-setup
+License file: licenses/MIT
+
+---
+Component: color-convert
+Version: 2.0.1
+License: MIT
+Source: https://github.com/Qix-/color-convert
+License file: licenses/MIT
+
+---
+Component: color-name
+Version: 1.1.4
+License: MIT
+Source: https://github.com/colorjs/color-name
+License file: licenses/MIT
+
+---
+Component: color-string
+Version: 1.9.1
+License: MIT
+Source: https://github.com/Qix-/color-string
+License file: licenses/MIT
+
+---
+Component: combined-stream
+Version: 1.0.8
+License: MIT
+Source: https://github.com/felixge/node-combined-stream
+License file: licenses/MIT
+
+---
+Component: comma-separated-tokens
+Version: 2.0.3
+License: MIT
+Source: https://github.com/wooorm/comma-separated-tokens
+License file: licenses/MIT
+
+---
+Component: commander
+Version: 2.20.3
+License: MIT
+Source: https://github.com/tj/commander.js
+License file: licenses/MIT
+
+---
+Component: concat-map
+Version: 0.0.1
+License: MIT
+Source: https://github.com/substack/node-concat-map
+License file: licenses/MIT
+
+---
+Component: convert-hrtime
+Version: 5.0.0
+License: MIT
+Source: https://github.com/sindresorhus/convert-hrtime
+License file: licenses/MIT
+
+---
+Component: convert-source-map
+Version: 1.9.0
+License: MIT
+Source: https://github.com/thlorenz/convert-source-map
+License file: licenses/MIT
+
+---
+Component: cookie
+Version: 1.0.2
+License: MIT
+Source: https://github.com/jshttp/cookie
+License file: licenses/MIT
+
+---
+Component: copy-to-clipboard
+Version: 3.3.3
+License: MIT
+Source: https://github.com/sudodoki/copy-to-clipboard
+License file: licenses/MIT
+
+---
+Component: cosmiconfig
+Version: 7.1.0
+License: MIT
+Source: https://github.com/davidtheclark/cosmiconfig
+License file: licenses/MIT
+
+---
+Component: crelt
+Version: 1.0.6
+License: MIT
+Source: https://github.com/marijnh/crelt
+License file: licenses/MIT
+
+---
+Component: cross-spawn
+Version: 7.0.5
+License: MIT
+Source: https://github.com/moxystudio/node-cross-spawn
+License file: licenses/MIT
+
+---
+Component: crypto-js
+Version: 4.2.0
+License: MIT
+Source: https://github.com/brix/crypto-js
+License file: licenses/MIT
+
+---
+Component: csstype
+Version: 3.1.3
+License: MIT
+Source: https://github.com/frenic/csstype
+License file: licenses/MIT
+
+---
+Component: csv-stringify
+Version: 6.6.0
+License: MIT
+Source: https://github.com/adaltas/node-csv
+License file: licenses/MIT
+
+---
+Component: d3-array
+Version: 2.12.1
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-array
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-array
+Version: 3.2.1
+License: ISC
+Source: https://github.com/d3/d3-array
+License file: licenses/ISC
+
+---
+Component: d3-array
+Version: 3.2.4
+License: ISC
+Source: https://github.com/d3/d3-array
+License file: licenses/ISC
+
+---
+Component: d3-cloud
+Version: 1.2.7
+License: BSD-3-Clause
+Source: https://github.com/jasondavies/d3-cloud
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-color
+Version: 3.1.0
+License: ISC
+Source: https://github.com/d3/d3-color
+License file: licenses/ISC
+
+---
+Component: d3-delaunay
+Version: 6.0.2
+License: ISC
+Source: https://github.com/d3/d3-delaunay
+License file: licenses/ISC
+
+---
+Component: d3-dispatch
+Version: 1.0.6
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-dispatch
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-format
+Version: 3.1.0
+License: ISC
+Source: https://github.com/d3/d3-format
+License file: licenses/ISC
+
+---
+Component: d3-geo
+Version: 3.1.0
+License: ISC
+Source: https://github.com/d3/d3-geo
+License file: licenses/ISC
+
+---
+Component: d3-hierarchy
+Version: 1.1.9
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-hierarchy
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-interpolate-path
+Version: 2.2.1
+License: BSD-3-Clause
+Source: https://github.com/pbeshai/d3-interpolate-path
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-interpolate
+Version: 3.0.1
+License: ISC
+Source: https://github.com/d3/d3-interpolate
+License file: licenses/ISC
+
+---
+Component: d3-path
+Version: 1.0.9
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-path
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-random
+Version: 2.2.2
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-random
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-sankey
+Version: 0.12.3
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-sankey
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-scale
+Version: 4.0.2
+License: ISC
+Source: https://github.com/d3/d3-scale
+License file: licenses/ISC
+
+---
+Component: d3-shape
+Version: 1.3.7
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-shape
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-shape
+Version: 2.1.0
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-shape
+License file: licenses/BSD-3-Clause
+
+---
+Component: d3-time-format
+Version: 4.1.0
+License: ISC
+Source: https://github.com/d3/d3-time-format
+License file: licenses/ISC
+
+---
+Component: d3-time
+Version: 3.1.0
+License: ISC
+Source: https://github.com/d3/d3-time
+License file: licenses/ISC
+
+---
+Component: d3-voronoi
+Version: 1.1.4
+License: BSD-3-Clause
+Source: https://github.com/d3/d3-voronoi
+License file: licenses/BSD-3-Clause
+
+---
+Component: date-fns-jalali
+Version: 4.1.0-0
+License: MIT
+Source: https://github.com/date-fns-jalali/date-fns-jalali
+License file: licenses/MIT
+
+---
+Component: date-fns
+Version: 4.1.0
+License: MIT
+Source: https://github.com/date-fns/date-fns
+License file: licenses/MIT
+
+---
+Component: debounce
+Version: 1.2.1
+License: MIT
+Source: https://github.com/component/debounce
+License file: licenses/MIT
+
+---
+Component: debug
+Version: 4.4.1
+License: MIT
+Source: https://github.com/debug-js/debug
+License file: licenses/MIT
+
+---
+Component: decode-named-character-reference
+Version: 1.1.0
+License: MIT
+Source: https://github.com/wooorm/decode-named-character-reference
+License file: licenses/MIT
+
+---
+Component: default-browser-id
+Version: 5.0.0
+License: MIT
+Source: https://github.com/sindresorhus/default-browser-id
+License file: licenses/MIT
+
+---
+Component: default-browser
+Version: 5.2.1
+License: MIT
+Source: https://github.com/sindresorhus/default-browser
+License file: licenses/MIT
+
+---
+Component: define-data-property
+Version: 1.1.4
+License: MIT
+Source: https://github.com/ljharb/define-data-property
+License file: licenses/MIT
+
+---
+Component: define-lazy-prop
+Version: 3.0.0
+License: MIT
+Source: https://github.com/sindresorhus/define-lazy-prop
+License file: licenses/MIT
+
+---
+Component: delaunator
+Version: 5.0.1
+License: ISC
+Source: https://github.com/mapbox/delaunator
+License file: licenses/ISC
+
+---
+Component: delayed-stream
+Version: 1.0.0
+License: MIT
+Source: https://github.com/felixge/node-delayed-stream
+License file: licenses/MIT
+
+---
+Component: dequal
+Version: 2.0.3
+License: MIT
+Source: https://github.com/lukeed/dequal
+License file: licenses/MIT
+
+---
+Component: devlop
+Version: 1.1.0
+License: MIT
+Source: https://github.com/wooorm/devlop
+License file: licenses/MIT
+
+---
+Component: dfa
+Version: 1.2.0
+License: MIT
+Source: https://github.com/devongovett/dfa
+License file: licenses/MIT
+
+---
+Component: discontinuous-range
+Version: 1.0.0
+License: MIT
+Source: https://github.com/dtudury/discontinuous-range
+License file: licenses/MIT
+
+---
+Component: dom-accessibility-api
+Version: 0.5.16
+License: MIT
+Source: https://github.com/eps1lon/dom-accessibility-api
+License file: licenses/MIT
+
+---
+Component: dom-helpers
+Version: 5.2.1
+License: MIT
+Source: https://github.com/react-bootstrap/dom-helpers
+License file: licenses/MIT
+
+---
+Component: dunder-proto
+Version: 1.0.1
+License: MIT
+Source: https://github.com/es-shims/dunder-proto
+License file: licenses/MIT
+
+---
+Component: emoji-regex
+Version: 10.4.0
+License: MIT
+Source: https://github.com/mathiasbynens/emoji-regex
+License file: licenses/MIT
+
+---
+Component: emoji-regex
+Version: 8.0.0
+License: MIT
+Source: https://github.com/mathiasbynens/emoji-regex
+License file: licenses/MIT
+
+---
+Component: error-ex
+Version: 1.3.2
+License: MIT
+Source: https://github.com/qix-/node-error-ex
+License file: licenses/MIT
+
+---
+Component: es-define-property
+Version: 1.0.1
+License: MIT
+Source: https://github.com/ljharb/es-define-property
+License file: licenses/MIT
+
+---
+Component: es-errors
+Version: 1.3.0
+License: MIT
+Source: https://github.com/ljharb/es-errors
+License file: licenses/MIT
+
+---
+Component: es-object-atoms
+Version: 1.1.1
+License: MIT
+Source: https://github.com/ljharb/es-object-atoms
+License file: licenses/MIT
+
+---
+Component: es-set-tostringtag
+Version: 2.1.0
+License: MIT
+Source: https://github.com/es-shims/es-set-tostringtag
+License file: licenses/MIT
+
+---
+Component: esbuild
+Version: 0.25.2
+License: MIT
+Source: https://github.com/evanw/esbuild
+License file: licenses/MIT
+
+---
+Component: escalade
+Version: 3.2.0
+License: MIT
+Source: https://github.com/lukeed/escalade
+License file: licenses/MIT
+
+---
+Component: escape-string-regexp
+Version: 4.0.0
+License: MIT
+Source: https://github.com/sindresorhus/escape-string-regexp
+License file: licenses/MIT
+
+---
+Component: escape-string-regexp
+Version: 5.0.0
+License: MIT
+Source: https://github.com/sindresorhus/escape-string-regexp
+License file: licenses/MIT
+
+---
+Component: estree-util-is-identifier-name
+Version: 3.0.0
+License: MIT
+Source: https://github.com/syntax-tree/estree-util-is-identifier-name
+License file: licenses/MIT
+
+---
+Component: estree-walker
+Version: 0.6.1
+License: MIT
+Source: https://github.com/Rich-Harris/estree-walker
+License file: licenses/MIT
+
+---
+Component: estree-walker
+Version: 2.0.2
+License: MIT
+Source: https://github.com/Rich-Harris/estree-walker
+License file: licenses/MIT
+
+---
+Component: event-target-shim
+Version: 5.0.1
+License: MIT
+Source: https://github.com/mysticatea/event-target-shim
+License file: licenses/MIT
+
+---
+Component: events
+Version: 3.3.0
+License: MIT
+Source: https://github.com/Gozala/events
+License file: licenses/MIT
+
+---
+Component: extend
+Version: 3.0.2
+License: MIT
+Source: https://github.com/justmoon/node-extend
+License file: licenses/MIT
+
+---
+Component: fast-deep-equal
+Version: 2.0.1
+License: MIT
+Source: https://github.com/epoberezkin/fast-deep-equal
+License file: licenses/MIT
+
+---
+Component: fast-deep-equal
+Version: 3.1.3
+License: MIT
+Source: https://github.com/epoberezkin/fast-deep-equal
+License file: licenses/MIT
+
+---
+Component: fill-range
+Version: 7.1.1
+License: MIT
+Source: https://github.com/jonschlinkert/fill-range
+License file: licenses/MIT
+
+---
+Component: find-root
+Version: 1.1.0
+License: MIT
+Source: https://github.com/js-n/find-root
+License file: licenses/MIT
+
+---
+Component: find-yarn-workspace-root
+Version: 2.0.0
+License: Apache-2.0
+Source: https://github.com/square/find-yarn-workspace-root
+License file: licenses/Apache-2.0
+
+---
+Component: firebolt-sdk
+Version: 1.11.0
+License: Apache-2.0
+License file: licenses/Apache-2.0
+
+---
+Component: firebolt-ui
+Version: 1.52.0
+License: Elv2
+License file: LICENSE.md
+
+---
+Component: flat-map-polyfill
+Version: 0.3.8
+License: MIT
+Source: https://github.com/aluanhaddad/flat-map
+License file: licenses/MIT
+
+---
+Component: follow-redirects
+Version: 1.15.6
+License: MIT
+Source: https://github.com/follow-redirects/follow-redirects
+License file: licenses/MIT
+
+---
+Component: fontkit
+Version: 2.0.4
+License: MIT
+Source: https://github.com/foliojs/fontkit
+License file: licenses/MIT
+
+---
+Component: form-data
+Version: 4.0.4
+License: MIT
+Source: https://github.com/form-data/form-data
+License file: licenses/MIT
+
+---
+Component: fs-extra
+Version: 9.1.0
+License: MIT
+Source: https://github.com/jprichardson/node-fs-extra
+License file: licenses/MIT
+
+---
+Component: fs.realpath
+Version: 1.0.0
+License: ISC
+Source: https://github.com/isaacs/fs.realpath
+License file: licenses/ISC
+
+---
+Component: fsevents
+Version: 2.3.3
+License: MIT
+Source: https://github.com/fsevents/fsevents
+License file: licenses/MIT
+
+---
+Component: function-bind
+Version: 1.1.2
+License: MIT
+Source: https://github.com/Raynos/function-bind
+License file: licenses/MIT
+
+---
+Component: function-timeout
+Version: 0.1.1
+License: MIT
+Source: https://github.com/sindresorhus/function-timeout
+License file: licenses/MIT
+
+---
+Component: get-caller-file
+Version: 2.0.5
+License: ISC
+Source: https://github.com/stefanpenner/get-caller-file
+License file: licenses/ISC
+
+---
+Component: get-intrinsic
+Version: 1.3.0
+License: MIT
+Source: https://github.com/ljharb/get-intrinsic
+License file: licenses/MIT
+
+---
+Component: get-proto
+Version: 1.0.1
+License: MIT
+Source: https://github.com/ljharb/get-proto
+License file: licenses/MIT
+
+---
+Component: glob
+Version: 7.2.3
+License: ISC
+Source: https://github.com/isaacs/node-glob
+License file: licenses/ISC
+
+---
+Component: globals
+Version: 11.12.0
+License: MIT
+Source: https://github.com/sindresorhus/globals
+License file: licenses/MIT
+
+---
+Component: gopd
+Version: 1.2.0
+License: MIT
+Source: https://github.com/ljharb/gopd
+License file: licenses/MIT
+
+---
+Component: graceful-fs
+Version: 4.2.11
+License: ISC
+Source: https://github.com/isaacs/node-graceful-fs
+License file: licenses/ISC
+
+---
+Component: has-flag
+Version: 4.0.0
+License: MIT
+Source: https://github.com/sindresorhus/has-flag
+License file: licenses/MIT
+
+---
+Component: has-property-descriptors
+Version: 1.0.2
+License: MIT
+Source: https://github.com/inspect-js/has-property-descriptors
+License file: licenses/MIT
+
+---
+Component: has-symbols
+Version: 1.1.0
+License: MIT
+Source: https://github.com/inspect-js/has-symbols
+License file: licenses/MIT
+
+---
+Component: has-tostringtag
+Version: 1.0.2
+License: MIT
+Source: https://github.com/inspect-js/has-tostringtag
+License file: licenses/MIT
+
+---
+Component: hasown
+Version: 2.0.2
+License: MIT
+Source: https://github.com/inspect-js/hasOwn
+License file: licenses/MIT
+
+---
+Component: hast-util-to-jsx-runtime
+Version: 2.3.6
+License: MIT
+Source: https://github.com/syntax-tree/hast-util-to-jsx-runtime
+License file: licenses/MIT
+
+---
+Component: hast-util-whitespace
+Version: 3.0.0
+License: MIT
+Source: https://github.com/syntax-tree/hast-util-whitespace
+License file: licenses/MIT
+
+---
+Component: highlight-words-core
+Version: 1.2.2
+License: MIT
+Source: github.com/bvaughn/highlight-words-core
+License file: licenses/MIT
+
+---
+Component: hoist-non-react-statics
+Version: 3.3.2
+License: BSD-3-Clause
+Source: https://github.com/mridgway/hoist-non-react-statics
+License file: licenses/BSD-3-Clause
+
+---
+Component: hsl-to-hex
+Version: 1.0.0
+License: MIT
+Source: https://github.com/davidmarkclements/hsl-to-hex
+License file: licenses/MIT
+
+---
+Component: hsl-to-rgb-for-reals
+Version: 1.1.1
+License: ISC
+Source: https://github.com/davidmarkclements/hsl_rgb_converter
+License file: licenses/ISC
+
+---
+Component: html-parse-stringify
+Version: 3.0.1
+License: MIT
+Source: https://github.com/henrikjoreteg/html-parse-stringify
+License file: licenses/MIT
+
+---
+Component: html-url-attributes
+Version: 3.0.1
+License: MIT
+Source: https://github.com/rehypejs/rehype-minify/tree/main/packages/html-url-attributes
+License file: licenses/MIT
+
+---
+Component: humanize-ms
+Version: 1.2.1
+License: MIT
+Source: https://github.com/node-modules/humanize-ms
+License file: licenses/MIT
+
+---
+Component: hyphen
+Version: 1.10.6
+License: ISC
+Source: https://github.com/ytiurin/hyphen
+License file: licenses/ISC
+
+---
+Component: i18next
+Version: 25.3.0
+License: MIT
+Source: https://github.com/i18next/i18next
+License file: licenses/MIT
+
+---
+Component: immediate
+Version: 3.0.6
+License: MIT
+Source: https://github.com/calvinmetcalf/immediate
+License file: licenses/MIT
+
+---
+Component: import-fresh
+Version: 3.3.0
+License: MIT
+Source: https://github.com/sindresorhus/import-fresh
+License file: licenses/MIT
+
+---
+Component: inflight
+Version: 1.0.6
+License: ISC
+Source: https://github.com/npm/inflight
+License file: licenses/ISC
+
+---
+Component: inherits
+Version: 2.0.4
+License: ISC
+Source: https://github.com/isaacs/inherits
+License file: licenses/ISC
+
+---
+Component: inline-style-parser
+Version: 0.2.4
+License: MIT
+Source: https://github.com/remarkablemark/inline-style-parser
+License file: licenses/MIT
+
+---
+Component: internmap
+Version: 1.0.1
+License: ISC
+Source: https://github.com/mbostock/internmap
+License file: licenses/ISC
+
+---
+Component: internmap
+Version: 2.0.3
+License: ISC
+Source: https://github.com/mbostock/internmap
+License file: licenses/ISC
+
+---
+Component: invariant
+Version: 2.2.4
+License: MIT
+Source: https://github.com/zertosh/invariant
+License file: licenses/MIT
+
+---
+Component: ip-regex
+Version: 5.0.0
+License: MIT
+Source: https://github.com/sindresorhus/ip-regex
+License file: licenses/MIT
+
+---
+Component: is-alphabetical
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/is-alphabetical
+License file: licenses/MIT
+
+---
+Component: is-alphanumerical
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/is-alphanumerical
+License file: licenses/MIT
+
+---
+Component: is-arrayish
+Version: 0.2.1
+License: MIT
+Source: https://github.com/qix-/node-is-arrayish
+License file: licenses/MIT
+
+---
+Component: is-arrayish
+Version: 0.3.2
+License: MIT
+Source: https://github.com/qix-/node-is-arrayish
+License file: licenses/MIT
+
+---
+Component: is-core-module
+Version: 2.15.1
+License: MIT
+Source: https://github.com/inspect-js/is-core-module
+License file: licenses/MIT
+
+---
+Component: is-decimal
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/is-decimal
+License file: licenses/MIT
+
+---
+Component: is-docker
+Version: 2.2.1
+License: MIT
+Source: https://github.com/sindresorhus/is-docker
+License file: licenses/MIT
+
+---
+Component: is-docker
+Version: 3.0.0
+License: MIT
+Source: https://github.com/sindresorhus/is-docker
+License file: licenses/MIT
+
+---
+Component: is-fullwidth-code-point
+Version: 3.0.0
+License: MIT
+Source: https://github.com/sindresorhus/is-fullwidth-code-point
+License file: licenses/MIT
+
+---
+Component: is-hexadecimal
+Version: 2.0.1
+License: MIT
+Source: https://github.com/wooorm/is-hexadecimal
+License file: licenses/MIT
+
+---
+Component: is-inside-container
+Version: 1.0.0
+License: MIT
+Source: https://github.com/sindresorhus/is-inside-container
+License file: licenses/MIT
+
+---
+Component: is-ip
+Version: 5.0.1
+License: MIT
+Source: https://github.com/sindresorhus/is-ip
+License file: licenses/MIT
+
+---
+Component: is-number
+Version: 7.0.0
+License: MIT
+Source: https://github.com/jonschlinkert/is-number
+License file: licenses/MIT
+
+---
+Component: is-plain-obj
+Version: 4.1.0
+License: MIT
+Source: https://github.com/sindresorhus/is-plain-obj
+License file: licenses/MIT
+
+---
+Component: is-regexp
+Version: 3.1.0
+License: MIT
+Source: https://github.com/sindresorhus/is-regexp
+License file: licenses/MIT
+
+---
+Component: is-url
+Version: 1.2.4
+License: MIT
+Source: https://github.com/segmentio/is-url
+License file: licenses/MIT
+
+---
+Component: is-wsl
+Version: 2.2.0
+License: MIT
+Source: https://github.com/sindresorhus/is-wsl
+License file: licenses/MIT
+
+---
+Component: is-wsl
+Version: 3.1.0
+License: MIT
+Source: https://github.com/sindresorhus/is-wsl
+License file: licenses/MIT
+
+---
+Component: isarray
+Version: 2.0.5
+License: MIT
+Source: https://github.com/juliangruber/isarray
+License file: licenses/MIT
+
+---
+Component: isexe
+Version: 2.0.0
+License: ISC
+Source: https://github.com/isaacs/isexe
+License file: licenses/ISC
+
+---
+Component: jay-peg
+Version: 1.1.1
+License: MIT
+License file: licenses/MIT
+
+---
+Component: js-tokens
+Version: 4.0.0
+License: MIT
+Source: https://github.com/lydell/js-tokens
+License file: licenses/MIT
+
+---
+Component: jsesc
+Version: 3.0.2
+License: MIT
+Source: https://github.com/mathiasbynens/jsesc
+License file: licenses/MIT
+
+---
+Component: json-bigint
+Version: 1.0.0
+License: MIT
+Source: https://github.com/sidorares/json-bigint
+License file: licenses/MIT
+
+---
+Component: json-parse-even-better-errors
+Version: 2.3.1
+License: MIT
+Source: https://github.com/npm/json-parse-even-better-errors
+License file: licenses/MIT
+
+---
+Component: json-stable-stringify
+Version: 1.2.1
+License: MIT
+Source: https://github.com/ljharb/json-stable-stringify
+License file: licenses/MIT
+
+---
+Component: jsonfile
+Version: 6.1.0
+License: MIT
+Source: https://github.com/jprichardson/node-jsonfile
+License file: licenses/MIT
+
+---
+Component: jsonify
+Version: 0.0.1
+License: Public Domain
+Source: https://github.com/ljharb/jsonify
+License file: licenses/Public_Domain
+
+---
+Component: jwt-decode
+Version: 4.0.0
+License: MIT
+Source: https://github.com/auth0/jwt-decode
+License file: licenses/MIT
+
+---
+Component: klaw-sync
+Version: 6.0.0
+License: MIT
+Source: https://github.com/manidlou/node-klaw-sync
+License file: licenses/MIT
+
+---
+Component: launchdarkly-js-client-sdk
+Version: 3.8.0
+License: Apache-2.0
+Source: https://github.com/launchdarkly/js-client-sdk
+License file: licenses/Apache-2.0
+
+---
+Component: launchdarkly-js-sdk-common
+Version: 5.7.0
+License: Apache-2.0
+Source: https://github.com/launchdarkly/js-sdk-common
+License file: licenses/Apache-2.0
+
+---
+Component: launchdarkly-react-client-sdk
+Version: 3.8.0
+License: Apache-2.0
+Source: https://github.com/launchdarkly/react-client-sdk
+License file: licenses/Apache-2.0
+
+---
+Component: lie
+Version: 3.1.1
+License: MIT
+Source: https://github.com/calvinmetcalf/lie
+License file: licenses/MIT
+
+---
+Component: linebreak
+Version: 1.1.0
+License: MIT
+Source: https://github.com/devongovett/linebreaker
+License file: licenses/MIT
+
+---
+Component: lines-and-columns
+Version: 1.2.4
+License: MIT
+Source: https://github.com/eventualbuddha/lines-and-columns
+License file: licenses/MIT
+
+---
+Component: localforage
+Version: 1.10.0
+License: Apache-2.0
+Source: https://github.com/localForage/localForage
+License file: licenses/Apache-2.0
+
+---
+Component: lodash.camelcase
+Version: 4.3.0
+License: MIT
+Source: https://github.com/lodash/lodash
+License file: licenses/MIT
+
+---
+Component: lodash
+Version: 4.17.21
+License: MIT
+Source: https://github.com/lodash/lodash
+License file: licenses/MIT
+
+---
+Component: long
+Version: 5.2.3
+License: Apache-2.0
+Source: https://github.com/dcodeIO/long.js
+License file: licenses/Apache-2.0
+
+---
+Component: longest-streak
+Version: 3.1.0
+License: MIT
+Source: https://github.com/wooorm/longest-streak
+License file: licenses/MIT
+
+---
+Component: loose-envify
+Version: 1.4.0
+License: MIT
+Source: https://github.com/zertosh/loose-envify
+License file: licenses/MIT
+
+---
+Component: lru-memoize
+Version: 1.1.0
+License: MIT
+Source: https://github.com/erikras/lru-memoize
+License file: licenses/MIT
+
+---
+Component: lz-string
+Version: 1.5.0
+License: MIT
+Source: https://github.com/pieroxy/lz-string
+License file: licenses/MIT
+
+---
+Component: magic-string
+Version: 0.25.9
+License: MIT
+Source: https://github.com/rich-harris/magic-string
+License file: licenses/MIT
+
+---
+Component: magic-string
+Version: 0.30.17
+License: MIT
+Source: https://github.com/rich-harris/magic-string
+License file: licenses/MIT
+
+---
+Component: markdown-table
+Version: 3.0.4
+License: MIT
+Source: https://github.com/wooorm/markdown-table
+License file: licenses/MIT
+
+---
+Component: math-expression-evaluator
+Version: 1.4.0
+License: MIT
+Source: https://github.com/redhivesoftware/math-expression-evaluator
+License file: licenses/MIT
+
+---
+Component: math-intrinsics
+Version: 1.1.0
+License: MIT
+Source: https://github.com/es-shims/math-intrinsics
+License file: licenses/MIT
+
+---
+Component: mdast-util-find-and-replace
+Version: 3.0.2
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-find-and-replace
+License file: licenses/MIT
+
+---
+Component: mdast-util-from-markdown
+Version: 2.0.2
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-from-markdown
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm-autolink-literal
+Version: 2.0.1
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm-autolink-literal
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm-footnote
+Version: 2.1.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm-footnote
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm-strikethrough
+Version: 2.0.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm-strikethrough
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm-table
+Version: 2.0.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm-table
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm-task-list-item
+Version: 2.0.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm-task-list-item
+License file: licenses/MIT
+
+---
+Component: mdast-util-gfm
+Version: 3.1.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-gfm
+License file: licenses/MIT
+
+---
+Component: mdast-util-mdx-expression
+Version: 2.0.1
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-mdx-expression
+License file: licenses/MIT
+
+---
+Component: mdast-util-mdx-jsx
+Version: 3.2.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-mdx-jsx
+License file: licenses/MIT
+
+---
+Component: mdast-util-mdxjs-esm
+Version: 2.0.1
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-mdxjs-esm
+License file: licenses/MIT
+
+---
+Component: mdast-util-phrasing
+Version: 4.1.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-phrasing
+License file: licenses/MIT
+
+---
+Component: mdast-util-to-hast
+Version: 13.2.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-to-hast
+License file: licenses/MIT
+
+---
+Component: mdast-util-to-markdown
+Version: 2.1.2
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-to-markdown
+License file: licenses/MIT
+
+---
+Component: mdast-util-to-string
+Version: 4.0.0
+License: MIT
+Source: https://github.com/syntax-tree/mdast-util-to-string
+License file: licenses/MIT
+
+---
+Component: media-engine
+Version: 1.0.3
+License: MIT
+License file: licenses/MIT
+
+---
+Component: memoize-one
+Version: 4.0.3
+License: MIT
+Source: https://github.com/alexreardon/memoize-one
+License file: licenses/MIT
+
+---
+Component: micromark-core-commonmark
+Version: 2.0.3
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-core-commonmark
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-autolink-literal
+Version: 2.1.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-autolink-literal
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-footnote
+Version: 2.1.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-footnote
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-strikethrough
+Version: 2.1.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-strikethrough
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-table
+Version: 2.1.1
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-table
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-tagfilter
+Version: 2.0.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-tagfilter
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm-task-list-item
+Version: 2.1.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm-task-list-item
+License file: licenses/MIT
+
+---
+Component: micromark-extension-gfm
+Version: 3.0.0
+License: MIT
+Source: https://github.com/micromark/micromark-extension-gfm
+License file: licenses/MIT
+
+---
+Component: micromark-factory-destination
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-destination
+License file: licenses/MIT
+
+---
+Component: micromark-factory-label
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-label
+License file: licenses/MIT
+
+---
+Component: micromark-factory-space
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-space
+License file: licenses/MIT
+
+---
+Component: micromark-factory-title
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-title
+License file: licenses/MIT
+
+---
+Component: micromark-factory-whitespace
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-whitespace
+License file: licenses/MIT
+
+---
+Component: micromark-util-character
+Version: 2.1.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-character
+License file: licenses/MIT
+
+---
+Component: micromark-util-chunked
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-chunked
+License file: licenses/MIT
+
+---
+Component: micromark-util-classify-character
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-classify-character
+License file: licenses/MIT
+
+---
+Component: micromark-util-combine-extensions
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-combine-extensions
+License file: licenses/MIT
+
+---
+Component: micromark-util-decode-numeric-character-reference
+Version: 2.0.2
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-numeric-character-reference
+License file: licenses/MIT
+
+---
+Component: micromark-util-decode-string
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-string
+License file: licenses/MIT
+
+---
+Component: micromark-util-encode
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-encode
+License file: licenses/MIT
+
+---
+Component: micromark-util-html-tag-name
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-html-tag-name
+License file: licenses/MIT
+
+---
+Component: micromark-util-normalize-identifier
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-normalize-identifier
+License file: licenses/MIT
+
+---
+Component: micromark-util-resolve-all
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-resolve-all
+License file: licenses/MIT
+
+---
+Component: micromark-util-sanitize-uri
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-sanitize-uri
+License file: licenses/MIT
+
+---
+Component: micromark-util-subtokenize
+Version: 2.1.0
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-subtokenize
+License file: licenses/MIT
+
+---
+Component: micromark-util-symbol
+Version: 2.0.1
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-symbol
+License file: licenses/MIT
+
+---
+Component: micromark-util-types
+Version: 2.0.2
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark-util-types
+License file: licenses/MIT
+
+---
+Component: micromark
+Version: 4.0.2
+License: MIT
+Source: https://github.com/micromark/micromark/tree/main/packages/micromark
+License file: licenses/MIT
+
+---
+Component: micromatch
+Version: 4.0.8
+License: MIT
+Source: https://github.com/micromatch/micromatch
+License file: licenses/MIT
+
+---
+Component: mime-db
+Version: 1.52.0
+License: MIT
+Source: https://github.com/jshttp/mime-db
+License file: licenses/MIT
+
+---
+Component: mime-types
+Version: 2.1.35
+License: MIT
+Source: https://github.com/jshttp/mime-types
+License file: licenses/MIT
+
+---
+Component: minimatch
+Version: 3.1.2
+License: ISC
+Source: https://github.com/isaacs/minimatch
+License file: licenses/ISC
+
+---
+Component: minimist
+Version: 1.2.8
+License: MIT
+Source: https://github.com/minimistjs/minimist
+License file: licenses/MIT
+
+---
+Component: mitt
+Version: 2.1.0
+License: MIT
+Source: https://github.com/developit/mitt
+License file: licenses/MIT
+
+---
+Component: moment
+Version: 2.30.1
+License: MIT
+Source: https://github.com/moment/moment
+License file: licenses/MIT
+
+---
+Component: moo
+Version: 0.5.2
+License: BSD-3-Clause
+Source: https://github.com/tjvr/moo
+License file: licenses/BSD-3-Clause
+
+---
+Component: ms
+Version: 2.1.3
+License: MIT
+Source: https://github.com/vercel/ms
+License file: licenses/MIT
+
+---
+Component: nearley
+Version: 2.20.1
+License: MIT
+Source: https://github.com/hardmath123/nearley
+License file: licenses/MIT
+
+---
+Component: node-fetch
+Version: 2.6.9
+License: MIT
+Source: https://github.com/bitinn/node-fetch
+License file: licenses/MIT
+
+---
+Component: node_js_ipqs_device_tracker
+Version: 1.2.0
+License: MIT
+Source: https://github.com/IPQualityScore/NodeJSIPQSDeviceTracker
+License file: licenses/MIT
+
+---
+Component: normalize-svg-path
+Version: 1.1.0
+License: MIT
+Source: https://github.com/jkroso/normalize-svg-path
+License file: licenses/MIT
+
+---
+Component: object-assign
+Version: 4.1.1
+License: MIT
+Source: https://github.com/sindresorhus/object-assign
+License file: licenses/MIT
+
+---
+Component: object-keys
+Version: 1.1.1
+License: MIT
+Source: https://github.com/ljharb/object-keys
+License file: licenses/MIT
+
+---
+Component: once
+Version: 1.4.0
+License: ISC
+Source: https://github.com/isaacs/once
+License file: licenses/ISC
+
+---
+Component: open
+Version: 10.1.2
+License: MIT
+Source: https://github.com/sindresorhus/open
+License file: licenses/MIT
+
+---
+Component: open
+Version: 7.4.2
+License: MIT
+Source: https://github.com/sindresorhus/open
+License file: licenses/MIT
+
+---
+Component: os-tmpdir
+Version: 1.0.2
+License: MIT
+Source: https://github.com/sindresorhus/os-tmpdir
+License file: licenses/MIT
+
+---
+Component: pako
+Version: 0.2.9
+License: MIT
+Source: https://github.com/nodeca/pako
+License file: licenses/MIT
+
+---
+Component: pako
+Version: 1.0.11
+License: (MIT AND Zlib)
+Source: https://github.com/nodeca/pako
+License file: licenses/mit_and_zlib
+
+---
+Component: parent-module
+Version: 1.0.1
+License: MIT
+Source: https://github.com/sindresorhus/parent-module
+License file: licenses/MIT
+
+---
+Component: parse-domain
+Version: 8.2.2
+License: MIT
+Source: https://github.com/peerigon/parse-domain
+License file: licenses/MIT
+
+---
+Component: parse-entities
+Version: 4.0.2
+License: MIT
+Source: https://github.com/wooorm/parse-entities
+License file: licenses/MIT
+
+---
+Component: parse-json
+Version: 5.2.0
+License: MIT
+Source: https://github.com/sindresorhus/parse-json
+License file: licenses/MIT
+
+---
+Component: parse-svg-path
+Version: 0.1.2
+License: MIT
+Source: https://github.com/jkroso/parse-svg-path
+License file: licenses/MIT
+
+---
+Component: patch-package
+Version: 8.0.0
+License: MIT
+Source: https://github.com/ds300/patch-package
+License file: licenses/MIT
+
+---
+Component: path-is-absolute
+Version: 1.0.1
+License: MIT
+Source: https://github.com/sindresorhus/path-is-absolute
+License file: licenses/MIT
+
+---
+Component: path-key
+Version: 3.1.1
+License: MIT
+Source: https://github.com/sindresorhus/path-key
+License file: licenses/MIT
+
+---
+Component: path-parse
+Version: 1.0.7
+License: MIT
+Source: https://github.com/jbgutierrez/path-parse
+License file: licenses/MIT
+
+---
+Component: path-type
+Version: 4.0.0
+License: MIT
+Source: https://github.com/sindresorhus/path-type
+License file: licenses/MIT
+
+---
+Component: picocolors
+Version: 1.1.1
+License: ISC
+Source: https://github.com/alexeyraspopov/picocolors
+License file: licenses/ISC
+
+---
+Component: picomatch
+Version: 2.3.1
+License: MIT
+Source: https://github.com/micromatch/picomatch
+License file: licenses/MIT
+
+---
+Component: picomatch
+Version: 4.0.2
+License: MIT
+Source: https://github.com/micromatch/picomatch
+License file: licenses/MIT
+
+---
+Component: postcss-value-parser
+Version: 4.2.0
+License: MIT
+Source: https://github.com/TrySound/postcss-value-parser
+License file: licenses/MIT
+
+---
+Component: postinstall-postinstall
+Version: 2.1.0
+License: MIT
+Source: https://github.com/ds300/postinstall-postinstall
+License file: licenses/MIT
+
+---
+Component: pretty-format
+Version: 27.5.1
+License: MIT
+Source: https://github.com/facebook/jest
+License file: licenses/MIT
+
+---
+Component: prop-types
+Version: 15.8.1
+License: MIT
+Source: https://github.com/facebook/prop-types
+License file: licenses/MIT
+
+---
+Component: property-information
+Version: 7.1.0
+License: MIT
+Source: https://github.com/wooorm/property-information
+License file: licenses/MIT
+
+---
+Component: protobufjs
+Version: 7.2.6
+License: BSD-3-Clause
+Source: https://github.com/protobufjs/protobuf.js
+License file: licenses/BSD-3-Clause
+
+---
+Component: proxy-from-env
+Version: 1.1.0
+License: MIT
+Source: https://github.com/Rob--W/proxy-from-env
+License file: licenses/MIT
+
+---
+Component: queue
+Version: 6.0.2
+License: MIT
+Source: https://github.com/jessetane/queue
+License file: licenses/MIT
+
+---
+Component: railroad-diagrams
+Version: 1.0.0
+License: CC0-1.0
+Source: https://github.com/tabatkins/railroad-diagrams
+License file: licenses/CC0-1.0
+
+---
+Component: randexp
+Version: 0.4.6
+License: MIT
+Source: https://github.com/fent/randexp.js
+License file: licenses/MIT
+
+---
+Component: react-day-picker
+Version: 9.8.0
+License: MIT
+Source: https://github.com/gpbl/react-day-picker
+License file: licenses/MIT
+
+---
+Component: react-detect-offline
+Version: 2.4.5
+License: MIT
+Source: https://github.com/cwise89/react-detect-offline
+License file: licenses/MIT
+
+---
+Component: react-dom
+Version: 18.3.1
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: react-draggable
+Version: 4.4.5
+License: MIT
+Source: https://github.com/react-grid-layout/react-draggable
+License file: licenses/MIT
+
+---
+Component: react-error-boundary
+Version: 6.0.0
+License: MIT
+Source: https://github.com/bvaughn/react-error-boundary
+License file: licenses/MIT
+
+---
+Component: react-fast-compare
+Version: 3.2.2
+License: MIT
+Source: https://github.com/FormidableLabs/react-fast-compare
+License file: licenses/MIT
+
+---
+Component: react-ga
+Version: 3.3.1
+License: Apache-2.0
+Source: https://github.com/react-ga/react-ga
+License file: licenses/Apache-2.0
+
+---
+Component: react-google-recaptcha-v3
+Version: 1.10.1
+License: MIT
+Source: https://github.com/t49tran/react-google-recaptcha-v3
+License file: licenses/MIT
+
+---
+Component: react-helmet-async
+Version: 2.0.5
+License: Apache-2.0
+Source: https://github.com/staylor/react-helmet-async
+License file: licenses/Apache-2.0
+
+---
+Component: react-highlight-words
+Version: 0.21.0
+License: MIT
+Source: https://github.com/bvaughn/react-highlight-words
+License file: licenses/MIT
+
+---
+Component: react-hook-form
+Version: 7.59.0
+License: MIT
+Source: https://github.com/react-hook-form/react-hook-form
+License file: licenses/MIT
+
+---
+Component: react-i18next
+Version: 15.6.1
+License: MIT
+Source: https://github.com/i18next/react-i18next
+License file: licenses/MIT
+
+---
+Component: react-is
+Version: 16.13.1
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: react-is
+Version: 17.0.2
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: react-is
+Version: 19.1.0
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: react-markdown
+Version: 10.1.0
+License: MIT
+Source: https://github.com/remarkjs/react-markdown
+License file: licenses/MIT
+
+---
+Component: react-resizable
+Version: 3.0.5
+License: MIT
+Source: https://github.com/react-grid-layout/react-resizable
+License file: licenses/MIT
+
+---
+Component: react-resize-detector
+Version: 12.1.0
+License: MIT
+Source: https://github.com/maslianok/react-resize-detector
+License file: licenses/MIT
+
+---
+Component: react-router-dom
+Version: 7.7.0
+License: MIT
+Source: https://github.com/remix-run/react-router
+License file: licenses/MIT
+
+---
+Component: react-router
+Version: 7.7.0
+License: MIT
+Source: https://github.com/remix-run/react-router
+License file: licenses/MIT
+
+---
+Component: react-transition-group
+Version: 4.4.5
+License: BSD-3-Clause
+Source: https://github.com/reactjs/react-transition-group
+License file: licenses/BSD-3-Clause
+
+---
+Component: react-use-measure
+Version: 2.1.1
+License: MIT
+License file: licenses/MIT
+
+---
+Component: react-virtualized-auto-sizer
+Version: 1.0.24
+License: MIT
+Source: https://github.com/bvaughn/react-virtualized-auto-sizer
+License file: licenses/MIT
+
+---
+Component: react-window
+Version: 1.8.10
+License: MIT
+Source: https://github.com/bvaughn/react-window
+License file: licenses/MIT
+
+---
+Component: react
+Version: 18.3.1
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: reduce-css-calc
+Version: 1.3.0
+License: MIT
+Source: https://github.com/MoOx/reduce-css-calc
+License file: licenses/MIT
+
+---
+Component: reduce-function-call
+Version: 1.0.3
+License: MIT
+Source: https://github.com/MoOx/reduce-function-call
+License file: licenses/MIT
+
+---
+Component: remark-gfm
+Version: 4.0.1
+License: MIT
+Source: https://github.com/remarkjs/remark-gfm
+License file: licenses/MIT
+
+---
+Component: remark-parse
+Version: 11.0.0
+License: MIT
+Source: https://github.com/remarkjs/remark/tree/main/packages/remark-parse
+License file: licenses/MIT
+
+---
+Component: remark-rehype
+Version: 11.1.2
+License: MIT
+Source: https://github.com/remarkjs/remark-rehype
+License file: licenses/MIT
+
+---
+Component: remark-stringify
+Version: 11.0.0
+License: MIT
+Source: https://github.com/remarkjs/remark/tree/main/packages/remark-stringify
+License file: licenses/MIT
+
+---
+Component: require-directory
+Version: 2.1.1
+License: MIT
+Source: https://github.com/troygoode/node-require-directory
+License file: licenses/MIT
+
+---
+Component: require-from-string
+Version: 2.0.2
+License: MIT
+Source: https://github.com/floatdrop/require-from-string
+License file: licenses/MIT
+
+---
+Component: resolve-from
+Version: 4.0.0
+License: MIT
+Source: https://github.com/sindresorhus/resolve-from
+License file: licenses/MIT
+
+---
+Component: resolve
+Version: 1.22.8
+License: MIT
+Source: https://github.com/browserify/resolve
+License file: licenses/MIT
+
+---
+Component: restructure
+Version: 3.0.2
+License: MIT
+Source: https://github.com/devongovett/restructure
+License file: licenses/MIT
+
+---
+Component: ret
+Version: 0.1.15
+License: MIT
+Source: https://github.com/fent/ret.js
+License file: licenses/MIT
+
+---
+Component: rimraf
+Version: 2.7.1
+License: ISC
+Source: https://github.com/isaacs/rimraf
+License file: licenses/ISC
+
+---
+Component: robust-predicates
+Version: 3.0.2
+License: Unlicense
+Source: https://github.com/mourner/robust-predicates
+License file: licenses/unlicense
+
+---
+Component: rollup-plugin-inject
+Version: 3.0.2
+License: MIT
+Source: https://github.com/rollup/rollup-plugin-inject
+License file: licenses/MIT
+
+---
+Component: rollup-plugin-node-polyfills
+Version: 0.2.1
+License: MIT
+Source: https://github.com/ionic-team/rollup-plugin-node-polyfills
+License file: licenses/MIT
+
+---
+Component: rollup-plugin-polyfill-node
+Version: 0.13.0
+License: MIT
+Source: https://github.com/FredKSchott/rollup-plugin-polyfill-node
+License file: licenses/MIT
+
+---
+Component: rollup-plugin-visualizer
+Version: 6.0.0
+License: MIT
+Source: https://github.com/btd/rollup-plugin-visualizer
+License file: licenses/MIT
+
+---
+Component: rollup-pluginutils
+Version: 2.8.2
+License: MIT
+Source: https://github.com/rollup/rollup-pluginutils
+License file: licenses/MIT
+
+---
+Component: rollup
+Version: 4.44.1
+License: MIT
+Source: https://github.com/rollup/rollup
+License file: licenses/MIT
+
+---
+Component: run-applescript
+Version: 7.0.0
+License: MIT
+Source: https://github.com/sindresorhus/run-applescript
+License file: licenses/MIT
+
+---
+Component: safe-buffer
+Version: 5.2.1
+License: MIT
+Source: https://github.com/feross/safe-buffer
+License file: licenses/MIT
+
+---
+Component: scheduler
+Version: 0.23.2
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: scheduler
+Version: 0.25.0-rc-603e6108-20241029
+License: MIT
+Source: https://github.com/facebook/react
+License file: licenses/MIT
+
+---
+Component: semver
+Version: 7.7.1
+License: ISC
+Source: https://github.com/npm/node-semver
+License file: licenses/ISC
+
+---
+Component: set-cookie-parser
+Version: 2.6.0
+License: MIT
+Source: https://github.com/nfriedly/set-cookie-parser
+License file: licenses/MIT
+
+---
+Component: set-function-length
+Version: 1.2.2
+License: MIT
+Source: https://github.com/ljharb/set-function-length
+License file: licenses/MIT
+
+---
+Component: shallowequal
+Version: 1.1.0
+License: MIT
+Source: https://github.com/dashed/shallowequal
+License file: licenses/MIT
+
+---
+Component: shebang-command
+Version: 2.0.0
+License: MIT
+Source: https://github.com/kevva/shebang-command
+License file: licenses/MIT
+
+---
+Component: shebang-regex
+Version: 3.0.0
+License: MIT
+Source: https://github.com/sindresorhus/shebang-regex
+License file: licenses/MIT
+
+---
+Component: shortcuts
+Version: 3.0.1
+License: MIT*
+Source: https://github.com/fabiospampinato/shortcuts
+License file: licenses/MIT_
+
+---
+Component: shosho
+Version: 1.4.3
+License: MIT*
+Source: https://github.com/fabiospampinato/shosho
+License file: licenses/MIT_
+
+---
+Component: simple-swizzle
+Version: 0.2.2
+License: MIT
+Source: https://github.com/qix-/node-simple-swizzle
+License file: licenses/MIT
+
+---
+Component: slash
+Version: 2.0.0
+License: MIT
+Source: https://github.com/sindresorhus/slash
+License file: licenses/MIT
+
+---
+Component: source-map
+Version: 0.5.7
+License: BSD-3-Clause
+Source: https://github.com/mozilla/source-map
+License file: licenses/BSD-3-Clause
+
+---
+Component: source-map
+Version: 0.7.4
+License: BSD-3-Clause
+Source: https://github.com/mozilla/source-map
+License file: licenses/BSD-3-Clause
+
+---
+Component: sourcemap-codec
+Version: 1.4.8
+License: MIT
+Source: https://github.com/Rich-Harris/sourcemap-codec
+License file: licenses/MIT
+
+---
+Component: space-separated-tokens
+Version: 2.0.2
+License: MIT
+Source: https://github.com/wooorm/space-separated-tokens
+License file: licenses/MIT
+
+---
+Component: sql-formatter
+Version: 15.6.1
+License: MIT
+Source: https://github.com/sql-formatter-org/sql-formatter
+License file: licenses/MIT
+
+---
+Component: string-width
+Version: 4.2.3
+License: MIT
+Source: https://github.com/sindresorhus/string-width
+License file: licenses/MIT
+
+---
+Component: string_decoder
+Version: 1.3.0
+License: MIT
+Source: https://github.com/nodejs/string_decoder
+License file: licenses/MIT
+
+---
+Component: stringify-entities
+Version: 4.0.4
+License: MIT
+Source: https://github.com/wooorm/stringify-entities
+License file: licenses/MIT
+
+---
+Component: strip-ansi
+Version: 6.0.1
+License: MIT
+Source: https://github.com/chalk/strip-ansi
+License file: licenses/MIT
+
+---
+Component: style-mod
+Version: 4.1.0
+License: MIT
+Source: https://github.com/marijnh/style-mod
+License file: licenses/MIT
+
+---
+Component: style-to-js
+Version: 1.1.16
+License: MIT
+Source: https://github.com/remarkablemark/style-to-js
+License file: licenses/MIT
+
+---
+Component: style-to-object
+Version: 1.0.8
+License: MIT
+Source: https://github.com/remarkablemark/style-to-object
+License file: licenses/MIT
+
+---
+Component: stylis
+Version: 4.2.0
+License: MIT
+Source: https://github.com/thysultan/stylis.js
+License file: licenses/MIT
+
+---
+Component: super-regex
+Version: 0.2.0
+License: MIT
+Source: https://github.com/sindresorhus/super-regex
+License file: licenses/MIT
+
+---
+Component: supports-color
+Version: 7.2.0
+License: MIT
+Source: https://github.com/chalk/supports-color
+License file: licenses/MIT
+
+---
+Component: supports-preserve-symlinks-flag
+Version: 1.0.0
+License: MIT
+Source: https://github.com/inspect-js/node-supports-preserve-symlinks-flag
+License file: licenses/MIT
+
+---
+Component: svg-arc-to-cubic-bezier
+Version: 3.2.0
+License: ISC
+Source: https://github.com/colinmeinke/svg-arc-to-cubic-bezier
+License file: licenses/ISC
+
+---
+Component: time-span
+Version: 5.1.0
+License: MIT
+Source: https://github.com/sindresorhus/time-span
+License file: licenses/MIT
+
+---
+Component: tiny-inflate
+Version: 1.0.3
+License: MIT
+Source: https://github.com/devongovett/tiny-inflate
+License file: licenses/MIT
+
+---
+Component: tmp
+Version: 0.0.33
+License: MIT
+Source: https://github.com/raszi/node-tmp
+License file: licenses/MIT
+
+---
+Component: to-regex-range
+Version: 5.0.1
+License: MIT
+Source: https://github.com/micromatch/to-regex-range
+License file: licenses/MIT
+
+---
+Component: toggle-selection
+Version: 1.0.6
+License: MIT
+Source: https://github.com/sudodoki/toggle-selection
+License file: licenses/MIT
+
+---
+Component: trim-lines
+Version: 3.0.1
+License: MIT
+Source: https://github.com/wooorm/trim-lines
+License file: licenses/MIT
+
+---
+Component: trough
+Version: 2.2.0
+License: MIT
+Source: https://github.com/wooorm/trough
+License file: licenses/MIT
+
+---
+Component: ts-brand
+Version: 0.2.0
+License: MIT
+Source: https://github.com/kourge/ts-brand
+License file: licenses/MIT
+
+---
+Component: tslib
+Version: 2.8.1
+License: 0BSD
+Source: https://github.com/Microsoft/tslib
+License file: licenses/0BSD
+
+---
+Component: typescript
+Version: 5.8.2
+License: Apache-2.0
+Source: https://github.com/microsoft/TypeScript
+License file: licenses/Apache-2.0
+
+---
+Component: undici-types
+Version: 6.21.0
+License: MIT
+Source: https://github.com/nodejs/undici
+License file: licenses/MIT
+
+---
+Component: unicode-properties
+Version: 1.4.1
+License: MIT
+Source: https://github.com/devongovett/unicode-properties
+License file: licenses/MIT
+
+---
+Component: unicode-trie
+Version: 2.0.0
+License: MIT
+Source: https://github.com/devongovett/unicode-trie
+License file: licenses/MIT
+
+---
+Component: unified
+Version: 11.0.5
+License: MIT
+Source: https://github.com/unifiedjs/unified
+License file: licenses/MIT
+
+---
+Component: unist-util-is
+Version: 6.0.0
+License: MIT
+Source: https://github.com/syntax-tree/unist-util-is
+License file: licenses/MIT
+
+---
+Component: unist-util-position
+Version: 5.0.0
+License: MIT
+Source: https://github.com/syntax-tree/unist-util-position
+License file: licenses/MIT
+
+---
+Component: unist-util-stringify-position
+Version: 4.0.0
+License: MIT
+Source: https://github.com/syntax-tree/unist-util-stringify-position
+License file: licenses/MIT
+
+---
+Component: unist-util-visit-parents
+Version: 6.0.1
+License: MIT
+Source: https://github.com/syntax-tree/unist-util-visit-parents
+License file: licenses/MIT
+
+---
+Component: unist-util-visit
+Version: 5.0.0
+License: MIT
+Source: https://github.com/syntax-tree/unist-util-visit
+License file: licenses/MIT
+
+---
+Component: universalify
+Version: 2.0.0
+License: MIT
+Source: https://github.com/RyanZim/universalify
+License file: licenses/MIT
+
+---
+Component: universalify
+Version: 2.0.1
+License: MIT
+Source: https://github.com/RyanZim/universalify
+License file: licenses/MIT
+
+---
+Component: util-deprecate
+Version: 1.0.2
+License: MIT
+Source: https://github.com/TooTallNate/util-deprecate
+License file: licenses/MIT
+
+---
+Component: uuid
+Version: 11.1.0
+License: MIT
+Source: https://github.com/uuidjs/uuid
+License file: licenses/MIT
+
+---
+Component: uuid
+Version: 8.3.2
+License: MIT
+Source: https://github.com/uuidjs/uuid
+License file: licenses/MIT
+
+---
+Component: vfile-message
+Version: 4.0.2
+License: MIT
+Source: https://github.com/vfile/vfile-message
+License file: licenses/MIT
+
+---
+Component: vfile
+Version: 6.0.3
+License: MIT
+Source: https://github.com/vfile/vfile
+License file: licenses/MIT
+
+---
+Component: vite-compatible-readable-stream
+Version: 3.6.1
+License: MIT
+Source: https://github.com/TechInSite/readable-stream
+License file: licenses/MIT
+
+---
+Component: void-elements
+Version: 3.1.0
+License: MIT
+Source: https://github.com/pugjs/void-elements
+License file: licenses/MIT
+
+---
+Component: w3c-keyname
+Version: 2.2.8
+License: MIT
+Source: https://github.com/marijnh/w3c-keyname
+License file: licenses/MIT
+
+---
+Component: webidl-conversions
+Version: 3.0.1
+License: BSD-2-Clause
+Source: https://github.com/jsdom/webidl-conversions
+License file: licenses/BSD-2-Clause
+
+---
+Component: whatwg-url
+Version: 5.0.0
+License: MIT
+Source: https://github.com/jsdom/whatwg-url
+License file: licenses/MIT
+
+---
+Component: which
+Version: 2.0.2
+License: ISC
+Source: https://github.com/isaacs/node-which
+License file: licenses/ISC
+
+---
+Component: wrap-ansi
+Version: 7.0.0
+License: MIT
+Source: https://github.com/chalk/wrap-ansi
+License file: licenses/MIT
+
+---
+Component: wrappy
+Version: 1.0.2
+License: ISC
+Source: https://github.com/npm/wrappy
+License file: licenses/ISC
+
+---
+Component: y18n
+Version: 5.0.8
+License: ISC
+Source: https://github.com/yargs/y18n
+License file: licenses/ISC
+
+---
+Component: yaml
+Version: 1.10.2
+License: ISC
+Source: https://github.com/eemeli/yaml
+License file: licenses/ISC
+
+---
+Component: yaml
+Version: 2.6.1
+License: ISC
+Source: https://github.com/eemeli/yaml
+License file: licenses/ISC
+
+---
+Component: yargs-parser
+Version: 21.1.1
+License: ISC
+Source: https://github.com/yargs/yargs-parser
+License file: licenses/ISC
+
+---
+Component: yargs
+Version: 17.7.2
+License: MIT
+Source: https://github.com/yargs/yargs
+License file: licenses/MIT
+
+---
+Component: yoga-layout
+Version: 3.2.1
+License: MIT
+Source: https://github.com/facebook/yoga
+License file: licenses/MIT
+
+---
+Component: zod
+Version: 4.0.0
+License: MIT
+Source: https://github.com/colinhacks/zod
+License file: licenses/MIT
+
+---
+Component: zwitch
+Version: 2.0.4
+License: MIT
+Source: https://github.com/wooorm/zwitch
+License file: licenses/MIT

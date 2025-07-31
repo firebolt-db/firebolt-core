@@ -167,7 +167,7 @@ Resources for each node (either a local machine or a VM instance):
 > [!NOTE]
 > There is no universally correct amount of RAM and disk space for running Firebolt Core, and the above are simply rough guidelines for running some simple queries as a way to get started. The ideal amount of RAM and disk space depends heavily on the specific workload that you are running against a Firebolt Core deployment (see [Deployment and Operational Guide](https://docs.firebolt.io/FireboltCore/firebolt-core-operation.html) for details).
 
-## Run Queries on Firebolt Core
+## Run Queries on Firebolt Core via CLI
 
 You can submit queries to a Firebolt Core cluster using any HTTP client (like cURL), the official [Firebolt CLI](https://github.com/firebolt-db/fb-cli) as a standalone binary, or by invoking the CLI from within the Core Docker container.
 
@@ -190,6 +190,29 @@ curl -s "http://localhost:3473/?output_format=psql" --data-binary "SELECT 42";
 See also:
 * [Example Queries](examples/README.md)
 * [Connect to Firebolt Core](https://docs.firebolt.io/FireboltCore/firebolt-core-connect.html)
+
+## Run Queries on Firebolt Core via the web UI
+
+1. Download the Firebolt Core UI Docker image:
+```bash
+docker pull 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui:latest
+```
+
+2. Run the UI container, linking it to your Firebolt Core instance:
+
+#### MacOS and Windows
+```bash
+docker run --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 ghcr.io/firebolt-db/firebolt-core-ui
+```
+
+#### Linux
+```bash
+docker run --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://localhost:3473 ghcr.io/firebolt-db/firebolt-core-ui
+```
+
+3. Open your browser and navigate to `http://localhost:9100` to access the UI.
+
+UI only works on the amd64 architecture.
 
 ## Troubleshooting & Support
 
