@@ -2139,8 +2139,8 @@ License file: licenses/Apache-2.0
 ---
 Component: firebolt-ui
 Version: 1.52.0
-License: UNLICENSED
-License file: licenses/UNLICENSED
+License: Elv2
+License file: LICENSE.md
 
 ---
 Component: flat-map-polyfill
@@ -3663,7 +3663,7 @@ Component: robust-predicates
 Version: 3.0.2
 License: Unlicense
 Source: https://github.com/mourner/robust-predicates
-License file: licenses/Unlicense
+License file: licenses/unlicense
 
 ---
 Component: rollup-plugin-inject
