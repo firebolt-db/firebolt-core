@@ -7,6 +7,14 @@ image:
 # -- number of nodes to deploy
 nodesCount: 1
 
+# -- tolerations allows you to configure pod tolerations.
+# See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+tolerations: []
+
+# -- affinity allows you to configure pod affinity and anti-affinity.
+# See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
+affinity: {}
+
 # -- readiness check on each pod
 readiness: true
 

@@ -30,6 +30,15 @@ spec:
       {{- if and .Values.memlockSetup .Values.nonRoot }}
       shareProcessNamespace: true
       {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+
       containers:
         - name: core
           image: {{ $.Values.image.repository }}:{{  default $.Chart.AppVersion $.Values.image.tag }}
