@@ -1,9 +1,6 @@
-<p align="center">
-    <img alt="Firebolt Core logo" src="static/core.png?raw=true" width="400" />
-</p>
-<p align="center">
-    <b>Firebolt Core</b> is a free, self-hosted edition of <a href="https://www.firebolt.io/">Firebolt's high-performance distributed query engine</a>, designed to power the data infrastructure behind today's most demanding applications.
-</p>
+<img alt="Firebolt Core logo" src="static/core.png?raw=true" height="150" align="left" />
+<b>Firebolt Core</b> is a free, self-hosted edition of <a href="https://www.firebolt.io/">Firebolt's high-performance distributed query engine</a>, designed to power the data infrastructure behind today's most demanding applications.
+
 <p align="center">
   <a href="https://discord.gg/UpMPDHActM">
     <img src="https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white" alt="Discord chat"
@@ -30,7 +27,8 @@
   /></a>
 </p>
 
-> *Deploy anywhere, from a single laptop to your own datacenter*
+*Deploy anywhere, from a single laptop to your own datacenter*
+<br clear="all">
 
 ## Key Features
 
