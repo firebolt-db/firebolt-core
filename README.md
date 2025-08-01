@@ -202,12 +202,12 @@ docker pull ghcr.io/firebolt-db/firebolt-core-ui
 
 #### MacOS and Windows
 ```bash
-docker run --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 ghcr.io/firebolt-db/firebolt-core-ui
+docker run --rm --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://host.docker.internal:3473 ghcr.io/firebolt-db/firebolt-core-ui
 ```
 
 #### Linux
 ```bash
-docker run --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://localhost:3473 ghcr.io/firebolt-db/firebolt-core-ui
+docker run --rm --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=http://localhost:3473 ghcr.io/firebolt-db/firebolt-core-ui
 ```
 
 3. Open your browser and navigate to `http://localhost:9100` to access the UI.
