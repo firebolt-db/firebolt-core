@@ -195,7 +195,7 @@ See also:
 
 1. Download the Firebolt Core UI Docker image:
 ```bash
-docker pull 231290928314.dkr.ecr.us-east-1.amazonaws.com/firebolt-core-ui:latest
+docker pull ghcr.io/firebolt-db/firebolt-core-ui
 ```
 
 2. Run the UI container, linking it to your Firebolt Core instance:
