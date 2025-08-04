@@ -212,8 +212,6 @@ docker run --rm --network=host --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_
 
 3. Open your browser and navigate to `http://localhost:9100` to access the UI.
 
-UI only works on the amd64 architecture.
-
 ## Troubleshooting & Support
 
 Detailed information about Firebolt Core is available in the [documentation](https://docs.firebolt.io/FireboltCore/).
