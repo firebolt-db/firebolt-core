@@ -174,8 +174,7 @@ spec:
             {{- end }}
             allowPrivilegeEscalation: false
             capabilities:
-              drop:
-                - ALL
+              {{- toYaml $.Values.securityContextCapabilities | nindent 14 }}
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
