@@ -27,6 +27,10 @@ nonRoot: false
 # -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
 memlockSetup: true
 
+securityContextCapabilities:
+  drop:
+    - ALL
+
 # -- resources for each pod; at least 1 core is advised
 resources:
   requests:
