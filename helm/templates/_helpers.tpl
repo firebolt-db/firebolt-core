@@ -35,7 +35,7 @@ Common labels
 */}}
 {{- define "fbcore.labels" -}}
 {{ include "fbcore.selectorLabels" . }}
-helm.sh/chart: {{ include "fbcore.chart" . }}-{{ .Chart.Version }}
+helm.sh/chart: {{ include "fbcore.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- if .Values.extraLabels }}
