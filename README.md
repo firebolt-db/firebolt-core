@@ -96,6 +96,13 @@ Use this setup if you want to leverage the computing power of multiple hosts.
 
 1. Make sure that this repository and your `config.json` are present on each of the nodes.
 
+1. Create the volume directory and assign correct permissions:
+
+   ```bash
+   mkdir -p ./firebolt-core-data
+   sudo chown -R 1111:1111 ./firebolt-core-data
+   ```
+
 1. Activate node 0:
 
    ```bash
@@ -105,7 +112,7 @@ Use this setup if you want to leverage the computing power of multiple hosts.
 1. Activate all further nodes by running on each host:
 
    ```bash
-   NODE=1 docker compose -f compose.yaml -f compose.nodeN.yaml up
+   NODE=1 docker compose up
    ```
 
    Increase `NODE` for each further node.
@@ -134,9 +141,9 @@ kubectl get pods
 Expected output:
 ```
 NAME                              READY   STATUS    RESTARTS   AGE
-helm-1748880880-firebolt-core-0   0/1     Running   0          5m32s
-helm-1748880880-firebolt-core-1   0/1     Running   0          5m32s
-helm-1748880880-firebolt-core-2   0/1     Running   0          5m32s
+helm-1748880880-firebolt-core-0   1/1     Running   0          5m32s
+helm-1748880880-firebolt-core-1   1/1     Running   0          5m32s
+helm-1748880880-firebolt-core-2   1/1     Running   0          5m32s
 ```
 
 See also:
