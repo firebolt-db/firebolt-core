@@ -46,8 +46,19 @@ extraLabels: {}
 deployment:
   # -- give a few seconds of grace time on shutdown to allow queries to finish
   terminationGracePeriodSeconds: 5
+  # -- When false (default), persistent storage via volumeClaimTemplates (PVC) is used
+  # -- and `deployment.storageSpec` is applied. When true, PVCs are not created and
+  # -- `deployment.storageHostPath` is used instead. Only one mode is active at a time.
+  hostPathStorageEnabled: false
+  # -- hostPath settings used when hostPathStorageEnabled=true
+  storageHostPath:
+    # -- path on the node's filesystem to store data
+    path: /var/lib/firebolt-core
+    # -- hostPath type, e.g. DirectoryOrCreate, Directory, File, etc.
+    type: DirectoryOrCreate
 
   storageSpec:
+    # -- PersistentVolumeClaim spec used when hostPathStorageEnabled=false. Ignored when hostPathStorageEnabled=true.
     accessModes:
       - ReadWriteOnce
     # no storage class specified to be compatible with multiple cloud providers

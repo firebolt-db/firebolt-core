@@ -321,8 +321,17 @@ spec:
             items:
               - key: config.json
                 path: config.json
+        {{- $hpEnabled := $.Values.deployment.hostPathStorageEnabled }}
+        {{- if $hpEnabled }}
+        - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
+          hostPath:
+            path: {{ $.Values.deployment.storageHostPath.path }}
+            type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
+        {{- end }}
+{{- if not $hpEnabled }}
   volumeClaimTemplates:
     - metadata:
         name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
       spec:
         {{- toYaml $.Values.deployment.storageSpec | nindent 8 }}
+{{- end }}

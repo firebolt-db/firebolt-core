@@ -14,6 +14,9 @@ Firebolt Core on Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| deployment.hostPathStorageEnabled | bool | `false` | Controls storage mode. When false (default), PVCs are created using `deployment.storageSpec`. When true, a `hostPath` volume is used from `deployment.storageHostPath`. |
+| deployment.storageHostPath.path | string | `"/var/lib/firebolt-core"` | Node filesystem path for hostPath when `deployment.hostPathStorageEnabled=true`. |
+| deployment.storageHostPath.type | string | `"DirectoryOrCreate"` | hostPath type used when `deployment.hostPathStorageEnabled=true`. |
 | deployment.storageSpec.accessModes[0] | string | `"ReadWriteOnce"` |  |
 | deployment.storageSpec.resources.limits.storage | string | `"1Gi"` |  |
 | deployment.storageSpec.resources.requests.storage | string | `"1Gi"` |  |
@@ -27,4 +30,18 @@ Firebolt Core on Kubernetes
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
 | readiness | bool | `true` | readiness check on each pod |
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
+
+### Storage
+
+Exactly one storage mode is active:
+
+- When `deployment.hostPathStorageEnabled: false` (default):
+  - A `volumeClaimTemplates` section is rendered on the `StatefulSet`.
+  - The claim uses `deployment.storageSpec`.
+
+- When `deployment.hostPathStorageEnabled: true`:
+  - No PVCs are created.
+  - A `hostPath` volume named `firebolt-core-data…` is mounted, using `deployment.storageHostPath`.
+
+Note: `deployment.storageSpec` is ignored when `deployment.hostPathStorageEnabled` is true.
 
