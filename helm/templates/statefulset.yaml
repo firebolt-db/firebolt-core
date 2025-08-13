@@ -328,6 +328,27 @@ spec:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
         {{- end }}
+{{- if $hpEnabled }}
+      initContainers:
+        - name: chown-data
+          image: debian:stable-slim
+          imagePullPolicy: Always
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              echo "[Setup] changing ownership of /firebolt-core/volume to UID 1111"
+              chown -R 1111:1111 /firebolt-core/volume
+          securityContext:
+            runAsUser: 0
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - CHOWN
+          volumeMounts:
+            - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
+              mountPath: /firebolt-core/volume
+{{- end}}
 {{- if not $hpEnabled }}
   volumeClaimTemplates:
     - metadata:
