@@ -321,14 +321,14 @@ spec:
             items:
               - key: config.json
                 path: config.json
-        {{- $psEnabled := $.Values.deployment.persistantStorageEnabled }}
-        {{- if not $psEnabled }}
+        {{- $hpEnabled := $.Values.deployment.hostPathStorageEnabled }}
+        {{- if $hpEnabled }}
         - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
           hostPath:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
         {{- end }}
-{{- if $psEnabled }}
+{{- if not $hpEnabled }}
   volumeClaimTemplates:
     - metadata:
         name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
