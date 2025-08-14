@@ -2,7 +2,7 @@
 # All required ports are exposed, the config file is mounted to the container, and the container has the required privileges.
 
 services:
-  firebolt-core-node-0:
+  core:
     container_name: ${COMPOSE_PROJECT_NAME}-node-0
     # The Docker image from which to start the container.
     image: ghcr.io/firebolt-db/firebolt-core:preview-rc
@@ -38,3 +38,12 @@ services:
       - ${PWD}/config.json:/firebolt-core/config.json:ro
       # Enable persistence of data, metadata, logs and diagnostic information
       - ${PWD}/firebolt-core-data:/firebolt-core/volume
+  ui:
+    image: ghcr.io/firebolt-db/firebolt-core-ui:latest
+    pull_policy: always
+    links:
+      - core
+    environment:
+      FIREBOLT_CORE_URL: http://core:3473
+    ports:
+     - 9100:9100
