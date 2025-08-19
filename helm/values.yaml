@@ -21,8 +21,8 @@ readiness: true
 # -- deploy a PodMonitor for Prometheus metrics scraping
 podMonitor: false
 
-# -- enable non-root mode, requires a compatible Firebolt Core docker image
-nonRoot: false
+# -- enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root
+nonRoot: true
 
 # -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
 memlockSetup: true
