@@ -118,7 +118,7 @@ wait_for_core_to_be_ready() {
 }
 
 run_docker_image() {
-    echo "[⚠️] Note: a local 'firebolt-core-data directory' will be created."
+    echo "[⚠️] Note: a local 'firebolt-core-data directory' with permissions 0777 will be created."
     
     if [ "$AUTO_RUN" = true ]; then
         answer="y"
@@ -128,6 +128,9 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
+            if [ ! -d firebolt-core-data ]; then
+                mkdir -p --mode=777 firebolt-core-data
+            fi
             echo -n "[🔥] Starting the Firebolt Core Docker container"
             CID="$(docker run --detach "${DOCKER_RUN_ARGS[@]}")"
             trap "docker kill $CID" EXIT
@@ -139,8 +142,9 @@ run_docker_image() {
             docker exec -ti $CID fbcli
             ;;
         *)
-            echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following command:"
+            echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
             echo
+            echo "mkdir --mode=777 firebolt-core-data"
             echo "docker run "${DOCKER_RUN_ARGS[@]}""
             echo
             echo "And then in another terminal:"
