@@ -45,6 +45,11 @@ DOCKER_RUN_ARGS=(
   -p "$EXTERNAL_PORT:3473"
   "$DOCKER_IMAGE"
 )
+IS_MACOS=0
+if [ "$(uname)" = "Darwin" ]; then
+    IS_MACOS=1
+    CORE_USER=root
+fi
 
 ensure_docker_is_installed() {
     if docker info >/dev/null 2>&1; then
@@ -52,7 +57,7 @@ ensure_docker_is_installed() {
         return 0
     fi
     
-    if [ "$(uname)" = "Darwin" ]; then
+    if [ $IS_MACOS -eq 1 ]; then
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/mac-install/ ❌"
     else
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/linux/ ❌"
@@ -65,8 +70,7 @@ check_docker_version() {
     # See also:
     # * https://github.com/firebolt-db/firebolt-core/issues/9
     # * https://github.com/docker/for-mac/issues/7707
-    if [ "$(uname)" = "Darwin" ]; then
-        CORE_USER=root
+    if [ $IS_MACOS -eq 1 ]; then
         version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
         if [ "$version" = "4.42.1" ] || [ "$version" = "4.43.0" ] || [ "$version" = "4.43.1" ]; then
             echo "[❌] Firebolt Core cannot run with Docker Desktop version ${version} on Mac, as it contains a known io_uring issue; please use version 4.43.2+"
@@ -128,8 +132,10 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
-            if [ ! -d firebolt-core-data ]; then
-                mkdir -p --mode=777 firebolt-core-data
+            if [ $IS_MACOS -eq 0 ]; then
+                if [ ! -d firebolt-core-data ]; then
+                    mkdir -p --mode=777 firebolt-core-data
+                fi
             fi
             echo -n "[🔥] Starting the Firebolt Core Docker container"
             CID="$(docker run --detach "${DOCKER_RUN_ARGS[@]}")"
