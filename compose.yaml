@@ -10,10 +10,10 @@ services:
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8122/"]
-      interval: 30s
+      test: ["CMD", "fbcli", "--command", "SELECT 42;"]
+      interval: 5s
       timeout: 10s
-      retries: 3
+      retries: 10
     # run as non-root by default; this requires the outer volume directory to have the correct permissions
     # in some specific cases (like Docker-for-Mac) running as root is still necessary
     user: "${CORE_USER:-firebolt-core}"
