@@ -50,10 +50,23 @@ Start Core on your machine with:
 bash <(curl -s https://get-core.firebolt.io/)
 ```
 
-If you want to work with Docker directly, you can also run:
+If you want to work with Docker directly, you can also run on Linux:
 
 ```bash
 docker run -i --rm \
+        --ulimit memlock=8589934592:8589934592 \
+        --security-opt seccomp=unconfined \
+        -p 127.0.0.1:3473:3473 \
+        -v ./firebolt-core-data:/firebolt-core/volume \
+        ghcr.io/firebolt-db/firebolt-core:preview-rc
+```
+
+Or on MacOS:
+
+```bash
+mkdir -p -m 777 firebolt-core-data
+docker run -i --rm \
+        --user root \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
