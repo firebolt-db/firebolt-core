@@ -134,11 +134,11 @@ run_docker_image() {
         [yY])
             if [ $IS_MACOS -eq 0 ]; then
                 if [ ! -d firebolt-core-data ]; then
-                    mkdir -p --mode=777 firebolt-core-data
+                    mkdir -p -m 777 firebolt-core-data
                 fi
             fi
             echo -n "[🔥] Starting the Firebolt Core Docker container"
-            CID="$(docker run --detach "${DOCKER_RUN_ARGS[@]}")"
+            CID="$(docker run --detach --user $CORE_USER "${DOCKER_RUN_ARGS[@]}")"
             trap "docker kill $CID" EXIT
             echo " ✅"
 
@@ -151,7 +151,7 @@ run_docker_image() {
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
             echo
             echo "mkdir --mode=777 firebolt-core-data"
-            echo "docker run "${DOCKER_RUN_ARGS[@]}""
+            echo "docker run --user $CORE_USER "${DOCKER_RUN_ARGS[@]}""
             echo
             echo "And then in another terminal:"
             echo
