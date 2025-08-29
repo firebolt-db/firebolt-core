@@ -150,7 +150,7 @@ run_docker_image() {
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
             echo
-            echo "mkdir --mode=777 firebolt-core-data"
+            echo "mkdir -m 777 firebolt-core-data"
             echo "docker run --user $CORE_USER "${DOCKER_RUN_ARGS[@]}""
             echo
             echo "And then in another terminal:"
