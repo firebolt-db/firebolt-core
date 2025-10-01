@@ -43,6 +43,9 @@ resources:
 # -- extra labels to assign to each pod
 extraLabels: {}
 
+# -- custom configuration for nodes
+customNodeConfig:
+
 deployment:
   # -- give a few seconds of grace time on shutdown to allow queries to finish
   terminationGracePeriodSeconds: 5
