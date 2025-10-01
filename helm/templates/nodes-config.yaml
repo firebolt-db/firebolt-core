@@ -8,6 +8,9 @@ metadata:
 data:
   config.json: |
     {
+      {{- if .Values.customNodeConfig }}
+      {{ .Values.customNodeConfig | toJson | nindent 6 }},
+      {{- end }}
       "nodes": [
         {{- $nodeCount := int .Values.nodesCount }}
         {{- range $i := until $nodeCount }}
