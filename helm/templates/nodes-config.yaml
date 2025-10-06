@@ -9,7 +9,7 @@ data:
   config.json: |
     {
       {{- if .Values.customNodeConfig }}
-      {{ .Values.customNodeConfig | toJson | nindent 6 }},
+      {{ .Values.customNodeConfig | toJson | trimSuffix "}" | trimPrefix "{" | nindent 6 }},
       {{- end }}
       "nodes": [
         {{- $nodeCount := int .Values.nodesCount }}

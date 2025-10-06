@@ -182,6 +182,24 @@ spec:
             allowPrivilegeEscalation: false
             capabilities:
               {{- toYaml $.Values.securityContextCapabilities | nindent 14 }}
+        {{- if and .Values.uiSidecar }}
+        - name: core-ui
+          image: ghcr.io/firebolt-db/firebolt-core-ui:latest
+          imagePullPolicy: Always
+          env:
+            - name: FIREBOLT_CORE_URL
+              value: http://localhost:3473
+          ports:
+            - containerPort: 9100
+              name: web-ui
+              protocol: TCP
+          resources:
+            limits:
+              memory: 128Mi
+            requests:
+              cpu: 25m
+              memory: 128Mi
+        {{- end }}
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
