@@ -80,5 +80,8 @@ services:
       - core
     environment:
       FIREBOLT_CORE_URL: http://core:3473
+    # run as non-root by default; this requires the outer volume directory to have the correct permissions
+    # in some specific cases (like Docker-for-Mac) running as root is still necessary
+    user: "${CORE_USER:-firebolt-core}"
     ports:
      - 9100:9100
