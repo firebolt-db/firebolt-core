@@ -27,6 +27,9 @@ nonRoot: true
 # -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
 memlockSetup: true
 
+# -- deploy 1 Core UI sidecar for each node
+uiSidecar: false
+
 # -- specify custom security context capabilities for firebolt container
 securityContextCapabilities:
   drop:

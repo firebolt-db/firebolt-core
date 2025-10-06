@@ -35,4 +35,5 @@ Firebolt Core on Kubernetes
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for firebolt container |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
+| uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
 
