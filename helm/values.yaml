@@ -15,6 +15,10 @@ tolerations: []
 # See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 affinity: {}
 
+# -- nodeSelector allows you to configure a node selection constraint.
+# See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
+nodeSelector: {}
+
 # -- readiness check on each pod
 readiness: true
 

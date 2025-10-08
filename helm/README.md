@@ -28,6 +28,7 @@ Firebolt Core on Kubernetes
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |
 | image.tag | string | `nil` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
 | memlockSetup | bool | `true` | automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit. |
+| nodeSelector | object | `{}` | nodeSelector allows you to configure a node selection constraint. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector |
 | nodesCount | int | `1` | number of nodes to deploy |
 | nonRoot | bool | `true` | enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root |
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
