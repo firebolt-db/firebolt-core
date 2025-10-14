@@ -214,8 +214,6 @@ spec:
             # Sets the user and group ID for the container process
             runAsUser: 1111
             runAsGroup: 1111
-            # Defines the default mode for all volumes mounted in the pod
-            fsGroup: 1111
           volumeMounts:
             - name: nginx-writable-dir
               mountPath: /var/tmp
