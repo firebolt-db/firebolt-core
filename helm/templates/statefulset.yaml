@@ -11,6 +11,9 @@ spec:
   serviceName: {{ include "fbcore.fullname" . }}-svc
   replicas: {{ .Values.nodesCount }}
   podManagementPolicy: Parallel
+  updateStrategy:
+    # necessary to update to a newer image version
+    type: OnDelete
   selector:
     matchLabels:
       {{- include "fbcore.selectorLabels" . | nindent 6 }}
