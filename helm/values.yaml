@@ -77,3 +77,5 @@ deployment:
         storage: 1Gi
       limits:
         storage: 1Gi
+
+utilitiesImage: debian:stable-slim

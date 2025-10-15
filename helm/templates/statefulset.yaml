@@ -228,7 +228,7 @@ spec:
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
-          image: debian:stable-slim
+          image: {{ $.Values.utilitiesImage }}
           resources:
             requests:
               cpu: 50m
@@ -386,7 +386,7 @@ spec:
 {{- if $hpEnabled }}
       initContainers:
         - name: chown-data
-          image: debian:stable-slim
+          image: {{ $.Values.utilitiesImage }}
           imagePullPolicy: Always
           command: ["/bin/bash", "-c"]
           args:
