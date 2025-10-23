@@ -9,7 +9,9 @@ metadata:
     firebolt/nodes-count: {{ .Values.nodesCount | quote }}
 spec:
   serviceName: {{ include "fbcore.fullname" . }}-svc
+  {{- if hasKey .Values "nodesCount" }}
   replicas: {{ .Values.nodesCount }}
+  {{- end }}
   podManagementPolicy: Parallel
   updateStrategy:
     # necessary to update to a newer image version
