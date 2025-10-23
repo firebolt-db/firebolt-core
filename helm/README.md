@@ -37,4 +37,5 @@ Firebolt Core on Kubernetes
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for firebolt container |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
+| utilitiesImage | string | `"debian:stable-slim"` |  |
 
