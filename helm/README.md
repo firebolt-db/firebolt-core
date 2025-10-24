@@ -37,5 +37,6 @@ Firebolt Core on Kubernetes
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for firebolt container |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
+| updateStrategy | string | `"RollingUpdate"` | sets the update strategy for the statefulset; with nodesCount higher than 1 it will be necessary to issue a rollout restart after any statefulset change which requires pod rotation. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
 | utilitiesImage | string | `"debian:stable-slim"` |  |
 

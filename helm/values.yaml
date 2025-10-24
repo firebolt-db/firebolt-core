@@ -25,6 +25,11 @@ readiness: true
 # -- deploy a PodMonitor for Prometheus metrics scraping
 podMonitor: false
 
+# -- sets the update strategy for the statefulset; with nodesCount higher than 1 it will be necessary to issue a rollout restart
+# after any statefulset change which requires pod rotation.
+# See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version
+#updateStrategy: RollingUpdate
+
 # -- enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root
 nonRoot: true
 
