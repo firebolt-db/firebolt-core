@@ -4,8 +4,8 @@ image:
   # -- use a custom Docker image tag; when unspecified the app version from chart will be used instead
   tag:
 
-# -- when specified, it will set replicas to the number of nodes to deploy; it correspond to 1 when not specified
-# nodesCount: 1
+# -- number of nodes to deploy
+nodesCount: 1
 
 # -- tolerations allows you to configure pod tolerations.
 # See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
