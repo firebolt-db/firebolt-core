@@ -39,6 +39,9 @@ memlockSetup: true
 # -- deploy 1 Core UI sidecar for each node
 uiSidecar: false
 
+# -- service account which pods will use for their identity
+serviceAccount: default
+
 # -- specify custom security context capabilities for firebolt container
 securityContextCapabilities:
   drop:
