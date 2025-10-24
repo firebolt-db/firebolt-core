@@ -6,16 +6,19 @@ metadata:
   name: {{ include "fbcore.fullname" . }}
   labels:
     {{- include "fbcore.labels" . | nindent 4 }}
+    {{- if hasKey .Values "nodesCount" }}
     firebolt/nodes-count: {{ .Values.nodesCount | quote }}
+    {{- end }}
 spec:
   serviceName: {{ include "fbcore.fullname" . }}-svc
   {{- if hasKey .Values "nodesCount" }}
   replicas: {{ .Values.nodesCount }}
   {{- end }}
   podManagementPolicy: Parallel
+  {{- if hasKey .Values "updateStrategy" }}
   updateStrategy:
-    # necessary to update to a newer image version
-    type: OnDelete
+    type: {{ .Values.updateStrategy }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "fbcore.selectorLabels" . | nindent 6 }}
