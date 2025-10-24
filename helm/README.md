@@ -35,6 +35,7 @@ Firebolt Core on Kubernetes
 | readiness | bool | `true` | readiness check on each pod |
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for firebolt container |
+| serviceAccount | string | `"default"` | service account which pods will use for their identity |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
 | updateStrategy | string | `"RollingUpdate"` | sets the update strategy for the statefulset; with nodesCount higher than 1 it will be necessary to issue a rollout restart after any statefulset change which requires pod rotation. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |

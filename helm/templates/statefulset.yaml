@@ -26,6 +26,8 @@ spec:
         {{ toYaml . | nindent 8 }}
         {{- end }}
     spec:
+      serviceAccount: {{ .Values.serviceAccount }}
+      serviceAccountName: {{ .Values.serviceAccount }}
       terminationGracePeriodSeconds: {{ $.Values.deployment.terminationGracePeriodSeconds }}
       {{- if .Values.nonRoot }}
       securityContext:
