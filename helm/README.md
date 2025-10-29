@@ -24,7 +24,7 @@ Firebolt Core on Kubernetes
 | deployment.storageSpec.resources.limits.storage | string | `"1Gi"` |  |
 | deployment.storageSpec.resources.requests.storage | string | `"1Gi"` |  |
 | deployment.terminationGracePeriodSeconds | int | `5` | give a few seconds of grace time on shutdown to allow queries to finish |
-| extraLabels | object | `{}` | extra labels to assign to each pod |
+| extraLabels | object | `{"firebolt/product":"core"}` | extra labels to assign to each pod |
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |
 | image.tag | string | `nil` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
 | memlockSetup | bool | `true` | automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit. |
@@ -38,6 +38,6 @@ Firebolt Core on Kubernetes
 | serviceAccount | string | `"default"` | service account which pods will use for their identity |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
-| updateStrategy | string | `"RollingUpdate"` | sets the update strategy for the statefulset; with nodesCount higher than 1 it will be necessary to issue a rollout restart after any statefulset change which requires pod rotation. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
+| updateStrategy | string | `"RollingUpdate"` | sets the update strategy for the statefulset; using the default 'RollingUpdate' requires no manual intervention. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
 | utilitiesImage | string | `"debian:stable-slim"` |  |
 

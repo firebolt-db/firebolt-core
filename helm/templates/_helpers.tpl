@@ -47,7 +47,6 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "fbcore.selectorLabels" -}}
-firebolt/product: core
 app.kubernetes.io/name: {{ include "fbcore.fullname" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
