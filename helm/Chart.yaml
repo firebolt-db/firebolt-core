@@ -1,3 +1,4 @@
+---
 apiVersion: v2
 name: firebolt-core
 description: Firebolt Core on Kubernetes
