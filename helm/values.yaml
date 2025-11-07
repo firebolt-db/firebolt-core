@@ -58,6 +58,14 @@ resources:
 extraLabels:
   firebolt/product: core
 
+# -- custom init containers to be injected into the pod
+customInitContainers: []
+# Example:
+# customInitContainers:
+#   - name: custom-init
+#     image: busybox:latest
+#     command: ['sh', '-c', 'echo "Custom init container"']
+
 # -- custom configuration for nodes
 customNodeConfig:
 
