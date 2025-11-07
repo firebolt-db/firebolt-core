@@ -385,6 +385,9 @@ spec:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
         {{- end }}
+        {{- with .Values.customVolumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
 {{- if or $hpEnabled .Values.customInitContainers }}
       initContainers:
         {{- if $hpEnabled }}

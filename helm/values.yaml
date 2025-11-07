@@ -66,6 +66,18 @@ customInitContainers: []
 #     image: busybox:latest
 #     command: ['sh', '-c', 'echo "Custom init container"']
 
+# -- custom volumes to be injected into the pod
+customVolumes: []
+# Example:
+# customVolumes:
+#   - name: dev
+#     hostPath:
+#       path: /dev
+#       type: Directory
+#   - name: custom-config
+#     configMap:
+#       name: my-config
+
 # -- custom configuration for nodes
 customNodeConfig:
 
