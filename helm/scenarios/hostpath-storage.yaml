@@ -1,0 +1,9 @@
+---
+# Deployment scenario using hostPath storage instead of PVCs
+nodesCount: 1
+
+deployment:
+  hostPathStorageEnabled: true
+  storageHostPath:
+    path: /var/lib/firebolt-core
+    type: DirectoryOrCreate

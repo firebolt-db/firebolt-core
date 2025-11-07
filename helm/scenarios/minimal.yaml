@@ -1,0 +1,10 @@
+---
+# Minimal deployment scenario with just core required values
+nodesCount: 1
+
+resources:
+  requests:
+    cpu: "1"
+    memory: 4Gi
+  limits:
+    memory: 4Gi

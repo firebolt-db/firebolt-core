@@ -1,0 +1,10 @@
+---
+# Deployment scenario with PodMonitor enabled for Prometheus metrics
+nodesCount: 2
+
+podMonitor: true
+
+extraLabels:
+  firebolt/product: core
+  environment: production
+  monitoring: enabled
