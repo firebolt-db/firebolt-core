@@ -1,3 +1,4 @@
+---
 image:
   # -- use a custom ECR repository to pull the Docker image used by the pods
   repository: ghcr.io/firebolt-db/firebolt-core
@@ -27,7 +28,7 @@ podMonitor: false
 
 # -- sets the update strategy for the statefulset; using the default 'RollingUpdate' requires no manual intervention.
 # See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version
-#updateStrategy: RollingUpdate
+# updateStrategy: RollingUpdate
 
 # -- enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root
 nonRoot: true
