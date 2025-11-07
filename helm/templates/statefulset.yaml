@@ -22,8 +22,6 @@ spec:
     metadata:
       labels:
         {{- include "fbcore.labels" . | nindent 8 }}
-        {{ toYaml . | nindent 8 }}
-        {{- end }}
     spec:
       serviceAccount: {{ .Values.serviceAccount }}
       serviceAccountName: {{ .Values.serviceAccount }}
