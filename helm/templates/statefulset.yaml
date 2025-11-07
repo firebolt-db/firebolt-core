@@ -22,7 +22,6 @@ spec:
     metadata:
       labels:
         {{- include "fbcore.labels" . | nindent 8 }}
-        {{- with $.Values.extra_pod_labels }}
         {{ toYaml . | nindent 8 }}
         {{- end }}
     spec:
@@ -386,9 +385,10 @@ spec:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
         {{- end }}
-{{- if $hpEnabled }}
+{{- if or $hpEnabled .Values.customInitContainers }}
       initContainers:
-        - name: chown-data
+        {{- if $hpEnabled }}
+        - name: host-path-setup
           image: {{ $.Values.utilitiesImage }}
           imagePullPolicy: Always
           command: ["/bin/bash", "-c"]
@@ -406,6 +406,10 @@ spec:
           volumeMounts:
             - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
+        {{- end }}
+        {{- with .Values.customInitContainers }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
 {{- end}}
 {{- if not $hpEnabled }}
   volumeClaimTemplates:
