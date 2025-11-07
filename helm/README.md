@@ -17,6 +17,7 @@ Firebolt Core on Kubernetes
 | affinity | object | `{}` | affinity allows you to configure pod affinity and anti-affinity. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/ |
 | customInitContainers | list | `[]` | custom init containers to be injected into the pod |
 | customNodeConfig | string | `nil` | custom configuration for nodes |
+| customVolumes | list | `[]` | custom volumes to be injected into the pod |
 | deployment.hostPathStorageEnabled | bool | `false` | `deployment.storageHostPath` is used instead. Only one mode is active at a time. |
 | deployment.storageHostPath | object | `{"path":"/var/lib/firebolt-core","type":"DirectoryOrCreate"}` | hostPath settings used when hostPathStorageEnabled=true |
 | deployment.storageHostPath.path | string | `"/var/lib/firebolt-core"` | path on the node's filesystem to store data |
