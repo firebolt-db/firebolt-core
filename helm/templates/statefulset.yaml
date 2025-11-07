@@ -388,6 +388,9 @@ spec:
         {{- end }}
 {{- if or $hpEnabled .Values.customInitContainers }}
       initContainers:
+        {{- with .Values.customInitContainers }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         {{- if $hpEnabled }}
         - name: host-path-setup
           image: {{ $.Values.utilitiesImage }}
@@ -407,9 +410,6 @@ spec:
           volumeMounts:
             - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
-        {{- end }}
-        {{- with .Values.customInitContainers }}
-        {{- toYaml . | nindent 8 }}
         {{- end }}
 {{- end}}
 {{- if not $hpEnabled }}
