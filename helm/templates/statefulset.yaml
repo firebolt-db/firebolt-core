@@ -400,6 +400,12 @@ spec:
             - |
               echo "[Setup] changing ownership of /firebolt-core/volume to UID 1111"
               chown -R 1111:1111 /firebolt-core/volume
+          resources:
+            limits:
+              memory: 24Mi
+            requests:
+              cpu: 25m
+              memory: 24Mi
           securityContext:
             runAsUser: 0
             capabilities:
