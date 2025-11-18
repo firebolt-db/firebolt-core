@@ -82,6 +82,9 @@ customVolumes: []
 # -- custom configuration for nodes
 customNodeConfig:
 
+# -- use a specific suffix for the node hostnames e.g. ".cluster.local."
+nodeHostSuffix: ""
+
 deployment:
   # -- give a few seconds of grace time on shutdown to allow queries to finish
   terminationGracePeriodSeconds: 5
