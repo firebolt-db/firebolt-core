@@ -15,7 +15,7 @@ data:
         {{- $nodeCount := int .Values.nodesCount }}
         {{- range $i := until $nodeCount }}
         {
-          "host": "{{ include "fbcore.fullname" $ }}-{{ $i }}.{{ include "fbcore.fullname" $ }}-svc.{{ $.Release.Namespace }}.svc"
+          "host": "{{ include "fbcore.fullname" $ }}-{{ $i }}.{{ include "fbcore.fullname" $ }}-svc.{{ $.Release.Namespace }}.svc{{ $.Values.nodeHostSuffix }}"
         }{{ if lt $i (sub $nodeCount 1) }},{{ end }}
         {{- end }}
       ]
