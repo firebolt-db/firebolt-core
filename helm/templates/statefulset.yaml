@@ -386,15 +386,10 @@ spec:
         {{- with .Values.customVolumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-{{- if or $hpEnabled .Values.customInitContainers }}
+{{- if or $hpEnabled .Values.customInitContainersTemplate }}
       initContainers:
-        {{- range .Values.customInitContainers }}
-        {{- $container := . }}
-        {{- if $.Values.initContainersEnv }}
-        {{- $mergedEnv := concat (default list .env) $.Values.initContainersEnv }}
-        {{- $_ := set $container "env" $mergedEnv }}
-        {{- end }}
-        {{- toYaml $container | nindent 8 }}
+        {{- if .Values.customInitContainersTemplate }}
+        {{- tpl (toYaml .Values.customInitContainersTemplate) . | nindent 8 }}
         {{- end }}
         {{- if $hpEnabled }}
         - name: host-path-setup
