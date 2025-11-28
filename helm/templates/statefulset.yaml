@@ -127,7 +127,7 @@ spec:
               rm -f "$PID_FILE"
 
               export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
-              exec /firebolt-core/firebolt-core --node $POD_INDEX
+              exec /firebolt-core/firebolt-core --node $POD_INDEX{{ if .Values.watchConfig }} --watch-config{{ end }}
           ports:
             - name: http-query
               containerPort: 3473
