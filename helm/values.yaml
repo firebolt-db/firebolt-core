@@ -67,6 +67,18 @@ customInitContainers: []
 #     image: busybox:latest
 #     command: ['sh', '-c', 'echo "Custom init container"']
 
+# -- environment variables to inject into all custom init containers
+initContainersEnv: []
+# Example:
+# initContainersEnv:
+#   - name: MY_VAR
+#     value: "my-value"
+#   - name: MY_SECRET
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: password
+
 # -- custom volumes to be injected into the pod
 customVolumes: []
 # Example:

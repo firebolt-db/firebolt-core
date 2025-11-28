@@ -388,8 +388,13 @@ spec:
         {{- end }}
 {{- if or $hpEnabled .Values.customInitContainers }}
       initContainers:
-        {{- with .Values.customInitContainers }}
-        {{- toYaml . | nindent 8 }}
+        {{- range .Values.customInitContainers }}
+        {{- $container := . }}
+        {{- if $.Values.initContainersEnv }}
+        {{- $mergedEnv := concat (default list .env) $.Values.initContainersEnv }}
+        {{- $_ := set $container "env" $mergedEnv }}
+        {{- end }}
+        {{- toYaml $container | nindent 8 }}
         {{- end }}
         {{- if $hpEnabled }}
         - name: host-path-setup
