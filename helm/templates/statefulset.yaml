@@ -127,7 +127,7 @@ spec:
               rm -f "$PID_FILE"
 
               export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
-              exec /firebolt-core/firebolt-core --node $POD_INDEX{{ if .Values.watchConfig }} --watch-config{{ end }}
+              exec /firebolt-core/firebolt-core --node $POD_INDEX{{ if .Values.watchConfig }} --watch-config{{ end }}{{ if .Values.customNodeConfigPath }} --config-file {{ .Values.customNodeConfigPath }}{{ end }}
           ports:
             - name: http-query
               containerPort: 3473
@@ -175,10 +175,16 @@ spec:
           volumeMounts:
             - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
+            {{- if .Values.customNodeConfigPath }}
+            - name: nodes-config
+              mountPath: {{ .Values.customNodeConfigPath }}
+              readOnly: true
+            {{- else }}
             - name: nodes-config
               mountPath: /firebolt-core/config.json
               subPath: config.json
               readOnly: true
+            {{- end }}
           securityContext:
             readOnlyRootFilesystem: false
             {{- if .Values.nonRoot }}
@@ -373,9 +379,11 @@ spec:
         - name: nodes-config
           configMap:
             name: {{ include "fbcore.fullname" . }}-nodes-config
+        {{- if not .Values.customNodeConfigPath }}
             items:
               - key: config.json
                 path: config.json
+        {{- end }}
         {{- $hpEnabled := $.Values.deployment.hostPathStorageEnabled }}
         {{- if $hpEnabled }}
         - name: firebolt-core-data{{ if .Values.nonRoot }}-nr{{ end }}

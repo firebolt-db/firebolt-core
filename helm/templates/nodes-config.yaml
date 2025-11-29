@@ -6,7 +6,11 @@ metadata:
   labels:
     {{- include "fbcore.labels" . | nindent 4 }}
 data:
+  {{- if .Values.customNodeConfigPath }}
+  {{ base .Values.customNodeConfigPath }}: |
+  {{- else }}
   config.json: |
+  {{- end }}
     {
       {{- if .Values.customNodeConfig }}
       {{ .Values.customNodeConfig | toJson | trimSuffix "}" | trimPrefix "{" | nindent 6 }},
