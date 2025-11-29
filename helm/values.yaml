@@ -82,6 +82,9 @@ customVolumes: []
 # -- custom configuration for nodes
 customNodeConfig:
 
+# -- allow mounting a custom node config path with a directory, which allows configuration to dynamically change at runtime.
+customNodeConfigPath: ""
+
 # -- Core will watch for changes to the configuration and terminate process if any change in node hosts is detected.
 watchConfig: false
 
