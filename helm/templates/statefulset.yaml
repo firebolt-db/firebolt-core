@@ -157,13 +157,16 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 3
+            failureThreshold: 6
             httpGet:
               path: /health/live
               port: 8122
           {{- if .Values.readiness }}
           readinessProbe:
+            initialDelaySeconds: 5
             periodSeconds: 5
             timeoutSeconds: 3
+            failureThreshold: 6
             httpGet:
               path: /health/ready
               port: 8122
