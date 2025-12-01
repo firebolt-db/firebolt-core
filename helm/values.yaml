@@ -82,9 +82,6 @@ customVolumes: []
 # -- custom configuration for nodes
 customNodeConfig:
 
-# -- Core will watch for changes to the configuration and terminate process if any change in node hosts is detected.
-watchConfig: false
-
 # -- use a specific suffix for the node hostnames e.g. ".cluster.local."
 nodeHostSuffix: ""
 

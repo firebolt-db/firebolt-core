@@ -43,5 +43,4 @@ Firebolt Core on Kubernetes
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
 | updateStrategy | string | `"RollingUpdate"` | sets the update strategy for the statefulset; using the default 'RollingUpdate' requires no manual intervention. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
 | utilitiesImage | string | `"debian:stable-slim"` |  |
-| watchConfig | bool | `false` | Core will watch for changes to the configuration and terminate process if any change in node hosts is detected. |
 
