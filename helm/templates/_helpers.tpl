@@ -50,3 +50,52 @@ Selector labels
 app.kubernetes.io/name: {{ include "fbcore.fullname" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Common service ports for Firebolt Core
+*/}}
+{{- define "fbcore.servicePorts" -}}
+- name: http-query
+  port: 3473
+  protocol: TCP
+- name: health
+  port: 8122
+  protocol: TCP
+- name: execp
+  port: 5678
+  protocol: TCP
+- name: datacp
+  port: 16000
+  protocol: TCP
+- name: storage-manager
+  port: 1717
+  protocol: TCP
+- name: storage-agent
+  port: 3434
+  protocol: TCP
+- name: metadata
+  port: 6500
+  protocol: TCP
+- name: metrics
+  port: 9090
+  protocol: TCP
+{{- end }}
+
+{{/*
+PVC prefix - used for volume naming in both StatefulSet and Deployment modes.
+Returns pvcPrefixOverride if set, otherwise defaults to fullname-data.
+*/}}
+{{- define "fbcore.pvc_prefix" -}}
+{{- if .Values.pvcPrefixOverride -}}
+{{- .Values.pvcPrefixOverride -}}
+{{- else -}}
+{{- include "fbcore.fullname" . }}-data
+{{- end -}}
+{{- end -}}
+
+{{/*
+Memlock setup sidecar script - loaded from files/memlock-setup.sh
+*/}}
+{{- define "fbcore.memlockSetupScript" -}}
+{{ .Files.Get "files/memlock-setup.sh" }}
+{{- end }}

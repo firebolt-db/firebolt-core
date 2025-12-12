@@ -1,4 +1,5 @@
 ---
+
 image:
   # -- use a custom ECR repository to pull the Docker image used by the pods
   repository: ghcr.io/firebolt-db/firebolt-core
@@ -7,6 +8,25 @@ image:
 
 # -- number of nodes to deploy
 nodesCount: 1
+
+# -- when true, uses a StatefulSet; when false, uses multiple Deployments (one per node)
+useStatefulSet: true
+
+# -- when specified, overrides the generated PVC prefix for both StatefulSet and Deployment modes.
+pvcPrefixOverride: firebolt-core-data
+
+# -- sets the update strategy for the statefulset; using a statefulset requires manually deleting pods in most cases.
+# See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version
+updateStrategy: OnDelete
+
+# -- readiness check on each pod
+readiness: true
+
+# -- priority class for node-0 deployment; when set, nodes after node 0 will use a lower priority class (high-priority). Only used when useStatefulSet=false. Requires setting priorityClassNodeN as well.
+priorityClassNode0: ""
+
+# -- priority class for all other nodes after node-0 deployment; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set.
+priorityClassNodeN: ""
 
 # -- tolerations allows you to configure pod tolerations.
 # See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
@@ -20,18 +40,11 @@ affinity: {}
 # See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
 nodeSelector: {}
 
-# -- readiness check on each pod
-readiness: true
-
 # -- deploy a PodMonitor for Prometheus metrics scraping
 podMonitor: false
 
-# -- sets the update strategy for the statefulset; using the default 'RollingUpdate' requires no manual intervention.
-# See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version
-# updateStrategy: RollingUpdate
-
 # -- enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root
-nonRoot: true
+nonRoot: false
 
 # -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
 memlockSetup: true
@@ -42,7 +55,7 @@ uiSidecar: false
 # -- service account which pods will use for their identity
 serviceAccount: default
 
-# -- specify custom security context capabilities for firebolt container
+# -- specify custom security context capabilities for the Firebolt Core container
 securityContextCapabilities:
   drop:
     - ALL

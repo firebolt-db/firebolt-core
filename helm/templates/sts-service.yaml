@@ -1,0 +1,20 @@
+{{- if .Values.useStatefulSet }}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "fbcore.fullname" . }}-svc
+  labels:
+    {{- include "fbcore.labels" . | nindent 4 }}
+    firebolt/nodes-count: {{ .Values.nodesCount | quote }}
+spec:
+  type: ClusterIP
+  # create a headless service
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    {{- include "fbcore.selectorLabels" . | nindent 4 }}
+  ports:
+    {{- include "fbcore.servicePorts" . | nindent 4 }}
+{{- end }}

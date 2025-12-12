@@ -1,0 +1,12 @@
+---
+# Multi-deployment scenario (uses separate Deployment per node instead of StatefulSet)
+# This mode provides more flexibility for scaling and management of individual nodes
+useStatefulSet: false
+nodesCount: 3
+
+resources:
+  requests:
+    cpu: "1"
+    memory: 4Gi
+  limits:
+    memory: 4Gi

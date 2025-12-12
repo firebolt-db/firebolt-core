@@ -52,5 +52,3 @@ When adding new scenario files:
 4. Ensure the file passes yamllint: `yamllint -c .yamllint-helm helm/scenarios/your-scenario.yaml`
 5. Test with helm lint: `helm lint helm/ -f helm/scenarios/your-scenario.yaml`
 6. Validate the rendered output: `helm template test helm/ -f helm/scenarios/your-scenario.yaml | yamllint -c .yamllint-helm -`
-
-

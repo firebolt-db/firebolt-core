@@ -1,48 +1,60 @@
-{{- if .Values.useStatefulSet }}
+{{- if not .Values.useStatefulSet }}
+{{- $nodesCount := int .Values.nodesCount }}
+{{- range $i := until $nodesCount }}
+{{- $deploymentSuffix := printf "node-%d" $i }}
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  namespace: {{ .Release.Namespace }}
-  name: {{ include "fbcore.fullname" . }}
+  namespace: {{ $.Release.Namespace }}
+  name: {{ include "fbcore.fullname" $ }}-{{ $deploymentSuffix }}
   labels:
-    {{- include "fbcore.labels" . | nindent 4 }}
-    firebolt/nodes-count: {{ .Values.nodesCount | quote }}
+    {{- include "fbcore.labels" $ | nindent 4 }}
+    firebolt/nodes-count: {{ $.Values.nodesCount | quote }}
 spec:
-  serviceName: {{ include "fbcore.fullname" . }}-svc
-  replicas: {{ .Values.nodesCount }}
-  podManagementPolicy: Parallel
-  {{- if hasKey .Values "updateStrategy" }}
-  updateStrategy:
-    type: {{ .Values.updateStrategy }}
-  {{- end }}
+  replicas: 1
   selector:
     matchLabels:
-      {{- include "fbcore.selectorLabels" . | nindent 6 }}
+      {{- include "fbcore.selectorLabels" $ | nindent 6 }}
+      firebolt/node: {{ $i | quote }}
+  strategy:
+    type: Recreate
   template:
     metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/nodes-config.yaml") $ | sha256sum }}
       labels:
-        {{- include "fbcore.labels" . | nindent 8 }}
+        {{- include "fbcore.labels" $ | nindent 8 }}
+        firebolt/node: {{ $i | quote }}
+        # NOTE: this label forces the replacement of all pods when scaling up/down
+        firebolt/nodes-count: {{ $nodesCount | quote }}
     spec:
-      serviceAccount: {{ .Values.serviceAccount }}
-      serviceAccountName: {{ .Values.serviceAccount }}
+      {{- if $.Values.priorityClassNode0 }}
+      {{- if eq $i 0 }}
+      priorityClassName: {{ $.Values.priorityClassNode0 }}
+      {{- else }}
+      priorityClassName: {{ $.Values.priorityClassNodeN }}
+      {{- end }}
+      {{- end }}
+      serviceAccount: {{ $.Values.serviceAccount }}
+      serviceAccountName: {{ $.Values.serviceAccount }}
       terminationGracePeriodSeconds: {{ $.Values.deployment.terminationGracePeriodSeconds }}
-      {{- if .Values.nonRoot }}
+      {{- if $.Values.nonRoot }}
       securityContext:
         fsGroup: 1111
       {{- end }}
-      {{- if and .Values.memlockSetup .Values.nonRoot }}
+      {{- if and $.Values.memlockSetup $.Values.nonRoot }}
       shareProcessNamespace: true
       {{- end }}
-      {{- with .Values.tolerations }}
+      {{- with $.Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- with $.Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.nodeSelector }}
+      {{- with $.Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -52,16 +64,12 @@ spec:
           image: {{ $.Values.image.repository }}:{{  default $.Chart.AppVersion $.Values.image.tag }}
           imagePullPolicy: Always
           env:
-            - name: POD_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
+            - name: FIREBOLT_CORE_NODE
+              value: {{ $i | quote }}
             - name: POD_UID
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.uid
-            - name: NODES_COUNT
-              value: {{ .Values.nodesCount | quote }}
           command: ["/bin/bash", "-c"]
           tty: true
           stdin: true
@@ -90,13 +98,13 @@ spec:
               echo -n "[Setup] Firebolt Core version "
               /firebolt-core/firebolt-core --version
 
-              {{- if .Values.nonRoot }}
+              {{- if $.Values.nonRoot }}
               if [[ $(id -u) -eq 0 ]]; then
                 echo "[Setup] Core container is running as root, however deployment used nonRoot=false" 1>&2
                 exit 4
               fi
 
-              {{- if .Values.memlockSetup }}
+              {{- if $.Values.memlockSetup }}
               echo "[Setup] Core entrypoint PID: $BASHPID"
               rm -f /firebolt-core/volume/entrypoint-*.pid
               PID_FILE="/firebolt-core/volume/entrypoint-$POD_UID.pid"
@@ -116,8 +124,8 @@ spec:
                 exit 4
               fi
 
-              {{- if .Values.memlockSetup }}
-              ## NOTE: no 'ulimit' call happens here because root images support is soon to be deprecated
+              {{- if $.Values.memlockSetup }}
+              ## NOTE: no 'ulimit' call happens here because root images support is deprecated
               echo "WARNING: memlockSetup=true is unnecessary with nonRoot=false" 1>&2
               {{- end }}
 
@@ -127,8 +135,7 @@ spec:
 
               rm -f "$PID_FILE"
 
-              export POD_INDEX="$(echo $POD_NAME | awk -F'-' '{print $NF}')"
-              exec /firebolt-core/firebolt-core --node $POD_INDEX
+              exec /firebolt-core/firebolt-core --node $FIREBOLT_CORE_NODE
           ports:
             - name: http-query
               containerPort: 3473
@@ -162,7 +169,7 @@ spec:
             httpGet:
               path: /health/live
               port: 8122
-          {{- if .Values.readiness }}
+          {{- if $.Values.readiness }}
           readinessProbe:
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -177,7 +184,7 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
             - name: nodes-config
               mountPath: /firebolt-core/config.json
@@ -185,7 +192,7 @@ spec:
               readOnly: true
           securityContext:
             readOnlyRootFilesystem: false
-            {{- if .Values.nonRoot }}
+            {{- if $.Values.nonRoot }}
             runAsNonRoot: true
             runAsUser: 1111
             runAsGroup: 1111
@@ -193,7 +200,7 @@ spec:
             allowPrivilegeEscalation: false
             capabilities:
               {{- toYaml $.Values.securityContextCapabilities | nindent 14 }}
-        {{- if .Values.uiSidecar }}
+        {{- if $.Values.uiSidecar }}
         - name: core-ui
           image: ghcr.io/firebolt-db/firebolt-core-ui:latest
           imagePullPolicy: Always
@@ -229,7 +236,7 @@ spec:
             - name: nginx-writable-dir
               mountPath: /var/run/nginx
         {{- end }}
-        {{- if and .Values.memlockSetup .Values.nonRoot }}
+        {{- if and $.Values.memlockSetup $.Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
           image: {{ $.Values.utilitiesImage }}
@@ -254,36 +261,40 @@ spec:
           command: ["/bin/bash", "-c"]
           args:
             - |
-              {{- include "fbcore.memlockSetupScript" . | nindent 14 }}
+              {{- include "fbcore.memlockSetupScript" $ | nindent 14 }}
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
         {{- end }}
       volumes:
-        {{- if .Values.uiSidecar }}
+        {{- if $.Values.uiSidecar }}
         - name: nginx-writable-dir
           emptyDir: {}
         {{- end }}
         - name: nodes-config
           configMap:
-            name: {{ include "fbcore.fullname" . }}-nodes-config
+            name: {{ include "fbcore.fullname" $ }}-nodes-config
             items:
               - key: config.json
                 path: config.json
+        {{- with $.Values.customVolumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         {{- $hpEnabled := $.Values.deployment.hostPathStorageEnabled }}
         {{- if $hpEnabled }}
-        - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+        - name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}
           hostPath:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
+        {{- else }}
+        - name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}
+          persistentVolumeClaim:
+            claimName: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}-{{ $deploymentSuffix }}
         {{- end }}
-        {{- with .Values.customVolumes }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
-{{- if or $hpEnabled .Values.customInitContainersTemplate }}
+{{- if or $hpEnabled $.Values.customInitContainersTemplate }}
       initContainers:
-        {{- if .Values.customInitContainersTemplate }}
-        {{- tpl (toYaml .Values.customInitContainersTemplate) . | nindent 8 }}
+        {{- if $.Values.customInitContainersTemplate }}
+        {{- tpl (toYaml $.Values.customInitContainersTemplate) $ | nindent 8 }}
         {{- end }}
         {{- if $hpEnabled }}
         - name: host-path-setup
@@ -308,15 +319,12 @@ spec:
               add:
                 - CHOWN
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
         {{- end }}
-{{- end}}
-{{- if not $hpEnabled }}
-  volumeClaimTemplates:
-    - metadata:
-        name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
-      spec:
-        {{- toYaml $.Values.deployment.storageSpec | nindent 8 }}
+{{- end }}
+
 {{- end }}
 {{- end }}
+
+
