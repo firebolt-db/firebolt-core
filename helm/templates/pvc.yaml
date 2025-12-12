@@ -1,0 +1,20 @@
+{{- if not .Values.useStatefulSet }}
+{{- if not .Values.deployment.hostPathStorageEnabled }}
+{{- $nodesCount := int .Values.nodesCount }}
+{{- range $i := until $nodesCount }}
+{{- $pvcSuffix := printf "node-%d" $i }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: {{ $.Release.Namespace }}
+  name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}-{{ $pvcSuffix }}
+  labels:
+    {{- include "fbcore.labels" $ | nindent 4 }}
+    firebolt/node: {{ $i | quote }}
+    firebolt/nodes-count: {{ $.Values.nodesCount | quote }}
+spec:
+  {{- toYaml $.Values.deployment.storageSpec | nindent 2 }}
+{{- end }}
+{{- end }}
+{{- end }}

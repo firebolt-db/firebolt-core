@@ -8,14 +8,18 @@ metadata:
 data:
   config.json: |
     {
-      {{- if .Values.customNodeConfig }}
+      {{- if .Values.customNodeConfig -}}
       {{ .Values.customNodeConfig | toJson | trimSuffix "}" | trimPrefix "{" | nindent 6 }},
       {{- end }}
       "nodes": [
         {{- $nodeCount := int .Values.nodesCount }}
         {{- range $i := until $nodeCount }}
         {
+          {{- if $.Values.useStatefulSet }}
           "host": "{{ include "fbcore.fullname" $ }}-{{ $i }}.{{ include "fbcore.fullname" $ }}-svc.{{ $.Release.Namespace }}.svc{{ $.Values.nodeHostSuffix }}"
+          {{- else }}
+          "host": "{{ include "fbcore.fullname" $ }}-{{ $i }}.{{ $.Release.Namespace }}.svc{{ $.Values.nodeHostSuffix }}"
+          {{- end }}
         }{{ if lt $i (sub $nodeCount 1) }},{{ end }}
         {{- end }}
       ]
