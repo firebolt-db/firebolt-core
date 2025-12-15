@@ -13,16 +13,60 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          fetch-depth: 0
+
+      - name: Detect helm changes
+        id: helm-changes
+        run: |
+          # Get the list of changed files in helm/ directory
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- helm/)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "helm_changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected in helm/ directory"
+          else
+            echo "helm_changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in helm/:"
+            echo "$CHANGED_FILES"
+          fi
+
+      - name: Verify Chart.yaml is modified
+        if: steps.helm-changes.outputs.helm_changed == 'true'
+        run: |
+          CHART_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- helm/Chart.yaml)
+          if [ -z "$CHART_CHANGED" ]; then
+            echo "::error::helm/Chart.yaml must be modified when changes are made to helm/ directory (version bump expected)"
+            exit 1
+          fi
+          echo "helm/Chart.yaml has been modified"
+
+      - name: Verify version has CHANGELOG entry
+        if: steps.helm-changes.outputs.helm_changed == 'true'
+        run: |
+          # Extract version from Chart.yaml
+          CHART_VERSION=$(grep '^version:' helm/Chart.yaml | awk '{print $2}')
+          echo "Chart version: $CHART_VERSION"
+          
+          # Check if this version has a header in CHANGELOG.md
+          if grep -q "^# $CHART_VERSION" helm/CHANGELOG.md; then
+            echo "Found CHANGELOG entry for version $CHART_VERSION"
+          else
+            echo "::error::Version $CHART_VERSION not found in helm/CHANGELOG.md. Please add a '# $CHART_VERSION' header with release notes."
+            exit 1
+          fi
 
       - name: Set up Helm
+        if: steps.helm-changes.outputs.helm_changed == 'true'
         uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4
         with:
           version: 'latest'
 
       - name: Install yamllint
+        if: steps.helm-changes.outputs.helm_changed == 'true'
         run: |
           pip install yamllint
 
       - name: Run chart validation
+        if: steps.helm-changes.outputs.helm_changed == 'true'
         run: |
           ./helm/scripts/validate-chart.sh
