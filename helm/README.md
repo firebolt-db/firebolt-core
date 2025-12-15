@@ -37,7 +37,6 @@ Firebolt Core on Kubernetes
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
 | priorityClassNode0 | string | `""` | priority class for node-0 deployment; when set, nodes after node 0 will use a lower priority class (high-priority). Only used when useStatefulSet=false. Requires setting priorityClassNodeN as well. |
 | priorityClassNodeN | string | `""` | priority class for all other nodes after node-0 deployment; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set. |
-| pvcPrefixOverride | string | `"firebolt-core-data"` | when specified, overrides the generated PVC prefix for both StatefulSet and Deployment modes. |
 | readiness | bool | `true` | readiness check on each pod |
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for the Firebolt Core container |

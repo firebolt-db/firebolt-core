@@ -177,7 +177,7 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.fullname" . }}-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
             - name: nodes-config
               mountPath: /firebolt-core/config.json
@@ -256,7 +256,7 @@ spec:
             - |
               {{- include "fbcore.memlockSetupScript" . | nindent 14 }}
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.fullname" . }}-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
         {{- end }}
       volumes:
@@ -272,7 +272,7 @@ spec:
                 path: config.json
         {{- $hpEnabled := $.Values.deployment.hostPathStorageEnabled }}
         {{- if $hpEnabled }}
-        - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+        - name: {{ include "fbcore.fullname" . }}-data{{ if .Values.nonRoot }}-nr{{ end }}
           hostPath:
             path: {{ $.Values.deployment.storageHostPath.path }}
             type: {{ default "DirectoryOrCreate" $.Values.deployment.storageHostPath.type }}
@@ -308,14 +308,14 @@ spec:
               add:
                 - CHOWN
           volumeMounts:
-            - name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+            - name: {{ include "fbcore.fullname" . }}-data{{ if .Values.nonRoot }}-nr{{ end }}
               mountPath: /firebolt-core/volume
         {{- end }}
 {{- end}}
 {{- if not $hpEnabled }}
   volumeClaimTemplates:
     - metadata:
-        name: {{ include "fbcore.pvc_prefix" . }}{{ if .Values.nonRoot }}-nr{{ end }}
+        name: {{ include "fbcore.fullname" . }}-data{{ if .Values.nonRoot }}-nr{{ end }}
       spec:
         {{- toYaml $.Values.deployment.storageSpec | nindent 8 }}
 {{- end }}
