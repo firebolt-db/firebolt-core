@@ -8,7 +8,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: {{ $.Release.Namespace }}
-  name: {{ include "fbcore.pvc_prefix" $ }}{{ if $.Values.nonRoot }}-nr{{ end }}-{{ $pvcSuffix }}
+  name: {{ include "fbcore.fullname" $ }}-data{{ if $.Values.nonRoot }}-nr{{ end }}-{{ $pvcSuffix }}
   labels:
     {{- include "fbcore.labels" $ | nindent 4 }}
     firebolt/node: {{ $i | quote }}

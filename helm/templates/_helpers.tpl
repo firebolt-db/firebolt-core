@@ -81,17 +81,6 @@ Common service ports for Firebolt Core
   protocol: TCP
 {{- end }}
 
-{{/*
-PVC prefix - used for volume naming in both StatefulSet and Deployment modes.
-Returns pvcPrefixOverride if set, otherwise defaults to fullname-data.
-*/}}
-{{- define "fbcore.pvc_prefix" -}}
-{{- if .Values.pvcPrefixOverride -}}
-{{- .Values.pvcPrefixOverride -}}
-{{- else -}}
-{{- include "fbcore.fullname" . }}-data
-{{- end -}}
-{{- end -}}
 
 {{/*
 Memlock setup sidecar script - loaded from files/memlock-setup.sh
