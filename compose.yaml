@@ -10,7 +10,7 @@ services:
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
     healthcheck:
-      test: ["CMD", "fbcli", "--command", "SELECT 42;"]
+      test: ["CMD", "fb", "--core", "--command", "SELECT 42;"]
       interval: 5s
       timeout: 10s
       retries: 10

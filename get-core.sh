@@ -145,7 +145,7 @@ run_docker_image() {
             wait_for_core_to_be_ready
             
             echo "[🔥] Running Firebolt CLI"
-            docker exec -ti $CID fbcli
+            docker exec -ti $CID fb --core
             ;;
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
@@ -155,7 +155,7 @@ run_docker_image() {
             echo
             echo "And then in another terminal:"
             echo
-            echo "docker exec -ti firebolt-core fbcli"
+            echo "docker exec -ti firebolt-core fb --core"
             echo
             ;;
 
