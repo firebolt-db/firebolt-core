@@ -148,13 +148,13 @@ You can deploy Firebolt Core on Kubernetes (v1.19+) by following these steps:
 kubectl create namespace firebolt-core
 ```
 2. Customize the values for the chart (see [helm/README.md](helm/README.md)), for example by setting `nodesCount` to 3.
-3. Install the Helm chart in such namespace:
+3. Once your values are configured, install the chart into the firebolt-core namespace:
 ```bash
-helm install helm/ --generate-name --namespace firebolt-core
+helm install core-demo helm/ -n firebolt-core --set nodesCount=3
 ```
 4. Verify that pods are running:
 ```bash
-kubectl get pods
+kubectl get pods -n firebolt-core
 ```
 Expected output:
 ```
@@ -165,7 +165,7 @@ helm-1748880880-firebolt-core-2   1/1     Running   0          5m32s
 ```
 
 See also:
-* [helm/README.md](helm/README.md) for information on the values you can customize, including number of nodes.
+* [helm/README.md](helm/README.md) for information on the values you can customize, including the number of nodes.
 * [Deployment on Kubernetes](https://docs.firebolt.io/FireboltCore/firebolt-core-deployment-k8s.html)
 
 ## Requirements
