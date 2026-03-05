@@ -1,3 +1,7 @@
+# 0.3.0
+
+* `nonRoot=true` is now the default
+
 # 0.2.1
 
 * remove `pvcPrefixOverride`
