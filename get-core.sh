@@ -29,10 +29,18 @@ banner() {
 "
 }
 
+IS_MACOS=0
+if [ "$(uname)" = "Darwin" ]; then
+    IS_MACOS=1
+    DEFAULT_CORE_USER=root
+else
+    DEFAULT_CORE_USER=firebolt-core
+fi
+
 # Docker image to pull - allow specifying overrides via env variables
 CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/firebolt-core}"
 CORE_TAG="${CORE_TAG:-preview-rc}"
-CORE_USER="firebolt-core"
+CORE_USER="${CORE_USER:-$DEFAULT_CORE_USER}"
 DOCKER_IMAGE="${CORE_REPO}:${CORE_TAG}"
 EXTERNAL_PORT=3473
 DOCKER_RUN_ARGS=(
@@ -45,11 +53,6 @@ DOCKER_RUN_ARGS=(
   -p "$EXTERNAL_PORT:3473"
   "$DOCKER_IMAGE"
 )
-IS_MACOS=0
-if [ "$(uname)" = "Darwin" ]; then
-    IS_MACOS=1
-    CORE_USER=root
-fi
 
 ensure_docker_is_installed() {
     if docker info >/dev/null 2>&1; then
