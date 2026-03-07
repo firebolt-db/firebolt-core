@@ -1,0 +1,25 @@
+extends: default
+
+rules:
+  line-length: disable
+  indentation:
+    ## toYaml in Helm templates can produce indentation that yamllint considers incorrect
+    ## but is actually valid YAML. 'whatever' allows both block and flow list styles.
+    indent-sequences: whatever
+  braces:
+    forbid: non-empty
+    min-spaces-inside: 0
+    max-spaces-inside: 0
+    min-spaces-inside-empty: 0
+    max-spaces-inside-empty: 0
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 1
+  document-start:
+    level: error
+  new-line-at-end-of-file:
+    level: error
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
