@@ -35,6 +35,7 @@ jobs:
         with:
           show-progress: false
           lfs: false
+          persist-credentials: false
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Copy get-core.sh script

@@ -10,17 +10,22 @@ on:
 jobs:
   validate-chart:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Detect helm changes
         id: helm-changes
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
           # Get the list of changed files in helm/ directory
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- helm/)
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD" -- helm/)
           if [ -z "$CHANGED_FILES" ]; then
             echo "helm_changed=false" >> $GITHUB_OUTPUT
             echo "No changes detected in helm/ directory"
@@ -32,8 +37,10 @@ jobs:
 
       - name: Verify Chart.yaml is modified
         if: steps.helm-changes.outputs.helm_changed == 'true'
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          CHART_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- helm/Chart.yaml)
+          CHART_CHANGED=$(git diff --name-only "origin/${BASE_REF}...HEAD" -- helm/Chart.yaml)
           if [ -z "$CHART_CHANGED" ]; then
             echo "::error::helm/Chart.yaml must be modified when changes are made to helm/ directory (version bump expected)"
             exit 1
