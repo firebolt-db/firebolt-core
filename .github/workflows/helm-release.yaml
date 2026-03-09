@@ -1,6 +1,10 @@
 ---
 name: Helm Chart Release
 
+env:
+  GHCR_REGISTRY: ghcr.io
+  HELM_CHARTS_NAMESPACE: helm-charts
+
 on:
   push:
     branches: ["main"]
@@ -36,11 +40,11 @@ jobs:
 
       - name: Login to GHCR
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ghcr.io \
+          echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ${{ env.GHCR_REGISTRY }} \
             --username "${{ github.actor }}" --password-stdin
 
       - name: Package and push chart
         run: |
           helm package helm/
           helm push "firebolt-core-${{ steps.chart.outputs.version }}.tgz" \
-            "oci://ghcr.io/${{ github.repository_owner }}/helm-charts"
+            "oci://${{ env.GHCR_REGISTRY }}/${{ github.repository_owner }}/${{ env.HELM_CHARTS_NAMESPACE }}"
