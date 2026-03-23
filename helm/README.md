@@ -1,6 +1,6 @@
 # firebolt-core
 
-![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
+![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
 
 Firebolt Core on Kubernetes
 
@@ -16,7 +16,7 @@ Firebolt Core on Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` | affinity allows you to configure pod affinity and anti-affinity. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/ |
 | customInitContainersTemplate | list | `[]` | custom init containers to be injected into the pod (supports templating) |
-| customNodeConfig | string | `nil` | custom configuration for nodes |
+| customNodeConfig | object | `{}` | custom configuration for nodes |
 | customVolumes | list | `[]` | custom volumes to be injected into the pod |
 | deployment.hostPathStorageEnabled | bool | `false` | `deployment.storageHostPath` is used instead. Only one mode is active at a time. |
 | deployment.storageHostPath | object | `{"path":"/var/lib/firebolt-core","type":"DirectoryOrCreate"}` | hostPath settings used when hostPathStorageEnabled=true |
@@ -27,8 +27,9 @@ Firebolt Core on Kubernetes
 | deployment.storageSpec.resources.requests.storage | string | `"1Gi"` |  |
 | deployment.terminationGracePeriodSeconds | int | `5` | give a few seconds of grace time on shutdown to allow queries to finish |
 | extraLabels | object | `{"firebolt/product":"core"}` | extra labels to assign to each pod |
+| image.pullPolicy | string | `"Always"` | imagePullPolicy for all containers in the pod |
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |
-| image.tag | string | `nil` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
+| image.tag | string | `""` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
 | memlockSetup | bool | `true` | automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit. |
 | nodeHostSuffix | string | `""` | use a specific suffix for the node hostnames e.g. ".cluster.local." |
 | nodeSelector | object | `{}` | nodeSelector allows you to configure a node selection constraint. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector |
