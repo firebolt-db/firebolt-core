@@ -5,6 +5,8 @@ image:
   repository: ghcr.io/firebolt-db/firebolt-core
   # -- use a custom Docker image tag; when unspecified the app version from chart will be used instead
   tag: ""
+  # -- imagePullPolicy for all containers in the pod
+  pullPolicy: Always
 
 # -- number of nodes to deploy
 nodesCount: 1

@@ -50,7 +50,7 @@ spec:
       containers:
         - name: core
           image: {{ $.Values.image.repository }}:{{  default $.Chart.AppVersion $.Values.image.tag }}
-          imagePullPolicy: Always
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
             - name: POD_NAME
               valueFrom:
@@ -196,7 +196,7 @@ spec:
         {{- if .Values.uiSidecar }}
         - name: core-ui
           image: ghcr.io/firebolt-db/firebolt-core-ui:latest
-          imagePullPolicy: Always
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
             - name: FIREBOLT_CORE_URL
               value: http://localhost:3473
@@ -233,6 +233,7 @@ spec:
         - name: memlock-setup
           # use an image which has 'prlimit'
           image: {{ $.Values.utilitiesImage }}
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           resources:
             requests:
               cpu: 50m
@@ -288,7 +289,7 @@ spec:
         {{- if $hpEnabled }}
         - name: host-path-setup
           image: {{ $.Values.utilitiesImage }}
-          imagePullPolicy: Always
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           command: ["/bin/bash", "-c"]
           args:
             - |
