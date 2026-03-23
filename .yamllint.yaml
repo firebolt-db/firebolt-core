@@ -2,6 +2,7 @@ extends: default
 
 rules:
   line-length: disable
+  trailing-spaces: disable
   indentation:
     ## toYaml in Helm templates can produce indentation that yamllint considers incorrect
     ## but is actually valid YAML. 'whatever' allows both block and flow list styles.
