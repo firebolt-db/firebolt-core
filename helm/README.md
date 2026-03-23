@@ -1,6 +1,6 @@
 # firebolt-core
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
 
 Firebolt Core on Kubernetes
 
@@ -33,7 +33,7 @@ Firebolt Core on Kubernetes
 | nodeHostSuffix | string | `""` | use a specific suffix for the node hostnames e.g. ".cluster.local." |
 | nodeSelector | object | `{}` | nodeSelector allows you to configure a node selection constraint. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector |
 | nodesCount | int | `1` | number of nodes to deploy |
-| nonRoot | bool | `false` | enable non-root mode, requires a compatible Firebolt Core docker image; recent images are all non-root |
+| nonRoot | bool | `true` | enable non-root mode; set to false for Firebolt Core <= 4.29 |
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
 | priorityClassNode0 | string | `""` | priority class for node-0 deployment; when set, nodes after node 0 will use a lower priority class (high-priority). Only used when useStatefulSet=false. Requires setting priorityClassNodeN as well. |
 | priorityClassNodeN | string | `""` | priority class for all other nodes after node-0 deployment; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set. |
@@ -44,6 +44,6 @@ Firebolt Core on Kubernetes
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
 | updateStrategy | string | `"OnDelete"` | sets the update strategy for the statefulset; using a statefulset requires manually deleting pods in most cases. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
-| useStatefulSet | bool | `true` | when true, uses a StatefulSet; when false, uses multiple Deployments (one per node) |
+| useStatefulSet | bool | `false` | when true, uses a StatefulSet; when false, uses multiple Deployments (one per node) |
 | utilitiesImage | string | `"debian:stable-slim"` |  |
 

@@ -10,7 +10,7 @@ image:
 nodesCount: 1
 
 # -- when true, uses a StatefulSet; when false, uses multiple Deployments (one per node)
-useStatefulSet: true
+useStatefulSet: false
 
 # -- sets the update strategy for the statefulset; using a statefulset requires manually deleting pods in most cases.
 # See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version
