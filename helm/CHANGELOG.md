@@ -1,3 +1,7 @@
+# 0.3.1
+
+* `useStatefulSet=false` is now the default; NOTE: this switch causes new PVCs to be created and used, statefulset PVCs are not deleted but not used either
+
 # 0.3.0
 
 * `nonRoot=true` is now the default
