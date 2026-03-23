@@ -4,7 +4,7 @@ image:
   # -- use a custom ECR repository to pull the Docker image used by the pods
   repository: ghcr.io/firebolt-db/firebolt-core
   # -- use a custom Docker image tag; when unspecified the app version from chart will be used instead
-  tag:
+  tag: ""
 
 # -- number of nodes to deploy
 nodesCount: 1
@@ -90,7 +90,7 @@ customVolumes: []
 #       name: my-config
 
 # -- custom configuration for nodes
-customNodeConfig:
+customNodeConfig: {}
 
 # -- use a specific suffix for the node hostnames e.g. ".cluster.local."
 nodeHostSuffix: ""
