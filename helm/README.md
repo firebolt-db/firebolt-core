@@ -35,6 +35,7 @@ Firebolt Core on Kubernetes
 | nodeSelector | object | `{}` | nodeSelector allows you to configure a node selection constraint. See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector |
 | nodesCount | int | `1` | number of nodes to deploy |
 | nonRoot | bool | `true` | enable non-root mode; set to false for Firebolt Core <= 4.29 |
+| podAnnotations | object | `{}` | extra annotations to assign to each pod |
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
 | priorityClassNode0 | string | `""` | priority class for node-0 deployment; when set, nodes after node 0 will use a lower priority class (high-priority). Only used when useStatefulSet=false. Requires setting priorityClassNodeN as well. |
 | priorityClassNodeN | string | `""` | priority class for all other nodes after node-0 deployment; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set. |

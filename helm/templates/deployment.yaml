@@ -23,6 +23,9 @@ spec:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/nodes-config.yaml") $ | sha256sum }}
+        {{- with $.Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
       labels:
         {{- include "fbcore.labels" $ | nindent 8 }}
         firebolt/node: {{ $i | quote }}
