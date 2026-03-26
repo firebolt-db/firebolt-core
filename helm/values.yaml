@@ -67,6 +67,9 @@ resources:
   limits:
     memory: 4Gi
 
+# -- extra annotations to assign to each pod
+podAnnotations: {}
+
 # -- extra labels to assign to each pod
 extraLabels:
   firebolt/product: core

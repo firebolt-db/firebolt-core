@@ -1,3 +1,7 @@
+# 0.3.3
+
+* add `podAnnotations` value
+
 # 0.3.2
 
 * add `image.pullPolicy` value
