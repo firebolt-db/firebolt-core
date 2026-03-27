@@ -28,6 +28,9 @@ spec:
       labels:
         {{- include "fbcore.labels" . | nindent 8 }}
     spec:
+      {{- if .Values.priorityClassNode0 }}
+      priorityClassName: {{ .Values.priorityClassNode0 }}
+      {{- end }}
       serviceAccount: {{ .Values.serviceAccount }}
       serviceAccountName: {{ .Values.serviceAccount }}
       terminationGracePeriodSeconds: {{ $.Values.deployment.terminationGracePeriodSeconds }}
