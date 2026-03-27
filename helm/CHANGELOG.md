@@ -1,3 +1,8 @@
+# 0.3.4
+
+* fix: use priority class also for statefulsets
+* fix: add `publishNotReadyAddresses: true` to the all-nodes headless service when `useStatefulSet=false`
+
 # 0.3.3
 
 * add `podAnnotations` value
