@@ -12,6 +12,7 @@ spec:
   type: ClusterIP
   # create a headless service
   clusterIP: None
+  publishNotReadyAddresses: true
   selector:
     {{- include "fbcore.selectorLabels" . | nindent 4 }}
     firebolt/nodes-count: {{ .Values.nodesCount | quote }}
