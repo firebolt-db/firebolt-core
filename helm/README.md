@@ -37,8 +37,8 @@ Firebolt Core on Kubernetes
 | nonRoot | bool | `true` | enable non-root mode; set to false for Firebolt Core <= 4.29 |
 | podAnnotations | object | `{}` | extra annotations to assign to each pod |
 | podMonitor | bool | `false` | deploy a PodMonitor for Prometheus metrics scraping |
-| priorityClassNode0 | string | `""` | priority class for node-0 deployment; when set, nodes after node 0 will use a lower priority class (high-priority). Only used when useStatefulSet=false. Requires setting priorityClassNodeN as well. |
-| priorityClassNodeN | string | `""` | priority class for all other nodes after node-0 deployment; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set. |
+| priorityClassNode0 | string | `""` | priority class for node-0 (Deployment mode) or all pods (StatefulSet mode). When using Deployments, nodes after node 0 will use priorityClassNodeN instead. Requires setting priorityClassNodeN as well when useStatefulSet=false. |
+| priorityClassNodeN | string | `""` | priority class for all nodes after node-0; only used when useStatefulSet=false. Unused unless priorityClassNode0 is set. |
 | readiness | bool | `true` | readiness check on each pod |
 | resources | object | `{"limits":{"memory":"4Gi"},"requests":{"cpu":"1","memory":"4Gi"}}` | resources for each pod; at least 1 core is advised |
 | securityContextCapabilities | object | `{"drop":["ALL"]}` | specify custom security context capabilities for the Firebolt Core container |
