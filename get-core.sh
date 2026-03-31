@@ -32,15 +32,11 @@ banner() {
 IS_MACOS=0
 if [ "$(uname)" = "Darwin" ]; then
     IS_MACOS=1
-    DEFAULT_CORE_USER=root
-else
-    DEFAULT_CORE_USER=firebolt-core
 fi
 
 # Docker image to pull - allow specifying overrides via env variables
 CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/firebolt-core}"
 CORE_TAG="${CORE_TAG:-preview-rc}"
-CORE_USER="${CORE_USER:-$DEFAULT_CORE_USER}"
 DOCKER_IMAGE="${CORE_REPO}:${CORE_TAG}"
 EXTERNAL_PORT=3473
 DOCKER_RUN_ARGS=(
@@ -91,6 +87,22 @@ pull_docker_image() {
         echo "[🐳] Failed to pull Docker image '$DOCKER_IMAGE' ❌"
         return 1
     fi
+}
+
+DEFAULT_CORE_USER=""
+detect_firebolt_user() {
+    if [ $IS_MACOS -eq 1 ]; then
+        DEFAULT_CORE_USER=root
+    else
+        DEFAULT_CORE_USER="$(docker run --rm --entrypoint /bin/whoami $DOCKER_IMAGE)"
+        if [ -z "$DEFAULT_CORE_USER" ]; then
+           echo "[❌] Cannot identify non-root container user."
+           return 1
+        fi
+    fi
+
+    # set CORE_USER, unless already set by user
+    CORE_USER="${CORE_USER:-$DEFAULT_CORE_USER}"
 }
 
 wait_for_core_to_be_ready() {
@@ -170,4 +182,5 @@ banner
 ensure_docker_is_installed
 check_docker_version
 pull_docker_image
+detect_firebolt_user
 run_docker_image
