@@ -45,6 +45,9 @@ spec:
       {{- if $.Values.nonRoot }}
       securityContext:
         fsGroup: 1111
+        {{- if $.Values.fsGroupChangePolicy }}
+        fsGroupChangePolicy: {{ $.Values.fsGroupChangePolicy }}
+        {{- end }}
       {{- end }}
       {{- if and $.Values.memlockSetup $.Values.nonRoot }}
       shareProcessNamespace: true
