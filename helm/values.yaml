@@ -45,6 +45,12 @@ podMonitor: false
 # -- enable non-root mode; set to false for Firebolt Core <= 4.29
 nonRoot: true
 
+# -- fsGroupChangePolicy defines how volume ownership is applied to pods.
+# "OnRootMismatch" only changes permissions if the root of the volume doesn't match fsGroup,
+# which significantly speeds up pod startup for large volumes.
+# See: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods
+fsGroupChangePolicy: "OnRootMismatch"
+
 # -- automatically attempt to set memlock limits on container startup; not necessary if your nodes already have a large enough memlock limit.
 memlockSetup: true
 

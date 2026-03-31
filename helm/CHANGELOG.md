@@ -1,3 +1,7 @@
+# 0.3.5
+
+* add `fsGroupChangePolicy` value (defaults to `"OnRootMismatch"`) to speed up pod startup on large volumes
+
 # 0.3.4
 
 * fix: use priority class also for statefulsets

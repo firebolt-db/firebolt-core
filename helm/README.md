@@ -1,6 +1,6 @@
 # firebolt-core
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
+![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: preview-rc](https://img.shields.io/badge/AppVersion-preview--rc-informational?style=flat-square)
 
 Firebolt Core on Kubernetes
 
@@ -27,6 +27,7 @@ Firebolt Core on Kubernetes
 | deployment.storageSpec.resources.requests.storage | string | `"1Gi"` |  |
 | deployment.terminationGracePeriodSeconds | int | `5` | give a few seconds of grace time on shutdown to allow queries to finish |
 | extraLabels | object | `{"firebolt/product":"core"}` | extra labels to assign to each pod |
+| fsGroupChangePolicy | string | `"OnRootMismatch"` | fsGroupChangePolicy defines how volume ownership is applied to pods. "OnRootMismatch" only changes permissions if the root of the volume doesn't match fsGroup, which significantly speeds up pod startup for large volumes. See: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods |
 | image.pullPolicy | string | `"Always"` | imagePullPolicy for all containers in the pod |
 | image.repository | string | `"ghcr.io/firebolt-db/firebolt-core"` | use a custom ECR repository to pull the Docker image used by the pods |
 | image.tag | string | `""` | use a custom Docker image tag; when unspecified the app version from chart will be used instead |
