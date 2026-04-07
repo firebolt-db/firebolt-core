@@ -1,3 +1,8 @@
+# 0.3.6
+
+* reduce initial delay in probes from 30s to 3s
+* bump individual probe request timeout from 3s to 10s
+
 # 0.3.5
 
 * add `fsGroupChangePolicy` value (defaults to `"OnRootMismatch"`) to speed up pod startup on large volumes
