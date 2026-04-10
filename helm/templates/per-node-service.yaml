@@ -25,5 +25,3 @@ spec:
     {{- include "fbcore.servicePorts" $ | nindent 4 }}
 {{- end }}
 {{- end }}
-
-

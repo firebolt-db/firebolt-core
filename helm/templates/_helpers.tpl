@@ -79,6 +79,11 @@ Common service ports for Firebolt Core
 - name: metrics
   port: 9090
   protocol: TCP
+{{- if .Values.uiSidecar }}
+- name: web-ui
+  port: 9100
+  protocol: TCP
+{{- end }}
 {{- end }}
 
 
