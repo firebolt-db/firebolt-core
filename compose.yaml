@@ -85,3 +85,7 @@ services:
     user: "${CORE_USER:-firebolt-core}"
     ports:
      - 9100:9100
+    # Same config.json the core service consumes; the UI reads
+    # .config.engine_name from it at startup.
+    volumes:
+      - ${PWD}/config.json:/firebolt-core/config.json:ro
