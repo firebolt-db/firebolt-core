@@ -1,3 +1,8 @@
+# 0.3.9
+
+* mount `config.json` within the UI sidecar, necessary to use correct engine name
+* specify defaults for Core (engine, account, organization)
+
 # 0.3.8
 
 * feat: allow specifying a custom repository/tag for the UI sidecar image via `uiSidecarImage.repository` and `uiSidecarImage.tag`

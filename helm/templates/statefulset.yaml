@@ -238,6 +238,10 @@ spec:
               mountPath: /var/cache/nginx
             - name: nginx-writable-dir
               mountPath: /var/run/nginx
+            - name: nodes-config
+              mountPath: /firebolt-core/config.json
+              subPath: config.json
+              readOnly: true
         {{- end }}
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
