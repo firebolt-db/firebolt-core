@@ -71,7 +71,7 @@ services:
       # Enable persistence of data, metadata, logs and diagnostic information
       - ${PWD}/firebolt-core-data:/firebolt-core/volume
   ui:
-    image: ghcr.io/firebolt-db/firebolt-core-ui:latest
+    image: ${CORE_UI_IMAGE:-ghcr.io/firebolt-db/firebolt-core-ui:latest}
     pull_policy: always
     depends_on:
       core:
