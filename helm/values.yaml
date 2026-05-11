@@ -107,7 +107,15 @@ customVolumes: []
 #       name: my-config
 
 # -- custom configuration for nodes
-customNodeConfig: {}
+customNodeConfig:
+  config:
+    engine_cluster_id: "firebolt-core-cluster-id-0"
+    engine_cluster_ordinal: "0"
+    engine_name: "firebolt-core-engine-name"
+    engine_id: "firebolt-core-engine-id"
+    account_id: "firebolt-core-account-id"
+    organization_id: "firebolt-core-organization-id"
+    organization_name: "firebolt-core-organization-name"
 
 # -- use a specific suffix for the node hostnames e.g. ".cluster.local."
 nodeHostSuffix: ""
