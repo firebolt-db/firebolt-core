@@ -46,7 +46,10 @@ Firebolt Core on Kubernetes
 | serviceAccount | string | `"default"` | service account which pods will use for their identity |
 | tolerations | list | `[]` | tolerations allows you to configure pod tolerations. See: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ |
 | uiSidecar | bool | `false` | deploy 1 Core UI sidecar for each node |
+| uiSidecarImage.repository | string | `"ghcr.io/firebolt-db/firebolt-core-ui"` | use a custom repository to pull the Docker image used by the UI sidecar |
+| uiSidecarImage.tag | string | `"latest"` | use a custom Docker image tag for the UI sidecar |
 | updateStrategy | string | `"OnDelete"` | sets the update strategy for the statefulset; using a statefulset requires manually deleting pods in most cases. See: https://docs.firebolt.io/firebolt-core/firebolt-core-operation/firebolt-core-deployment-k8s#updating-firebolt-core-version |
 | useStatefulSet | bool | `false` | when true, uses a StatefulSet; when false, uses multiple Deployments (one per node) |
-| utilitiesImage | string | `"debian:stable-slim"` |  |
+| utilitiesImage.repository | string | `"debian"` | use a custom repository to pull the Docker image used by utility containers (memlock-setup, host-path-setup) |
+| utilitiesImage.tag | string | `"stable-slim"` | use a custom Docker image tag for utility containers |
 

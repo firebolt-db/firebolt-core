@@ -1,3 +1,8 @@
+# 0.3.8
+
+* feat: allow specifying a custom repository/tag for the UI sidecar image via `uiSidecarImage.repository` and `uiSidecarImage.tag`
+* `utilitiesImage` is now an object with `repository` and `tag` fields; previously it was a single string. NOTE: this is a breaking change for users overriding `utilitiesImage`.
+
 # 0.3.7
 
 * fix: expose UI sidecar port (9100) in services when `uiSidecar=true`
