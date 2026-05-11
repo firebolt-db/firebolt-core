@@ -57,6 +57,12 @@ memlockSetup: true
 # -- deploy 1 Core UI sidecar for each node
 uiSidecar: false
 
+uiSidecarImage:
+  # -- use a custom repository to pull the Docker image used by the UI sidecar
+  repository: ghcr.io/firebolt-db/firebolt-core-ui
+  # -- use a custom Docker image tag for the UI sidecar
+  tag: latest
+
 # -- service account which pods will use for their identity
 serviceAccount: default
 
@@ -131,4 +137,8 @@ deployment:
       limits:
         storage: 1Gi
 
-utilitiesImage: debian:stable-slim
+utilitiesImage:
+  # -- use a custom repository to pull the Docker image used by utility containers (memlock-setup, host-path-setup)
+  repository: debian
+  # -- use a custom Docker image tag for utility containers
+  tag: stable-slim

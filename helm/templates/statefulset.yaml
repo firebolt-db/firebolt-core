@@ -205,7 +205,7 @@ spec:
               {{- toYaml $.Values.securityContextCapabilities | nindent 14 }}
         {{- if .Values.uiSidecar }}
         - name: core-ui
-          image: ghcr.io/firebolt-db/firebolt-core-ui:latest
+          image: {{ $.Values.uiSidecarImage.repository }}:{{ default "latest" $.Values.uiSidecarImage.tag }}
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
             - name: FIREBOLT_CORE_URL
@@ -242,7 +242,7 @@ spec:
         {{- if and .Values.memlockSetup .Values.nonRoot }}
         - name: memlock-setup
           # use an image which has 'prlimit'
-          image: {{ $.Values.utilitiesImage }}
+          image: {{ $.Values.utilitiesImage.repository }}:{{ default "stable-slim" $.Values.utilitiesImage.tag }}
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           resources:
             requests:
@@ -298,7 +298,7 @@ spec:
         {{- end }}
         {{- if $hpEnabled }}
         - name: host-path-setup
-          image: {{ $.Values.utilitiesImage }}
+          image: {{ $.Values.utilitiesImage.repository }}:{{ default "stable-slim" $.Values.utilitiesImage.tag }}
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           command: ["/bin/bash", "-c"]
           args:
