@@ -102,7 +102,7 @@ spec:
               }
 
               echo -n "[Setup] Firebolt Core version "
-              /firebolt-core/firebolt-core --version
+              /firebolt-core/firebolt --version
 
               {{- if $.Values.nonRoot }}
               if [[ $(id -u) -eq 0 ]]; then
@@ -141,7 +141,10 @@ spec:
 
               rm -f "$PID_FILE"
 
-              exec /firebolt-core/firebolt-core --node $FIREBOLT_CORE_NODE
+              # FIREBOLT_CORE_MODE tells `firebolt server` to treat the read-only
+              # mounted config.json as authoritative and not rewrite it.
+              export FIREBOLT_CORE_MODE=1
+              exec /firebolt-core/firebolt server --data-dir /firebolt-core --node $FIREBOLT_CORE_NODE
           ports:
             - name: http-query
               containerPort: 3473

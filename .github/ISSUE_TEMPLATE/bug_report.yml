@@ -45,7 +45,7 @@ body:
 
         If using Kubernetes:
         ```console
-        $ kubectl exec -ti my-release-firebolt-core-0 -- /firebolt-core/firebolt-core --version
+        $ kubectl exec -ti my-release-firebolt-core-0 -- /firebolt-core/firebolt --version
         # paste output here
         ```
         </details>
