@@ -5,18 +5,6 @@
   <a href="https://discord.gg/UpMPDHActM">
     <img src="https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white" alt="Discord chat"
   /></a>
-  <a href="https://docs.firebolt.io/firebolt-core" style="text-decoration: none"><img
-    src="https://img.shields.io/badge/Core-docs-brightgreen"
-    alt="Firebolt Core documentation"
-  /></a>
-  <a href="https://docs.firebolt.io/FireboltCore/firebolt-core-operation.html" style="text-decoration: none"><img
-    src="https://img.shields.io/badge/deployment-guide-brightgreen"
-    alt="Deployment and Operational Guide"
-  /></a>
-  <a href="https://github.com/firebolt-db/firebolt-core?tab=readme-ov-file#get-started" style="text-decoration: none"><img
-    src="https://img.shields.io/badge/release-preview%E2%80%93rc-brightgreen"
-    alt="Release"
-  /></a>
   <a href="https://github.com/firebolt-db/firebolt-core/issues" style="text-decoration: none"><img
     src="https://img.shields.io/github/issues/firebolt-db/firebolt-core.svg"
     alt="GitHub Issues"
@@ -36,9 +24,9 @@
 * 🆓 **Free to use.** Firebolt Core is free to use, forever (see the [LICENSE](LICENSE.md) for details).
 * 📈 **No usage limits.** Firebolt Core has no usage limits. Process unlimited data, scale to as many nodes as you need, and run as many queries as you like.
 * 🛢️ **Postgres compliant.** Firebolt's SQL dialect is Postgres compliant. We offer powerful extensions for analytical workloads, such as lambda functions for array processing. For a complete reference, see the [SQL reference documentation](https://docs.firebolt.io/sql_reference/).
-* 🛠️ **Self-contained.** Firebolt Core comes packaged as a single Docker image (`ghcr.io/firebolt-db/firebolt-core:preview-rc`) that contains everything needed to run it.
+* 🛠️ **Self-contained.** Firebolt Core comes packaged as a single Docker image (`ghcr.io/firebolt-db/engine:dev`) that contains everything needed to run it.
 * 🏠 **Self-hosted.** You can deploy Firebolt Core anywhere you want, from your personal workstation to large on-premise clusters or VPCs.
-* 📊 **First-class support** with [documentation](https://docs.firebolt.io/firebolt-core), updates, and active [community support via GitHub Discussions](https://github.com/firebolt-db/firebolt-core/discussions). We encourage you to join the conversation!
+* 📊 **First-class support** with updates and active [community support via GitHub Discussions](https://github.com/firebolt-db/firebolt-core/discussions). We encourage you to join the conversation!
 * 🤖 **AI-ready architecture** optimized for modern data and ML applications.
 * 🎯 **Designed for demanding applications.** Powering real-time analytics, embedded analytics, and large-scale data processing workloads.
 * 🔄 **Workload compatibility.** Many workloads run interchangeably with [managed Firebolt](https://www.firebolt.io/).
@@ -58,7 +46,7 @@ docker run -i --rm \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
         -v ./firebolt-core-data:/firebolt-core/volume \
-        ghcr.io/firebolt-db/firebolt-core:preview-rc
+        ghcr.io/firebolt-db/engine:dev
 ```
 
 Or on MacOS:
@@ -71,7 +59,7 @@ docker run -i --rm \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
         -v ./firebolt-core-data:/firebolt-core/volume \
-        ghcr.io/firebolt-db/firebolt-core:preview-rc
+        ghcr.io/firebolt-db/engine:dev
 ```
 
 > [!CAUTION]
@@ -81,9 +69,6 @@ You can also start a single node cluster by cloning this repository and then run
 ```bash
 docker compose up
 ```
-
-See also:
-* [Get Started](https://docs.firebolt.io/FireboltCore/firebolt-core-get-started.html)
 
 ### Multi-Node via Docker Compose
 
@@ -113,7 +98,7 @@ Use this setup if you want to leverage the computing power of multiple hosts.
 
    ```bash
    mkdir -p ./firebolt-core-data
-   sudo chown -R 1111:1111 ./firebolt-core-data
+   sudo chown -R 3473:3473 ./firebolt-core-data
    ```
 
 1. Activate node 0:
@@ -136,37 +121,11 @@ CORE_USER=root docker compose up
 ```
 
 See also:
-* [Deployment using Docker Compose](https://docs.firebolt.io/FireboltCore/firebolt-core-deployment-compose.html)
 * [Docker Compose](https://docs.docker.com/compose/)
 
 ### Multi-Node via Kubernetes
 
-You can deploy Firebolt Core on Kubernetes (v1.19+) by following these steps:
-
-1. Create a dedicated namespace:
-```bash
-kubectl create namespace firebolt-core
-```
-2. Customize the values for the chart (see [helm/README.md](helm/README.md)), for example by setting `nodesCount` to 3.
-3. Once your values are configured, install the chart into the firebolt-core namespace:
-```bash
-helm install core-demo helm/ -n firebolt-core --set nodesCount=3
-```
-4. Verify that pods are running:
-```bash
-kubectl get pods -n firebolt-core
-```
-Expected output:
-```
-NAME                              READY   STATUS    RESTARTS   AGE
-helm-1748880880-firebolt-core-0   1/1     Running   0          5m32s
-helm-1748880880-firebolt-core-1   1/1     Running   0          5m32s
-helm-1748880880-firebolt-core-2   1/1     Running   0          5m32s
-```
-
-See also:
-* [helm/README.md](helm/README.md) for information on the values you can customize, including the number of nodes.
-* [Deployment on Kubernetes](https://docs.firebolt.io/FireboltCore/firebolt-core-deployment-k8s.html)
+For Kubernetes-based deployments, see the [Firebolt self-managed documentation](https://docs.firebolt.io/self-managed).
 
 ## Requirements
 
@@ -188,7 +147,7 @@ Resources for each node (either a local machine or a VM instance):
 * TCP ports `3473`, `1717`, `3434`, `5678`, `6500`, `8122`, `16000` open when using multiple nodes.
 
 > [!NOTE]
-> There is no universally correct amount of RAM and disk space for running Firebolt Core, and the above are simply rough guidelines for running some simple queries as a way to get started. The ideal amount of RAM and disk space depends heavily on the specific workload that you are running against a Firebolt Core deployment (see [Deployment and Operational Guide](https://docs.firebolt.io/FireboltCore/firebolt-core-operation.html) for details).
+> There is no universally correct amount of RAM and disk space for running Firebolt Core, and the above are simply rough guidelines for running some simple queries as a way to get started. The ideal amount of RAM and disk space depends heavily on the specific workload that you are running against a Firebolt Core deployment.
 
 ## Run Queries on Firebolt Core via CLI
 
@@ -211,7 +170,6 @@ curl -s "http://localhost:3473/?output_format=psql" --data-binary "SELECT 42";
 
 See also:
 * [Example Queries](examples/README.md)
-* [Connect to Firebolt Core](https://docs.firebolt.io/FireboltCore/firebolt-core-connect.html)
 
 ## Run Queries on Firebolt Core via the web UI
 
@@ -234,34 +192,7 @@ docker run --rm --name firebolt-core-ui -p 9100:9100 -e FIREBOLT_CORE_URL=$FIREB
 
 ## Troubleshooting & Support
 
-Detailed information about Firebolt Core is available in the [documentation](https://docs.firebolt.io/FireboltCore/).
-
-* Encountering issues? Check the [Troubleshooting Guide](https://docs.firebolt.io/FireboltCore/firebolt-core-troubleshooting.html) for common problems and solutions and the [FAQs](https://docs.firebolt.io/FireboltCore/firebolt-core-faq.html)
-* For further assistance, join the [GitHub Discussions](https://github.com/firebolt-db/firebolt-core/discussions).
-* For best practices on securing your deployment and information on backing up, consult the [Operational Guide](https://docs.firebolt.io/FireboltCore/firebolt-core-operation.html).
-* Curious about what's next for Firebolt Core? Check out the [Roadmap](https://docs.firebolt.io/FireboltCore/firebolt-core-roadmap.html) to see planned features and improvements.
-
-## Verifying Firebolt Core Docker Images
-
-All Firebolt Core published images are signed using [cosign](https://github.com/sigstore/cosign).
-
-To verify:
-
-1. Download the public key: [cosign.pub](cosign.pub)
-1. Run:
-```console
-cosign verify --key cosign.pub ghcr.io/firebolt-db/firebolt-core:preview-rc
-```
-
-You should see output confirming the signature is valid:
-```
-Verification for ghcr.io/firebolt-db/firebolt-core:preview-rc --
-The following checks were performed on each of these signatures:
-  - The cosign claims were validated
-  - Existence of the claims in the transparency log was verified offline
-  - The signatures were verified against the specified public key
-[...]
-```
+* For assistance, join the [GitHub Discussions](https://github.com/firebolt-db/firebolt-core/discussions).
 
 ## License
 

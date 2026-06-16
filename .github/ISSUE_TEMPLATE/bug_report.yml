@@ -37,17 +37,11 @@ body:
       value: |
         <details>
 
-        If using Docker:
         ```console
-        $ docker run -it --rm ghcr.io/firebolt-db/firebolt-core:preview-rc --version
+        $ docker run -it --rm --entrypoint /firebolt-core/firebolt ghcr.io/firebolt-db/engine:dev --version
         # paste output here
         ```
 
-        If using Kubernetes:
-        ```console
-        $ kubectl exec -ti my-release-firebolt-core-0 -- /firebolt-core/firebolt-core --version
-        # paste output here
-        ```
         </details>
     validations:
       required: true
@@ -55,19 +49,12 @@ body:
   - type: textarea
     id: runtimeInfo
     attributes:
-      label: Docker or Kubernetes info
+      label: Docker info
       value: |
         <details>
 
-        If using Docker:
         ```console
         $ docker info
-        # paste output here
-        ```
-
-        If using Kubernetes:
-        ```console
-        $ kubectl version
         # paste output here
         ```
 
@@ -80,5 +67,5 @@ body:
     attributes:
       label: Additional files and information
       description: |
-        You can add here any other information or files that you deem important; for example logs, changes you made to the official Docker Compose setup or Kubernetes chart.
+        You can add here any other information or files that you deem important; for example logs, changes you made to the official Docker Compose setup.
         Please note that Core containers will not emit logs on stderr if `tty` is not enabled, in that case you can find logs in the mounted volume under `diagnostic_data/logs`.
