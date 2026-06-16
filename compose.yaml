@@ -5,7 +5,7 @@ services:
   core:
     container_name: ${COMPOSE_PROJECT_NAME}-node-${NODE:-0}
     # The Docker image from which to start the container.
-    image: ${CORE_IMAGE:-ghcr.io/firebolt-db/firebolt-core:preview-rc}
+    image: ${CORE_IMAGE:-ghcr.io/firebolt-db/engine:dev}
     pull_policy: always
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
@@ -16,7 +16,7 @@ services:
       retries: 10
     # run as non-root by default; this requires the outer volume directory to have the correct permissions
     # in some specific cases (like Docker-for-Mac) running as root is still necessary
-    user: "${CORE_USER:-firebolt-core}"
+    user: "${CORE_USER:-firebolt}"
     entrypoint: /bin/bash
     command:
       - -c
@@ -82,6 +82,7 @@ services:
       FIREBOLT_CORE_URL: http://core:3473
     # run as non-root by default; this requires the outer volume directory to have the correct permissions
     # in some specific cases (like Docker-for-Mac) running as root is still necessary
+    # NOTE: the UI image still uses a firebolt-core non-root user
     user: "${CORE_USER:-firebolt-core}"
     ports:
      - 9100:9100

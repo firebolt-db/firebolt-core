@@ -35,8 +35,8 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Docker image to pull - allow specifying overrides via env variables
-CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/firebolt-core}"
-CORE_TAG="${CORE_TAG:-preview-rc}"
+CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/engine}"
+CORE_TAG="${CORE_TAG:-dev}"
 DOCKER_IMAGE="${CORE_REPO}:${CORE_TAG}"
 EXTERNAL_PORT=3473
 DOCKER_RUN_ARGS=(
@@ -94,11 +94,7 @@ detect_firebolt_user() {
     if [ $IS_MACOS -eq 1 ]; then
         DEFAULT_CORE_USER=root
     else
-        DEFAULT_CORE_USER="$(docker run --rm --entrypoint /bin/whoami $DOCKER_IMAGE)"
-        if [ -z "$DEFAULT_CORE_USER" ]; then
-           echo "[❌] Cannot identify non-root container user."
-           return 1
-        fi
+        DEFAULT_CORE_USER="firebolt"
     fi
 
     # set CORE_USER, unless already set by user

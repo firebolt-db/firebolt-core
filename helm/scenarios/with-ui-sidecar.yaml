@@ -1,8 +1,0 @@
----
-# Deployment scenario with Core UI sidecar enabled
-nodesCount: 1
-
-uiSidecar: true
-
-extraLabels:
-  firebolt/product: core
