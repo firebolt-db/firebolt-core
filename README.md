@@ -5,6 +5,10 @@
   <a href="https://discord.gg/UpMPDHActM">
     <img src="https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white" alt="Discord chat"
   /></a>
+  <a href="https://docs.firebolt.io/self-managed" style="text-decoration: none"><img
+    src="https://img.shields.io/badge/docs-brightgreen"
+    alt="Documentation"
+  /></a>
   <a href="https://github.com/firebolt-db/firebolt-core/issues" style="text-decoration: none"><img
     src="https://img.shields.io/github/issues/firebolt-db/firebolt-core.svg"
     alt="GitHub Issues"
@@ -42,6 +46,7 @@ If you want to work with Docker directly, you can also run on Linux:
 
 ```bash
 docker run -i --rm \
+        -e FIREBOLT_CORE_MODE=1 \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
@@ -55,6 +60,7 @@ Or on MacOS:
 mkdir -p -m 777 firebolt-core-data
 docker run -i --rm \
         --user root \
+        -e FIREBOLT_CORE_MODE=1 \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
@@ -64,6 +70,9 @@ docker run -i --rm \
 
 > [!CAUTION]
 > This will create a local `firebolt-core-data` directory, owned by root, where data, metadata, logs and diagnostic information are persisted.
+
+> [!NOTE]
+> Set `FIREBOLT_CORE_MODE=1` on direct `docker run` invocations. It makes the engine treat a bind-mounted `config.json` as authoritative instead of rewriting it - important when you mount your own config file read-only.
 
 You can also start a single node cluster by cloning this repository and then run the following command within the repository root directory:
 ```bash

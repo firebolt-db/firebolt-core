@@ -7,6 +7,10 @@ services:
     # The Docker image from which to start the container.
     image: ${CORE_IMAGE:-ghcr.io/firebolt-db/engine:dev}
     pull_policy: always
+    # FIREBOLT_CORE_MODE=1 makes the engine treat the bind-mounted, read-only
+    # /firebolt-core/config.json as authoritative instead of rewriting it.
+    environment:
+      FIREBOLT_CORE_MODE: "1"
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
     healthcheck:
