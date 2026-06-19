@@ -39,7 +39,7 @@
 
 Start Core on your machine with:
 ```bash
-bash <(curl -s https://get-core.firebolt.io/)
+bash <(curl -s https://get.firebolt.io/)
 ```
 
 If you want to work with Docker directly, you can also run on Linux:
@@ -140,7 +140,7 @@ For Kubernetes-based deployments, see the [Firebolt self-managed documentation](
 
 Software for your host OS:
 
-* **[Docker Engine](https://docs.docker.com/engine/install/)**, with the **[Docker Compose plugin](https://docs.docker.com/compose/install/linux/)** if you want to use `docker compose`; if you use the [get-core.sh](get-core.sh) script Docker engine will be installed automatically.
+* **[Docker Engine](https://docs.docker.com/engine/install/)**, with the **[Docker Compose plugin](https://docs.docker.com/compose/install/linux/)** if you want to use `docker compose`; if you use `bash <(curl -s https://get.firebolt.io/)` the Docker engine will be installed automatically.
 * **[cURL](https://curl.se/) or any other HTTP client** in order to send SQL queries to Firebolt Core.
 
 Software for your Docker host:
