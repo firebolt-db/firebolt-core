@@ -45,7 +45,7 @@ DOCKER_RUN_ARGS=(
   --rm
   --ulimit memlock=8589934592:8589934592
   --security-opt seccomp=unconfined
-  -v "$(pwd)/firebolt-core-data:/firebolt-core/volume"
+  -v "$(pwd)/firebolt-core-data:/var/lib/firebolt"
   -p "$EXTERNAL_PORT:3473"
   "$DOCKER_IMAGE"
 )
