@@ -46,11 +46,10 @@ If you want to work with Docker directly, you can also run on Linux:
 
 ```bash
 docker run -i --rm \
-        -e FIREBOLT_CORE_MODE=1 \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
-        -v ./firebolt-core-data:/firebolt-core/volume \
+        -v ./firebolt-core-data:/var/lib/firebolt \
         ghcr.io/firebolt-db/engine:dev
 ```
 
@@ -60,11 +59,10 @@ Or on MacOS:
 mkdir -p -m 777 firebolt-core-data
 docker run -i --rm \
         --user root \
-        -e FIREBOLT_CORE_MODE=1 \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
-        -v ./firebolt-core-data:/firebolt-core/volume \
+        -v ./firebolt-core-data:/var/lib/firebolt \
         ghcr.io/firebolt-db/engine:dev
 ```
 
@@ -72,7 +70,7 @@ docker run -i --rm \
 > This will create a local `firebolt-core-data` directory, owned by root, where data, metadata, logs and diagnostic information are persisted.
 
 > [!NOTE]
-> Set `FIREBOLT_CORE_MODE=1` on direct `docker run` invocations. It makes the engine treat a bind-mounted `config.json` as authoritative instead of rewriting it - important when you mount your own config file read-only.
+> The Firebolt Core image stores writable state under `/var/lib/firebolt`. If you use `docker run` directly, bind mount your local data directory to `/var/lib/firebolt` to persist data across container restarts.
 
 You can also start a single node cluster by cloning this repository and then run the following command within the repository root directory:
 ```bash
