@@ -1,5 +1,5 @@
 #!/bin/bash
-# <h2 style="color:red">Get Firebolt Core with:</h2><code>bash <(curl -s https://get-core.firebolt.io/)</code><br/><br/><br/><pre>
+# <h2 style="color:red">Get Firebolt Core with:</h2><code>curl -fsSL https://get.firebolt.io/ | bash</code><br/><br/><br/><pre>
 set -e
 
 # Parse command line arguments
@@ -138,7 +138,10 @@ run_docker_image() {
     if [ "$AUTO_RUN" = true ]; then
         answer="y"
     else
-        read -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: " answer
+        prompt="[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: "
+        if ! { printf "%s" "$prompt" > /dev/tty && read -r answer < /dev/tty; } 2>/dev/null; then
+            answer=""
+        fi
     fi
     
     case "$answer" in
