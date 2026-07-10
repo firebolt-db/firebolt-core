@@ -57,12 +57,26 @@ Or on MacOS:
 
 ```bash
 mkdir -p -m 777 firebolt-core-data
+# On macOS the Docker Desktop file-sharing backend cannot stat the engine's Unix
+# domain socket when it lives on the bind-mounted data directory, so relocate the
+# socket onto an in-memory tmpfs at /run/firebolt via a config file.
+cat > firebolt-core-data/config.yaml <<'EOF'
+schema_version: "1.0"
+endpoints:
+  http:
+    listeners:
+      - type: tcp
+        port: 3473
+      - type: unix
+        path: /run/firebolt/query_endpoint
+EOF
 docker run -i --rm \
         --user root \
         --ulimit memlock=8589934592:8589934592 \
         --security-opt seccomp=unconfined \
         -p 127.0.0.1:3473:3473 \
         -v ./firebolt-core-data:/var/lib/firebolt \
+        --tmpfs /run/firebolt:rw,mode=2770,uid=3473,gid=0 \
         ghcr.io/firebolt-db/engine:dev
 ```
 
