@@ -7,10 +7,6 @@ services:
     # The Docker image from which to start the container.
     image: ${CORE_IMAGE:-ghcr.io/firebolt-db/engine:dev}
     pull_policy: always
-    # FIREBOLT_CORE_MODE=1 makes the engine treat the bind-mounted, read-only
-    # /firebolt-core/config.json as authoritative instead of rewriting it.
-    environment:
-      FIREBOLT_CORE_MODE: "1"
     # Corresponds to the `--interactive` argument passed to `docker run`.
     stdin_open: true
     healthcheck:
@@ -26,7 +22,7 @@ services:
       - -c
       - |
         # All variables defined here, and commands like id -u, stat -c, should be escaped with $$
-        VOLUME_PATH='/firebolt-core/volume'
+        VOLUME_PATH='/var/lib/firebolt'
         
         EXPECTED_UID=$$(id -u)
         EXPECTED_GID=$$(id -g)
@@ -47,7 +43,7 @@ services:
             sleep inf
         fi
         
-        exec /firebolt-core/firebolt-core --node ${NODE:-0}
+        exec firebolt server --data-dir "$${VOLUME_PATH}" --server-config /opt/firebolt/config.json --node ${NODE:-0}
 
     # Corresponds to the `--tty` argument passed to `docker run`.
     tty: true
@@ -71,9 +67,9 @@ services:
       - "9090:9090"   # Prometheus metrics.
     # Mount the configuration file at the expected location within the container. Additional storage mounts for persistent and temporary data could also be specified here.
     volumes:
-      - ${PWD}/config.json:/firebolt-core/config.json:ro
+      - ${PWD}/config.json:/opt/firebolt/config.json:ro
       # Enable persistence of data, metadata, logs and diagnostic information
-      - ${PWD}/firebolt-core-data:/firebolt-core/volume
+      - ${PWD}/firebolt-core-data:/var/lib/firebolt
   ui:
     image: ${CORE_UI_IMAGE:-ghcr.io/firebolt-db/firebolt-core-ui:latest}
     pull_policy: always
