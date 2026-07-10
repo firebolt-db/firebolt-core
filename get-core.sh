@@ -45,6 +45,9 @@ CORE_REPO="${CORE_REPO:-ghcr.io/firebolt-db/engine}"
 CORE_TAG="${CORE_TAG:-dev}"
 DOCKER_IMAGE="${CORE_REPO}:${CORE_TAG}"
 EXTERNAL_PORT=3473
+# Generated engine config, dropped into the data directory (used on macOS only,
+# see below). It is auto-loaded by the engine as /var/lib/firebolt/config.yaml.
+CORE_CONFIG_FILE="firebolt-core-data/config.yaml"
 DOCKER_RUN_ARGS=(
   -i
   --name firebolt-core
@@ -53,8 +56,35 @@ DOCKER_RUN_ARGS=(
   --security-opt seccomp=unconfined
   -v "$(pwd)/firebolt-core-data:/var/lib/firebolt"
   -p "$EXTERNAL_PORT:3473"
-  "$DOCKER_IMAGE"
 )
+# On macOS the Docker Desktop file-sharing backend cannot stat the engine's Unix
+# domain socket when it lives on the bind-mounted data directory, so Core fails
+# to start. Keep the socket off the shared filesystem: put it on an in-memory
+# tmpfs at /run/firebolt and relocate it there via the generated config file.
+# Mirror the ownership/permissions the image ships /run/firebolt with
+# (firebolt:root, mode 2770) so both root and the non-root firebolt user (uid
+# 3473, group 0) can create the socket.
+if [[ $IS_MACOS -eq 1 ]]; then
+    DOCKER_RUN_ARGS+=( --tmpfs /run/firebolt:rw,mode=2770,uid=3473,gid=0 )
+fi
+DOCKER_RUN_ARGS+=( "$DOCKER_IMAGE" )
+
+# Engine config that moves the query Unix socket onto the tmpfs while keeping the
+# HTTP endpoint on TCP 3473. Used on macOS only.
+read -r -d '' CORE_CONFIG_YAML <<'EOF' || true
+schema_version: "1.0"
+endpoints:
+  http:
+    listeners:
+      - type: tcp
+        port: 3473
+      - type: unix
+        path: /run/firebolt/query_endpoint
+EOF
+
+write_core_config() {
+    printf '%s\n' "$CORE_CONFIG_YAML" > "$CORE_CONFIG_FILE"
+}
 
 ensure_docker_is_installed() {
     if docker info >/dev/null 2>&1; then
@@ -140,6 +170,9 @@ wait_for_core_to_be_ready() {
 
 run_docker_image() {
     echo "[⚠️] Note: a local 'firebolt-core-data directory' with permissions 0777 will be created."
+    if [[ $IS_MACOS -eq 1 ]]; then
+        echo "[⚠️] Note: on macOS a '$CORE_CONFIG_FILE' file will be created and the socket will run on an in-memory tmpfs."
+    fi
     
     if [[ "$AUTO_RUN" = true ]]; then
         answer="y"
@@ -152,10 +185,11 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
-            if [[ $IS_MACOS -eq 0 ]]; then
-                if [[ ! -d firebolt-core-data ]]; then
-                    mkdir -p -m 777 firebolt-core-data
-                fi
+            if [[ ! -d firebolt-core-data ]]; then
+                mkdir -p -m 777 firebolt-core-data
+            fi
+            if [[ $IS_MACOS -eq 1 ]]; then
+                write_core_config
             fi
             echo -n "[🔥] Starting the Firebolt Core Docker container"
             CID="$(docker run --detach --user $CORE_USER "${DOCKER_RUN_ARGS[@]}")"
@@ -181,6 +215,11 @@ run_docker_image() {
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
             echo
             echo "mkdir -m 777 firebolt-core-data"
+            if [[ $IS_MACOS -eq 1 ]]; then
+                echo "cat > $CORE_CONFIG_FILE <<'EOF'"
+                printf '%s\n' "$CORE_CONFIG_YAML"
+                echo "EOF"
+            fi
             echo "docker run --user $CORE_USER "${DOCKER_RUN_ARGS[@]}""
             echo
             echo "And then in another terminal:"
