@@ -4,9 +4,9 @@ set -e
 
 # Parse command line arguments
 AUTO_RUN=false
-if [ "$1" = "--auto-run" ]; then
+if [[ "$1" = "--auto-run" ]]; then
     AUTO_RUN=true
-elif [ -n "$1" ]; then
+elif [[ -n "$1" ]]; then
     echo "Unknown option: $1"
     echo "Usage: $0 [--auto-run]" 1>&2
     exit 1
@@ -14,7 +14,7 @@ fi
 
 # When the script is piped in (e.g. 'curl | bash'), stdin is not a terminal
 # and the user cannot answer prompts through it, so run without prompting.
-if [ ! -t 0 ]; then
+if [[ ! -t 0 ]]; then
     AUTO_RUN=true
 fi
 
@@ -36,7 +36,7 @@ banner() {
 }
 
 IS_MACOS=0
-if [ "$(uname)" = "Darwin" ]; then
+if [[ "$(uname)" = "Darwin" ]]; then
     IS_MACOS=1
 fi
 
@@ -62,7 +62,7 @@ ensure_docker_is_installed() {
         return 0
     fi
     
-    if [ $IS_MACOS -eq 1 ]; then
+    if [[ $IS_MACOS -eq 1 ]]; then
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/mac-install/ ❌"
     else
         echo "[🐳] Docker needs to be installed: https://docs.docker.com/desktop/setup/install/linux/ ❌"
@@ -75,9 +75,9 @@ check_docker_version() {
     # See also:
     # * https://github.com/firebolt-db/firebolt-core/issues/9
     # * https://github.com/docker/for-mac/issues/7707
-    if [ $IS_MACOS -eq 1 ]; then
+    if [[ $IS_MACOS -eq 1 ]]; then
         version=$(docker version | sed -n 's/.*Docker Desktop \([0-9.]*\).*/\1/p')
-        if [ "$version" = "4.42.1" ] || [ "$version" = "4.43.0" ] || [ "$version" = "4.43.1" ]; then
+        if [[ "$version" = "4.42.1" || "$version" = "4.43.0" || "$version" = "4.43.1" ]]; then
             echo "[❌] Firebolt Core cannot run with Docker Desktop version ${version} on Mac, as it contains a known io_uring issue; please use version 4.43.2+"
             return 1
         fi
@@ -87,7 +87,7 @@ check_docker_version() {
 pull_docker_image() {
     echo "[🐳] Pulling Firebolt Core Docker image '$DOCKER_IMAGE'"
     docker pull --quiet "$DOCKER_IMAGE"
-    if [ $? -eq 0 ]; then
+    if [[ $? -eq 0 ]]; then
         echo "[🐳] Docker image '$DOCKER_IMAGE' pulled successfully ✅"
     else
         echo "[🐳] Failed to pull Docker image '$DOCKER_IMAGE' ❌"
@@ -97,7 +97,7 @@ pull_docker_image() {
 
 DEFAULT_CORE_USER=""
 detect_firebolt_user() {
-    if [ $IS_MACOS -eq 1 ]; then
+    if [[ $IS_MACOS -eq 1 ]]; then
         DEFAULT_CORE_USER=root
     else
         DEFAULT_CORE_USER="firebolt"
@@ -118,12 +118,12 @@ wait_for_core_to_be_ready() {
     # Try for ~10 seconds to get a valid response from Core
     timeout=10
     RESPONSE="Unknown error"
-    while [ $timeout -gt 0 ]; do
+    while [[ $timeout -gt 0 ]]; do
         set +e
         RESPONSE=$(curl -s 'http://localhost:3473/?output_format=TabSeparatedWithNamesAndTypes' --data-binary "SELECT 42;")
         set -e
 
-        if [ "$RESPONSE" = $'?column?\nint\n42' ]; then
+        if [[ "$RESPONSE" = $'?column?\nint\n42' ]]; then
             echo " ✅"
             return 0
         fi
@@ -141,7 +141,7 @@ wait_for_core_to_be_ready() {
 run_docker_image() {
     echo "[⚠️] Note: a local 'firebolt-core-data directory' with permissions 0777 will be created."
     
-    if [ "$AUTO_RUN" = true ]; then
+    if [[ "$AUTO_RUN" = true ]]; then
         answer="y"
     else
         prompt="[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: "
@@ -152,8 +152,8 @@ run_docker_image() {
     
     case "$answer" in
         [yY])
-            if [ $IS_MACOS -eq 0 ]; then
-                if [ ! -d firebolt-core-data ]; then
+            if [[ $IS_MACOS -eq 0 ]]; then
+                if [[ ! -d firebolt-core-data ]]; then
                     mkdir -p -m 777 firebolt-core-data
                 fi
             fi
