@@ -12,6 +12,12 @@ elif [ -n "$1" ]; then
     exit 1
 fi
 
+# When the script is piped in (e.g. 'curl | bash'), stdin is not a terminal
+# and the user cannot answer prompts through it, so run without prompting.
+if [ ! -t 0 ]; then
+    AUTO_RUN=true
+fi
+
 banner() {
     echo "
 🔥🔥🔥 Firebolt Core setup script 🔥🔥🔥
@@ -158,8 +164,18 @@ run_docker_image() {
 
             wait_for_core_to_be_ready
             
-            echo "[🔥] Running Firebolt CLI"
-            docker exec -ti $CID fb --core
+            # stdin may be the script itself (e.g. 'curl | bash'), so attach the
+            # CLI to the controlling terminal instead; without one, leave the
+            # container running in the background.
+            if { : < /dev/tty; } 2>/dev/null; then
+                echo "[🔥] Running Firebolt CLI"
+                docker exec -ti $CID fb --core < /dev/tty
+            else
+                trap - EXIT
+                echo "[🔥] No terminal available, leaving Firebolt Core running in the background."
+                echo "[🔥] Connect to it with: docker exec -ti firebolt-core fb --core"
+                echo "[🔥] Stop it with: docker kill firebolt-core"
+            fi
             ;;
         *)
             echo "[🔥] Firebolt Core is ready to be executed, you can do this by running the following commands:"
