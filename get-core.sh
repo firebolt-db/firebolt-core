@@ -12,9 +12,22 @@ elif [[ -n "$1" ]]; then
     exit 1
 fi
 
-# When the script is piped in (e.g. 'curl | bash'), stdin is not a terminal
-# and the user cannot answer prompts through it, so run without prompting.
-if [[ ! -t 0 ]]; then
+# When the script is piped in (e.g. 'curl | bash'), stdin carries the script
+# rather than user input. Open the controlling terminal on a separate file
+# descriptor for prompts and the interactive CLI. Do not replace stdin with
+# exec, or bash will read the rest of the script from the terminal.
+TTY_FD=
+open_controlling_tty() {
+    if [[ -t 0 ]]; then
+        return 0
+    fi
+    if [[ -r /dev/tty ]] && exec {TTY_FD}< /dev/tty; then
+        return 0
+    fi
+    return 1
+}
+
+if ! open_controlling_tty && [[ "$AUTO_RUN" = false ]]; then
     AUTO_RUN=true
 fi
 
@@ -176,11 +189,10 @@ run_docker_image() {
     
     if [[ "$AUTO_RUN" = true ]]; then
         answer="y"
+    elif [[ -n "$TTY_FD" ]]; then
+        read -r -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: " answer <&${TTY_FD}
     else
-        prompt="[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: "
-        if ! { printf "%s" "$prompt" > /dev/tty && read -r answer < /dev/tty; } 2>/dev/null; then
-            answer=""
-        fi
+        read -r -p "[🔥] Everything is set up and you are ready to go! Do you want to run the Firebolt Core image? (use --auto-run to skip this prompt) [y/N]: " answer
     fi
     
     case "$answer" in
@@ -198,12 +210,13 @@ run_docker_image() {
 
             wait_for_core_to_be_ready
             
-            # stdin may be the script itself (e.g. 'curl | bash'), so attach the
-            # CLI to the controlling terminal instead; without one, leave the
-            # container running in the background.
-            if { : < /dev/tty; } 2>/dev/null; then
+            if [[ -t 0 ]] || [[ -n "$TTY_FD" ]]; then
                 echo "[🔥] Running Firebolt CLI"
-                docker exec -ti $CID fb --core < /dev/tty
+                if [[ -n "$TTY_FD" ]]; then
+                    docker exec -ti $CID fb --core <&${TTY_FD}
+                else
+                    docker exec -ti $CID fb --core
+                fi
             else
                 trap - EXIT
                 echo "[🔥] No terminal available, leaving Firebolt Core running in the background."
