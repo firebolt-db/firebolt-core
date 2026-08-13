@@ -38,7 +38,7 @@ body:
         <details>
 
         ```console
-        $ docker run -it --rm --entrypoint /firebolt-core/firebolt ghcr.io/firebolt-db/engine:dev --version
+        $ docker run -it --rm --entrypoint /opt/firebolt/firebolt ghcr.io/firebolt-db/engine:dev --version
         # paste output here
         ```
 
