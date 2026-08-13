@@ -63,3 +63,5 @@ This directory contains example queries which show how to interact with Firebolt
     ```bash
     docker exec -i firebolt-core firebolt -f - < ./engine_query_history.sql
     ```
+    
+9. [See example on how to](./s3_compatible_storage.md) read from and write to **S3-compatible object storage** (MinIO, Tigris, Cloudflare R2, and others) by overriding the engine's S3 endpoint.
