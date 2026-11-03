@@ -172,16 +172,11 @@ Resources for each node (either a local machine or a VM instance):
 
 ## Run Queries on Firebolt Core via CLI
 
-You can submit queries to a Firebolt Core cluster using any HTTP client (like cURL), the official [Firebolt CLI](https://github.com/firebolt-db/fb-cli) as a standalone binary, or by invoking the CLI from within the Core Docker container.
+You can submit queries to a Firebolt Core cluster using any HTTP client (like cURL), or by invoking the CLI from within the Core Docker container.
 
 ```bash
 # Use the firebolt CLI available within the container
 docker exec -ti firebolt-core firebolt -c "SELECT 42;"
-```
-
-```bash
-# Run the standalone fb CLI
-fb --core "SELECT 42;"
 ```
 
 ```bash
